@@ -14,6 +14,7 @@ class Index extends Base_Controller {
      */
     public function index() {
         echo 'abc';
+        print_r($_SERVER);
         $this->display('index.html');
     }
 
