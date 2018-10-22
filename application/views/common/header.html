@@ -1,0 +1,112 @@
+<meta charset="utf-8">
+<title>今日头条 - TouTiao.com</title>
+<meta charset="utf-8">
+<!--        <link rel="dns-prefetch" href="//s3.pstatp.com/">
+        <link rel="dns-prefetch" href="//s3a.pstatp.com/">
+        <link rel="dns-prefetch" href="//s3b.pstatp.com/">-->
+<link rel="dns-prefetch" href="{{$app_relative_domain}}">
+<!--<meta name="google-site-verification" content="N1Mmy9oxtXl-osJ42t8eKkf6Gj3NdFPm9dYdSEb7GFc">-->
+
+<link rel="apple-touch-icon-precomposed" href="//s3.pstatp.com/image/toutiao_mobile/icon_180_1.png">
+<link rel="shortcut icon" href="//s3.pstatp.com/image/toutiao_mobile/short_cut_icon_1.png" type="image/x-icon">
+<meta name="format-detection" content="telephone=no">
+<meta name="description" content="今日头条(TouTiao.org)是一款会自动学习的资讯软件,它会聪明地分析你的兴趣爱好,自动为你推荐喜欢的内容,并且越用越懂你.">
+<meta name="keywords" content="头条,头条网,今日头条">
+<meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
+<meta name="pathname" content="usergrowth_mobile_list">
+<!--    <meta property="qc:admins" content="137036576341176375">
+        <meta name="baidu-tc-cerfication" content="f02c83ae32e698b1003fc31a62124a0b">
+        <meta name="baidu-site-verification" content="OcFyAv2MOv">
+        <meta name="360-site-verification" content="47aeb748c3c8384b89f75e48e2dc382c">
+        <meta name="shenma-site-verification" content="fb9077aff6d33201126008a82a5a0113_1432698248">
+-->
+<!--<script src="//hm.baidu.com/hm.js?407473d433e871de861cf818aa1405a1"></script>-->
+<!--<script async="" src="//s3a.pstatp.com/growth/fe_sdk/gtmsdk/GTM-NRPFDC.js?v=201810221006"></script>-->
+<script data-from="{{$app_name}}" crossorigin="anonymous">
+    if (self != top) {
+        top.location.href = self.location.href
+    }
+    var utm_source = "None";
+    var utm_medium = "None";
+
+    var SCHEME_PREFIX = "";
+    //基础变量， 来自模板上下文
+    var currentGroupId = '';
+
+    var tag = "__all__";
+    var current_user_id = "";
+    var city = "\u5317\u4eac";
+    var show_about = "";
+    var gtmExpireTime = '201810221006';
+</script>
+<script data-from="{{$app_name}}" crossorigin="anonymous">
+    !function (e) {
+        function n(r) {
+            if (t[r])
+                return t[r].exports;
+            var o = t[r] = {i: r, l: !1, exports: {}};
+            return e[r].call(o.exports, o, o.exports, n), o.l = !0, o.exports
+        }
+        var r = window.webpackJsonp;
+        window.webpackJsonp = function (t, i, a) {
+            for (var c, u, d, f = 0, s = []; f < t.length; f++)
+                u = t[f], o[u] && s.push(o[u][0]), o[u] = 0;
+            for (c in i)
+                Object.prototype.hasOwnProperty.call(i, c) && (e[c] = i[c]);
+            for (r && r(t, i, a); s.length; )
+                s.shift()();
+            if (a)
+                for (f = 0; f < a.length; f++)
+                    d = n(n.s = a[f]);
+            return d
+        };
+        var t = {}, o = {8: 0};
+        n.e = function (e) {
+            function r() {
+                c.onerror = c.onload = null, clearTimeout(u);
+                var n = o[e];
+                0 !== n && (n && n[1](new Error("Loading chunk " + e + " failed.")), o[e] = void 0)
+            }
+            var t = o[e];
+            if (0 === t)
+                return new Promise(function (e) {
+                    e()
+                });
+            if (t)
+                return t[2];
+            var i = new Promise(function (n, r) {
+                t = o[e] = [n, r]
+            });
+            t[2] = i;
+            var a = document.getElementsByTagName("head")[0], c = document.createElement("script");
+            c.type = "text/javascript", c.charset = "utf-8", c.async = !0, c.timeout = 12e4, c.crossOrigin = "anonymous", n.nc && c.setAttribute("nonce", n.nc), c.src = n.p + "js/" + ({0: "vendors", 1: "ttvideo", 2: "xigua_index", 3: "toutiaoribao_index", 4: "video_index", 5: "index", 6: "inapp_index", 7: "welcome"}[e] || e) + "_" + {0: "807d36d266ad829be5bc", 1: "723d5edbca8510b37299", 2: "2e274280a796464f3230", 3: "ddde489322e079ed0f80", 4: "7ffce63bfa92aef24924", 5: "935b03bc00c20beb12ad", 6: "45772b8e011f488f282d", 7: "db41e558ef1a129727a5"}[e] + ".js";
+            var u = setTimeout(r, 12e4);
+            return c.onerror = c.onload = r, a.appendChild(c), i
+        }, n.m = e, n.c = t, n.i = function (e) {
+            return e
+        }, n.d = function (e, r, t) {
+            n.o(e, r) || Object.defineProperty(e, r, {configurable: !1, enumerable: !0, get: t})
+        }, n.n = function (e) {
+            var r = e && e.__esModule ? function () {
+                return e.default
+            } : function () {
+                return e
+            };
+            return n.d(r, "a", r), r
+        }, n.o = function (e, n) {
+            return Object.prototype.hasOwnProperty.call(e, n)
+        }, n.p = "/growth/mobile_list/", n.oe = function (e) {
+            throw console.error(e), e
+        }, n.p = "//s3.pstatp.com/growth/mobile_list/"
+    }([]);
+</script>
+
+
+<link href="/static/css/list.css" rel="stylesheet">
+<link href="/static/css/common.css" rel="stylesheet">
+
+<link rel="canonical" href="{{$app_http_url}}">
+<script data-from="{{$app_name}}" crossorigin="anonymous">
+    window.isListPage = true;
+    var last_update = 1421650921336;
+</script>

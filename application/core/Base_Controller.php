@@ -17,10 +17,221 @@ class Base_Controller extends CI_Controller {
 
     protected $_json = array();
 
+    /**
+     * 当前域名url
+     * http://www.te.com
+     * @var type 
+     */
+    private $app_http_url;
+
+    /**
+     * 标识是否一个正确的登录用户（验证cookie及session）
+     * @var bool 
+     */
+    public $is_login = false;
+
+    /**
+     * 每个客户端的标识
+     * @var string 
+     */
+    public $sess_id;
+
+    /**
+     * 用户id
+     * @var type 
+     */
+    public $user_id = 0;
+    //模板对应路径
+    public $tpl = array();
+
+    /**
+     * cookie中存的auth数组，登录验证用
+     * @var array
+     */
+    public $authList = array();
+
+    /**
+     * cookie中存的用户基本信息，仅用于展示
+     *
+     * @var array
+     */
+    public $userInfo = array();
+
     public function __construct() {
         parent::__construct();
         $this->load->library(array("util"));
         $this->_json = array('code' => 200, 'msg' => 'success', 'data' => array());
+        $this->commonSet();
+    }
+
+    private function commonSet() {
+        //域名
+        $this->app_http_url = APP_BASE_URL;
+        $this->assign("app_http_url", $this->app_http_url);
+        $this->app_server_name = APP_SERVER_NAME;
+        $this->assign('app_server_name', $this->app_server_name); //主要用在smarty取图片域的参数        
+
+        $this->assign('app_name', 'yishujia');
+
+        $this->assign('app_relative_domain', APP_RELATIVE_MAIN);
+
+        //是否登录。
+        $this->is_login = $this->check_login();
+        $this->sess_id = $this->_setSessionId();
+        $this->user_id = !empty($this->authList['user_id']) ? $this->authList['user_id'] : 0;
+        $this->assign("userInfo", $this->userInfo);
+        $this->assign('is_login', $this->is_login);
+
+        //初始化 控制性变量
+
+
+        $this->channel();
+    }
+
+    /**
+     * 分类
+     */
+    private function channel() {
+//        $this->load->library(array("lib_category"));
+//        $this->assign('head_menu', $this->lib_category->getNavMenu());
+    }
+
+    /**
+     *
+     * 判断用户登录状态
+     *
+     * @return bool
+     */
+    protected function check_login() {
+        //用户详细信息
+        $this->userInfo = $this->getCookie("userInfo");
+        //用户登录信息
+        $this->authList = $this->getCookie("authList");
+        //未登录
+        if (empty($this->authList) || empty($this->userInfo)) {
+//            baby_log('check_login 0:' . json_encode($this->authList) . json_encode($this->authList) . json_encode($_COOKIE));
+            return false;
+        }
+        //验证用户信息
+        $this->load->model('users_model');
+        $member_info = $this->users_model->getUserProInfo(array("usr.id" => $this->authList["user_id"]));
+        if (empty($member_info)) {
+            baby_log('check_login 1:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
+            return FALSE;
+        }
+        if (!isset($this->authList["session_id"])) {
+            baby_log('check_login 2:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
+            return false;
+        }
+//        if (!$this->checkAuthHash()) {
+//            // 判断是否篡改用户id
+//            baby_log('check_login 3:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
+//            return false;
+//        }
+        //验证session信息
+//        $this->load->model('session_model');
+//        $session_info = $this->session_model->get($this->authList["session_id"]);
+//        if (!is_array($session_info)) {
+//            baby_log('check_login 4:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'session_info' => $session_info, 'cookie' => $_COOKIE)));
+//            return false;
+//        }
+//        if ($this->authList['user_id'] != $session_info['user_id']) {
+//            // sessionid 冲突, 删除$_COOKIE["auth"]["session_id"], 并退出登录
+//            baby_log('check_login 5 :' . json_encode(array('authList'=> $this->authList,'userInfo'=> $this->userInfo,'session_info'=>$session_info,'cookie'=>$_COOKIE)));
+//            return false;
+//        }        
+        //更新session信息
+//        $this->session_model->update($this->authList["session_id"], $this->authList['expires']);
+        //更新cookie
+        $cookie_user = Handler_tool::passport_encrypt(http_build_query($this->userInfo), CRYPT_CODE_KEY);
+        $cookie_auth = Handler_tool::passport_encrypt(http_build_query($this->authList), CRYPT_CODE_KEY);
+        $this->input->set_cookie("authList", $cookie_auth, COOKIE_EXPIRE_TIME_ONEHOUR, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
+        $this->input->set_cookie("userInfo", $cookie_user, COOKIE_EXPIRE_TIME_ONEHOUR, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
+
+        return TRUE;
+    }
+
+    /**
+     * 设置session_id信息,$_SESSION
+     * 未登录用户通过cookie来传顶sess_id;
+     * 注：登录后会把sess_id记录入库，见lib_member->login
+     */
+    private function _setSessionId() {
+//        $this->load->config('dict');
+//        //session秘钥+session_id
+//        if (!empty($this->authList["session_id"])) {
+//            $session_id = $this->authList["session_id"];
+//        } else {
+//            $this->load->library('session');
+//            $session_id = md5($this->session->session_id . $this->config->item('dict_session_key'));
+//        }
+//        //存储session中
+//        Handler_http::setSession(SESSION_ID, $session_id);
+//        //生成加密,使用系统秘钥
+//        $cookie_session = Handler_tool::passport_encrypt(http_build_query(array("session_id" => $session_id)), CRYPT_CODE_KEY);
+//        //BBSTID,设置cookie
+//        $this->input->set_cookie($this->config->item('dict_save_session_cookiename'), $cookie_session, COOKIE_EXPIRE_TIME_TENDAY, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
+//        return $session_id;
+    }
+
+    /**
+     * 判断用户是否更改cookie
+     * @return  bolean
+     */
+    private function checkAuthHash() {
+//        $this->load->config('dict');
+//        $key = $this->config->item('dict_cookie_key') . $this->authList['user_id'];
+//        $authHash = strtolower(md5($key));
+//        return (strtolower(trim($this->authList['auth_hash'])) == $authHash);
+    }
+
+    /**
+     * 获取认证cookie
+     * @param string $valueKey	需要获取的内容键值
+     * @return array|string		如$valueKey为空则返回整个数组，反之返回$valueKey数据
+     */
+    private function getCookie($key, $valueKey = "") {
+        $user_info = array();
+        $authValue = Util::getCookie($key);
+        $cookieValue = Util::passport_decrypt($authValue, CRYPT_CODE_KEY);
+        parse_str($cookieValue, $user_info);
+        if (empty($user_info)) {
+            return array();
+        } elseif (empty($valueKey)) {
+            return $user_info;
+        } else {
+            if (in_array($valueKey, $user_info)) {
+                return $user_info[$valueKey];
+            } else {
+                return "";
+            }
+        }
+    }
+
+    /**
+     * 获取并跳转上一页
+     * @param type $method
+     * @param type $backurl
+     * @return type
+     */
+    protected function getBackUrl($method, $backurl = '') {
+
+        if ($method == 'get') {
+            $backurl = empty($backurl) ? (isset($_SERVER['HTTP_REFERER']) ? Util::art_replace($_SERVER['HTTP_REFERER']) : $this->app_http_url ) : $backurl;
+            $self_url = $this->app_http_url . Util::art_replace($_SERVER['REQUEST_URI']);
+            return ($backurl == $self_url) ? $this->app_http_url : $backurl;
+        } elseif ($method == 'post') {
+            $backurl = trim(htmlspecialchars_decode($backurl));
+            return empty($backurl) ? $this->app_http_url : $backurl;
+        }
+    }
+
+    /**
+     * 取当前 uri
+     * @return type
+     */
+    private function getCurrentUri() {
+        return Util::art_replace($_SERVER['REQUEST_URI']);
     }
 
     /**
@@ -80,4 +291,13 @@ class Base_Controller extends CI_Controller {
         $this->artsmarty->display($html);
     }
 
+}
+
+/**
+ * seaslog
+ * @param string $msg
+ * @param string $type SEASLOG_INFO
+ */
+function baby_log($msg, $type = SEASLOG_INFO) {
+//    SeasLog::log($type, $msg);
 }

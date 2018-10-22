@@ -10,12 +10,10 @@ class Index extends Base_Controller {
     }
     
     /**
-     * 文章feed列表
+     * 列表
      */
     public function index() {
-        echo 'abc';
-        print_r($_SERVER);
-        $this->display('index.html');
+        $this->display('wap/index.html');
     }
 
 }
