@@ -276,7 +276,7 @@ $domain = substr($_SERVER['SERVER_NAME'], strlen($sever_name[0]));
 
 define('APP_BASE_URL', $http_type . $_SERVER['SERVER_NAME']);
 define('APP_BASE_URL_RELATIVE', '//' . $_SERVER['SERVER_NAME']); //相对域名
-define('APP_RELATIVE_MAIN', '//' . $domain); //相对主域名
+define('APP_RELATIVE_MAIN', '//' . ltrim($domain,'.')); //相对主域名
 
 define('APP_SERVER_NAME', $_SERVER['SERVER_NAME']);
 

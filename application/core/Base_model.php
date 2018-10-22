@@ -14,9 +14,29 @@ if (!defined('BASEPATH'))
  * @author Administrator
  */
 class Base_model extends CI_Model {
-
+    protected $api_url;
+    protected $api_conf;
+   
     public function __construct() {
         parent::__construct();
+    }
+
+    /**
+     * 生成签名
+     * @param type $request
+     * @return type
+     */
+    protected function genSign($request) {
+        ksort($request);
+        $sign = '';
+        foreach ($request as $key => $value) {
+            if ($value == '' || $key == 'api_sign') {
+                continue;
+            }
+            $sign .= $key . $value;
+        }
+        $sign .= $this->api_conf['api_secret'];
+        return hash("sha256", $sign);
     }
 
 }

@@ -63,6 +63,7 @@ class Lib_curl {
         } else {
             $strParam = $param;
         }
+        echo $strParam;
         $ch = curl_init();
         $curOpt = self::_setOPt($url, $strParam, $ispost, $headers);
         curl_setopt_array($ch, $curOpt);
