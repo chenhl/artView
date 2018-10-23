@@ -15,9 +15,7 @@ class Article extends Base_model {
 
     public function __construct() {
         parent::__construct();
-        $this->load->config('api');
-        $this->api_conf = $this->config->item('api_conf');
-        $this->api_url = $this->api_conf['api_url'];
+        $this->conAPI();
     }
 
     /**

@@ -28,6 +28,12 @@ class Base_model extends CI_Model {
         $this->db->query("SET NAMES 'UTF8'");
     }
 
+    protected function conAPI() {
+        $this->load->config('api');
+        $this->api_conf = $this->config->item('api_conf');
+        $this->api_url = $this->api_conf['api_url'];
+    }
+
     /**
      * 生成签名
      * @param type $request
