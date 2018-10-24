@@ -6,7 +6,7 @@ class Index extends Base_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('article'));
+        $this->load->model(array('article', 'channel'));
     }
 
     /**
@@ -14,14 +14,28 @@ class Index extends Base_Controller {
      * 
      */
     public function index() {
+        //入参
         $get = $this->input->get();
+        $segment_array = $this->uri->segment_array();
+        
+        //频道列表
+        $param = array();
+        if (empty($get['code']) && empty($segment_array[1])) {
+            $param['code'] = 'all';
+        } else {
+            $param['code'] = $segment_array[1];//当前频道
+        }
+        $channel = $this->channel->getList($param);
+        $this->assign("channels", $channel);
+
+        //内容列表
         $condition = array();
         $condition['categoryId'] = 1;
         $data = $this->article->getList($condition);
         $this->assign("next_uri_string", '/index/feed?page=1');
+
         $this->display('wap/index.html');
     }
-    
 
     /**
      * ajax feed
