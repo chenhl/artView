@@ -37,7 +37,7 @@ class Article extends Base_model {
         $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . '/article/feed', $request, TRUE);
         $return = json_decode($res, TRUE);
-        return $return;
+        return $return['data'];
     }
 
     private function _connect() {

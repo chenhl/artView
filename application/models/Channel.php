@@ -30,7 +30,7 @@ class Channel extends Base_model {
         $request = array();
         $request['api_key'] = $this->api_conf['api_key'];
         $request['api_sign'] = $this->genSign($request);
-
+        
         $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . $this->api_uri, $request, TRUE);
         $data = json_decode($res, TRUE);
