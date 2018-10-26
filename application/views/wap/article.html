@@ -12,15 +12,7 @@
             <div class="weixin-container" style="padding-bottom: 140px;">
                 {{include file="common/header_header.html"}}
                 {{include file="common/header_menu.html"}}
-
-<!--                <div class="top-banner-container">
-                    <img src="//s1.pstatp.com/growth/mobile_detail/image/banner_toutiao_icon.AIJZbRFb.png" class="logo">
-                    <span class="slogan ">今日头条</span>
-                    <div class="open">打开</div>
-                </div>-->
-
                 <article class="article padding-side">
-
                     <div class="article__header">
                         <h1 class="article__title">{{$article.title}}</h1>
                         <div class="article__author">
@@ -39,15 +31,7 @@
 
                     <div class="article__content" style="height: 225.2px;">
                         <div>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>
-                            <p> {{$article.content}}</p>                            
+                            {{$article.content}}                           
                         </div>
                     </div>
                     <div class="unfold-field unfold-field-download">
@@ -55,6 +39,78 @@
                         <a href="javascript:void(0)" class="download-text">打开APP阅读全文</a>
                     </div>
                 </article>
+                <div style="min-height: 60px;">
+                    <div class="recommendation-container">
+                        <div class="recommendation-item">
+                            <h2 class="container__header">热门推荐</h2>
+                            <div class="feed-list-container-new-article appOnly-container">
+                                <div class="list-content">
+                                    <section data-group-id="6587228228635591171" class="feed-item three-img-container">
+                                        <a href="https://m.toutiao.com/group/6587228228635591171/" rel="nofollow" title="警官我车坏了打双闪，去找修车的半个小时回来发现贴罚单了咋办？">
+                                            <div><span class="title line2">警官我车坏了打双闪，去找修车的半个小时回来发现贴罚单了咋办？</span>
+                                                <div class="img-container">
+                                                    <img class="img" src="http://p3.pstatp.com/list/pgc-image/1533708287869d19e2b63be" style="transition: opacity 200ms ease; opacity: 1;">
+                                                    <img class="img" src="http://p1.pstatp.com/list/pgc-image/1533708470350a76aef9c52" style="transition: opacity 200ms ease; opacity: 1;">
+                                                    <img class="img" src="http://p1.pstatp.com/list/pgc-image/1533708484532985bd0b7b4" style="transition: opacity 200ms ease; opacity: 1;">
+                                                </div>
+                                                <div class="info">
+                                                    <span class="open-label">打开APP</span>
+                                                    <span>半岛车事儿</span>
+                                                    <span class="time-ago">40条评论</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </section>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendation-item " id="detailAd">
+                            <div></div>
+                        </div>
+                        <div class="recommendation-item">
+                            <h2 class="container__header">猜你喜欢</h2>
+                            <div class="feed-list-container-new-article relatedNews-container">
+                                <div class="list-content">
+                                    <section data-group-id="6586519474126455300" class="feed-item left-img-container">
+                                        <a href="https://m.toutiao.com/group/6586519474126455300/" rel="nofollow" title="司机醉驾被查逆行20公里，交代妻子“判刑太长你就改嫁”">
+                                            <div class="flex-container">
+                                                <div class="left">
+                                                    <img class="img" src="http://p3.pstatp.com/list/pgc-image/1533543555336d07331d4a7" style="transition: opacity 200ms ease; opacity: 1;">
+                                                </div>
+                                                <div class="right">
+                                                    <span class="title line2">司机醉驾被查逆行20公里，交代妻子“判刑太长你就改嫁”</span>
+                                                    <div class="info">
+                                                        <span class="open-label">打开APP</span>
+                                                        <span>唐山市人民检察院</span>
+                                                        <span class="time-ago">1条评论</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </section>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="recommendation-item " id="detailAd2">
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-banner-container show-banner-undefined ">
+                        <div class="slogan-wrapper">
+                            <img src="//s1.pstatp.com/growth/mobile_detail/image/banner_toutiao_icon.AIJZbRFb.png" class="logo">
+                            <div class="desc-wrapper">
+                                <span class="slogan">今日头条</span>
+                            </div>
+                        </div>
+                        <div class="open">打开</div>
+                    </div>
+                        
+                </div>
+
+
             </div>
         </div>
         <!--<script src="/static/js/common/jquery-2.1.4.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>-->

@@ -37,7 +37,11 @@ class Channel extends Base_model {
         $return = array();
         if ($data['data']) {
             foreach ($data['data'] as $row) {
-                $row['url'] = $row['code'];
+                if($row['code'] == 'all'){
+                    $row['url'] = '/';
+                } else {
+                    $row['url'] = '/'.$row['code'];
+                }
                 if ($get['code'] == $row['code']) {
                     $row['cur'] = ' cur';
                 } else {
