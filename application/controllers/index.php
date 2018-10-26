@@ -61,5 +61,34 @@ class Index extends Base_Controller {
             echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=3', 'result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
+    /**
+     * 详情
+     */
+    public function detail() {
+        
+        //入参
+        $get = $this->input->get();
+        $segment_array = $this->uri->segment_array();
 
+        //频道列表
+        $param = array();
+        if (empty($get['code']) && empty($segment_array[1])) {
+            $param['code'] = 'all';
+        } else {
+            $param['code'] = $segment_array[1]; //当前频道
+        }
+        $channel = $this->channel->getList($param);
+        $this->assign("channels", $channel);
+        //置顶
+        $this->assign("article_tops", array());
+
+        //内容列表
+        $condition = array();
+        $condition['aid'] = $segment_array[2];
+//        print_r($condition);
+        $data = $this->article->getDetail($condition);
+//        print_r($data);
+        $this->assign("article", $data);
+        $this->display('wap/article.html');
+    }
 }

@@ -1,0 +1,15 @@
+<div class="top_menu_bar ">
+    <div class="top_menu_more">
+        <div class="list_shadow"></div>
+        <a class="more_btn" href="javascript:void(0)">
+            <span class="cross"></span>
+        </a>
+    </div>
+    <div class="top_menu_list">
+        {{foreach $channels as $key=>$val}}
+        <a href="{{$val.url}}" data-channel="{{$val.code}}" data-query="channel={{$val.code}}" class="btn{{$val.cur}}">{{$val.name}}</a>
+        {{/foreach}}
+        <!--<a href="javascript:void(0)" data-channel="__all__" data-query="channel=__all__" class="btn cur">推荐</a>-->
+    </div>
+</div>
+<span></span>

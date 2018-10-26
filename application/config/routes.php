@@ -55,5 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'index/index';
 $route['(news|artist|exhibit|gallery|edu)$'] = 'index/index/?code=$1';
+$route['a/(:num)$'] = 'index/detail/?aid=$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

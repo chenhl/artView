@@ -39,10 +39,21 @@ class Article extends Base_model {
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
+    /**
+     * 详情
+     * @param type $condition
+     * @return type
+     */
+    public function getDetail($condition) {
+        $request = array();
+        $request['aid'] = $condition['aid'];
+        $request['api_key'] = $this->api_conf['api_key'];
+        $request['api_sign'] = $this->genSign($request);
 
-    private function _connect() {
-
-        $this->solr_url;
+        $this->load->library(array("lib_curl"));
+        $res = Lib_curl::httpRequest($this->api_url . '/article/detail', $request, TRUE);
+        $return = json_decode($res, TRUE);
+        return $return['data'];
     }
 
 }

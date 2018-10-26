@@ -1,0 +1,56 @@
+<html style="font-size:80px;" data-dpr="2">
+    <head>
+        {{include file="common/header_meta.html"}}
+        <link href="/static/css/common.css" rel="stylesheet">
+        <link href="/static/css/article.css" rel="stylesheet">
+    </head>
+
+    <body class="page-detail detail--wap" style="font-size: 12px;" libsign2018625="1" mainsign2018625="1" firstsign2018827="1" rlt="1"> 
+
+        <div id="main">
+            {{include file="common/header_header.html"}}
+            {{include file="common/header_menu.html"}}
+            
+<!--            <div class="top-banner-container">
+                <img src="//s1.pstatp.com/growth/mobile_detail/image/banner_toutiao_icon.AIJZbRFb.png" class="logo">
+                <span class="slogan ">今日头条</span>
+                <div class="open">打开</div>
+            </div>-->
+            
+            <article class="article padding-side">
+
+                <div class="article__header">
+                    <h1 class="article__title">{{$article.title}}</h1>
+                    <div class="article__author">
+                        <span class="avatar">
+                            <img src="https://p3.pstatp.com/thumb/11597/5732043328" class="avatar__image" style="transition: opacity 200ms ease; opacity: 1;">
+                            <span class="avatar__mask"></span>       
+                        </span>
+                        <span class="author-name">{{$article.uname}}</span>
+                        <span class="article-info">
+                            <span class="new-style-test-article-publish-time">{{$article.create_time}}</span>
+                            <span class="dot"></span>
+                            <!--<span class="new-style-test-article-comment">3305评论</span>-->
+                        </span>
+                    </div>
+                </div>
+
+                <div class="article__content" style="height: 225.2px;">
+                    <div>
+                        {{$article.content}}
+                    </div>
+                </div>
+                <div class="unfold-field unfold-field-download">
+                    <div class="unflod-field__mask"></div>
+                    <a href="javascript:void(0)" class="download-text">打开APP阅读全文</a>
+                </div>
+            </article>
+
+        </div>
+        <!--<script src="/static/js/common/jquery-2.1.4.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>-->
+        <script src="/static/js/common/zepto.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+
+    </body>
+    <iframe id="__ToutiaoJSBridgeIframe_SetResult" style="display:none;"></iframe>
+    <iframe id="__ToutiaoJSBridgeIframe" style="display:none;"></iframe>
+</html>

@@ -1,7 +1,9 @@
-<html style="font-size:80px;
-      " data-dpr="2">
-    <head> 
-        {{include file="common/header.html"}}
+<html style="font-size:80px;" data-dpr="2">
+    <head>
+        {{include file="common/header_meta.html"}}
+        <link href="/static/css/common.css" rel="stylesheet">
+        <link href="/static/css/list.css" rel="stylesheet">
+        
     </head>
 
     <body class="None android withHeader article utms-None utmm-None utmc-None list-page" style="font-size:12px;" rlt="1"> 
@@ -11,46 +13,14 @@
         </div>
         <div id="main">
             <div data-reactroot="" id="indexContainer" class="indexContainer withHeader ">
-                <header id="indexHeader" class="index--toutiaoribao">
-                    <div class="top_bar">
-                        <div class="abs_m">
-                            <a href="#" class="refresh_title btn"></a>
-                            <div class="refreshBtn-container ">
-                                <i class="refresh_btn"></i>
-                            </div>
-                        </div>
-                        <div class="abs_l">
-                            <a href="javascript:;
-                               " class="msg-box">
-                                <div class="circle"></div>
-                            </a>
-                        </div>
-                        <div class="abs_r">
-                            <a href="https://m.toutiao.com/search/?need_open_window=1" class="btn search"></a>
-                        </div>
-                    </div>
-                </header>
+                {{include file="common/header_header.html"}}
                 <div>
-                    <div class="top_menu_bar ">
-                        <div class="top_menu_more">
-                            <div class="list_shadow"></div>
-                            <a class="more_btn" href="javascript:void(0)">
-                                <span class="cross"></span>
-                            </a>
-                        </div>
-                        <div class="top_menu_list">
-                            {{foreach $channels as $key=>$val}}
-                            <a href="{{$val.url}}" data-channel="{{$val.code}}" data-query="channel={{$val.code}}" class="btn{{$val.cur}}">{{$val.name}}</a>
-                            {{/foreach}}
-                            <!--<a href="javascript:void(0)" data-channel="__all__" data-query="channel=__all__" class="btn cur">推荐</a>-->
-                        </div>
-                    </div>
-                    <span></span>
+                    {{include file="common/header_menu.html"}}
                     <div>
                         <content id="pageletListContent" class="feed-list-container">
                             <div class="list_content" data-pull-fresh="1">
                                 {{foreach $article_list as $key=>$row}}
-                                
+
                                 {{assign var=sec_cls value='has_action'}}
                                 {{assign var=h3_cls value='dotdot line3'}}
                                 {{assign var=detail_cls value='item_detail'}}
@@ -59,9 +29,9 @@
                                 {{$h3_cls='dotdot line3 image-margin-right'}}
                                 {{$detail_cls='item_detail desc'}}                            
                                 {{/if}}
-                                
+
                                 <section class="{{$sec_cls}}" data-item-id="{{$row.aid}}" data-format="0">
-                                    <a href="javascript:void(0)" data-action-label="click_headline" data-tag="news_politics" class="article_link clearfix ">
+                                    <a href="/a/{{$row.aid}}" data-action-label="click_headline" data-tag="news_politics" class="article_link clearfix ">
                                         <div class="{{$detail_cls}}">
                                             <h3 class="{{$h3_cls}}">{{$row.title}}</h3>
                                             {{if !empty($row['images'])}}
