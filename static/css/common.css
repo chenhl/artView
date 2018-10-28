@@ -156,7 +156,7 @@ p {
   height: 132px;
 }
 #indexHeader.index--toutiaoribao .top_bar .refresh_title {
-  background: url(//s3b.pstatp.com/growth/mobile_list/image/wap_logo@3x_581de69e.png) no-repeat right center;
+  background: url(/static/images/wap_logo.png) no-repeat right center;
   width: 83px;
   background-size: 83px !important;
   padding-left: 15px;
@@ -192,7 +192,7 @@ p {
   display: inline-block;
   width: 24px;
   height: 24px;
-  background: url(//s3.pstatp.com/growth/mobile_list/image/feed_ic_search_normal@3x_0f198e56.png) no-repeat center;
+  background: url(/static/images/search_normal.png) no-repeat center;
   background-size: contain;
   margin-right: 12px;
 }
@@ -229,7 +229,7 @@ p {
   -webkit-animation: x-spin 0.7s linear;
 }
 #indexHeader.index--toutiaoribao .top_bar .msg-box {
-  background: url(//s3.pstatp.com/growth/mobile_list/image/feed_ic_message_normal@3x_f2ea949f.png) no-repeat;
+  background: url(/static/images/message_normal.png) no-repeat;
   background-size: contain;
   width: 32px;
   height: 25px;
@@ -370,7 +370,7 @@ p {
   left: 0;
   width: 44px;
   border-radius: 0px;
-  background: url(//s3.pstatp.com/growth/mobile_list/image/header_back_86a065fc.png) no-repeat center center;
+  background: url(/static/images/header_back.png) no-repeat center center;
   background-size: 20px;
 }
 #indexHeader.index--toutiaoribao .iphone .top_menu_list .btn.cur {
@@ -744,7 +744,7 @@ body.utms-360wifi #indexHeader .top_bar {
     height:30px;
     width:30px;
     left:15px;
-    background:url(//s3.pstatp.com/growth/fe_sdk/image/banner_toutiao_icon_6814ad92.png) no-repeat;
+    background:url(/static/images/banner_art_icon.png) no-repeat;
     overflow:hidden;
     background-size:30px
 }
@@ -854,7 +854,7 @@ body.utms-360wifi #indexHeader .top_bar {
     padding:5px;
     position:absolute;
     right:0;
-    background:url(//s3.pstatp.com/growth/fe_sdk/image/banner_ic_close_6951b35f.png) no-repeat 50%;
+    background:url(/static/images/banner_ic_close.png) no-repeat 50%;
     background-size:14px;
     top:50%;
     transform:translateY(-50%)
