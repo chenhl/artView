@@ -230,6 +230,7 @@ p {
 }
 #indexHeader.index--toutiaoribao .top_bar .msg-box {
   background: url(/static/images/message_normal.png) no-repeat;
+  /*background: url(/static/images/header_member.png) no-repeat;*/
   background-size: contain;
   width: 32px;
   height: 25px;
