@@ -17,7 +17,6 @@ class Member extends Base_Controller {
         //入参
         $get = $this->input->get();
         $segment_array = $this->uri->segment_array();
-
         //频道列表
         $param = array();
         if (empty($get['code']) && empty($segment_array[1])) {
@@ -27,16 +26,8 @@ class Member extends Base_Controller {
         }
         $channel = $this->channel->getList($param);
         $this->assign("channels", $channel);
-        //置顶
-        $this->assign("article_tops", array());
 
-        //内容列表
-        $condition = array();
-        $condition['categoryId'] = 1;
-        $data = $this->article->getList($condition);
-//        print_r($data);
-        $this->assign("next_uri_string", '/index/feed?page=2');
-        $this->assign("article_list", $data);
+//        $this->assign("article_list", $data);
 
         $this->display('wap/login.html');
     }

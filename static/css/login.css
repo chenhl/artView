@@ -1,16 +1,3 @@
-#cdn {
-	display:none
-}
-* {
-	margin:0;
-	padding:0
-}
-html {
-	font-size:.14rem
-}
-body,div,fieldset,form,h1,h2,h3,h4,h5,h6,html,p {
-	-webkit-text-size-adjust:none
-}
 [contenteditable=true],input,textarea {
 	-webkit-user-select:auto!important;
 	-o-user-select:auto!important;
@@ -33,36 +20,19 @@ input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-
 a,button,div,img,input,span,textarea {
 	-webkit-tap-highlight-color:rgba(255,255,255,0)
 }
-a {
-	text-decoration:none
-}
-body,html {
-	overflow-x:hidden
-}
+
 em,i {
 	font-style:normal
-}
-body {
-	font-size:.14rem;
-	color:rgba(0,0,0,.7);
-	letter-spacing:.28px;
-	font-family:PingFangSC-Regular,Arial,Microsoft Yahei
-}
-form,img,table,td {
-	border:0
-}
-li,ol,ul {
-	list-style-type:none;
-	display:block
 }
 .footer,.header,.main {
 	max-width:640px
 }
-.none {
+/*.none {
 	display:none!important
-}
+}*/
 .all-screen {
-	position:absolute;
+	/*position:relative;*/
+        position: absolute;
 	left:0;
 	top:0;
 	right:0;
@@ -217,7 +187,8 @@ to {
 	-webkit-transform:scaleX(1);
 	transform:scaleX(1)
 }
-}@keyframes a {
+}
+@keyframes a {
 	0% {
 	-webkit-transform:scaleX(0);
 	transform:scaleX(0)
@@ -226,7 +197,8 @@ to {
 	-webkit-transform:scaleX(1);
 	transform:scaleX(1)
 }
-}.input-box .content {
+}
+.input-box .content {
 	color:rgba(0,0,0,.1)
 }
 .input-box .clear {
