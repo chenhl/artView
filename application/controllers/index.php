@@ -14,6 +14,8 @@ class Index extends Base_Controller {
      * 
      */
     public function index() {
+//        print_r($this->artsmarty);
+//        exit;
         //入参
         $get = $this->input->get();
         $segment_array = $this->uri->segment_array();
@@ -54,18 +56,19 @@ class Index extends Base_Controller {
         $condition['categoryId'] = 1;
         $data = $this->article->getList($condition, $page, $pageSize);
 //        print_r($data);
-        
+
         if ($page == 3) {
             echo $this->returnJson(404, 'list is null', array('result_filter' => '', 'result_data' => array(), 'next_page_num' => $next_page_num));
         } else {
             echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=3', 'result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
+
     /**
      * 详情
      */
     public function detail() {
-        
+
         //入参
         $get = $this->input->get();
         $segment_array = $this->uri->segment_array();
@@ -91,4 +94,27 @@ class Index extends Base_Controller {
         $this->assign("article", $data);
         $this->display('wap/article.html');
     }
+
+    /**
+     * 收藏
+     */
+    public function collection() {
+        if (!$this->is_login) {
+            echo $this->returnJson("403", '请登录', FALSE);
+            exit;
+        }
+        //入参
+        $param = $this->input->post();
+
+        if ($this->article->addCollection($param['goods_id'], $this->authList['user_id'])) {
+            //添加至redis集合中
+//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+            echo $this->returnJson("200", 'success', TRUE);
+            exit;
+        } else {
+            echo $this->returnJson("500", 'fail', FALSE);
+            exit;
+        }
+    }
+
 }

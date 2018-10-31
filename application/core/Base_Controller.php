@@ -60,15 +60,29 @@ class Base_Controller extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library(array("util"));
+        $this->initSet();
+
+        if (!IS_AJAX) {
+            $this->load->library('Artsmarty');
+            $this->assignCommon();
+        }
+
         $this->_json = array('code' => 200, 'msg' => 'success', 'data' => array());
-        $this->commonSet();
     }
 
-    private function commonSet() {
+    private function initSet() {
         //域名
         $this->app_http_url = APP_BASE_URL;
-        $this->assign("app_http_url", $this->app_http_url);
         $this->app_server_name = APP_SERVER_NAME;
+
+        $this->is_login = $this->check_login();
+        $this->sess_id = $this->_setSessionId();
+        $this->user_id = !empty($this->authList['user_id']) ? $this->authList['user_id'] : 0;
+    }
+
+    private function assignCommon() {
+        //域名
+        $this->assign("app_http_url", $this->app_http_url);
         $this->assign('app_server_name', $this->app_server_name); //主要用在smarty取图片域的参数        
 
         $this->assign('app_name', 'yishujia');
@@ -76,9 +90,7 @@ class Base_Controller extends CI_Controller {
         $this->assign('app_relative_domain', APP_RELATIVE_MAIN);
 
         //是否登录。
-        $this->is_login = $this->check_login();
-        $this->sess_id = $this->_setSessionId();
-        $this->user_id = !empty($this->authList['user_id']) ? $this->authList['user_id'] : 0;
+
         $this->assign("userInfo", $this->userInfo);
         $this->assign('is_login', $this->is_login);
 
@@ -298,6 +310,6 @@ class Base_Controller extends CI_Controller {
  * @param string $msg
  * @param string $type SEASLOG_INFO
  */
-function baby_log($msg, $type = SEASLOG_INFO) {
+function art_log($msg, $type = SEASLOG_INFO) {
 //    SeasLog::log($type, $msg);
 }

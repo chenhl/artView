@@ -291,6 +291,7 @@ define('COOKIE_DOMAIN', $domain);
 //session_id名称
 define('SESSION_ID', 'ARTSID');
 
+define('IS_AJAX', isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'); //判断是否是ajax请求
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
