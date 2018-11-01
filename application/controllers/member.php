@@ -12,7 +12,7 @@ class Member extends Base_Controller {
      * 首页
      */
     public function index() {
-        $this->display('wap/usercenter.html');
+        $this->display('wap/usercenter_new.html');
     }
     /**
      * 登录显示页
