@@ -8,7 +8,12 @@ class Member extends Base_Controller {
         parent::__construct();
         $this->load->model(array('article', 'channel'));
     }
-
+    /**
+     * 首页
+     */
+    public function index() {
+        $this->display('wap/usercenter.html');
+    }
     /**
      * 登录显示页
      * 
