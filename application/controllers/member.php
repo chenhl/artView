@@ -13,6 +13,7 @@ class Member extends Base_Controller {
      * 首页
      */
     public function index() {
+        $this->assign('position', '个人中心');
         $this->display('wap/usercenter_new.html');
     }
 
@@ -21,6 +22,7 @@ class Member extends Base_Controller {
      * @param type $param
      */
     public function message() {
+        $this->assign('position', '系统消息');
         $this->display('wap/uc_message.html');
     }
 
@@ -29,7 +31,7 @@ class Member extends Base_Controller {
      * @param type $param
      */
     public function follow() {
-
+        $this->assign('position', '我的关注');
         $this->display('wap/uc_follow.html');
     }
 
@@ -38,7 +40,7 @@ class Member extends Base_Controller {
      * @param type $param
      */
     public function collect() {
-
+        $this->assign('position', '我的收藏');
         $this->display('wap/uc_collect.html');
     }
 
