@@ -28,6 +28,7 @@ class Article extends Base_model {
      */
     public function getList($condition, $page = 1, $pageSize = 20) {
         $request = array();
+        
         $request['channel'] = $condition['channel'];
         if ($condition['q']) {
             $request['q'] = $condition['q'];

@@ -51,13 +51,12 @@ class Index extends Base_Controller {
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
         $next_page_num = $page + 1;
         $condition = array();
-        $condition['categoryId'] = 1;
+        $condition['channel'] = $get['channel'];
         $data = $this->article->getList($condition, $page, $pageSize);
-//        print_r($data);
-        if ($page == 3) {
+        if (empty($data['list'])) {
             echo $this->returnJson(404, 'list is null', array('result_filter' => '', 'result_data' => array(), 'next_page_num' => $next_page_num));
         } else {
-            echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=3', 'result_data' => $data, 'next_page_num' => $next_page_num));
+            echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=' . $next_page_num, 'result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
 
@@ -79,21 +78,53 @@ class Index extends Base_Controller {
         $this->assign("channels", $channel);
         //置顶
         $this->assign("article_tops", array());
-        //内容列表
+        //内容
         $condition = array();
         $condition['aid'] = $segment_array[2];
-//        print_r($condition);
         $data = $this->article->getDetail($condition);
 //        print_r($data);
         $this->assign("article", $data);
+
         $this->display('wap/article.html');
+    }
+
+    /**
+     * ajax 热门推荐
+     * channel 相关手动广告
+     * @param type $param
+     */
+    public function recommend() {
+        
+    }
+
+    /**
+     * ajax 猜你喜欢
+     * 相关keywords,tags 
+     * @param type $param
+     */
+    public function like() {
+        $get = $this->input->get();
+        $page = isset($get['page']) ? intval($get['page']) : 1;
+        $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
+        $next_page_num = $page + 1;
+        $condition = array();
+        $condition['channel'] = $get['channel'];
+        $condition['q'] = $get['q'];
+//        $condition['q.op'] = 'OR';
+        
+        $data = $this->article->getList($condition, $page, $pageSize);
+        if (empty($data['list'])) {
+            echo $this->returnJson(404, 'list is null', array('result_filter' => '', 'result_data' => array(), 'next_page_num' => $next_page_num));
+        } else {
+            echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=' . $next_page_num, 'result_data' => $data, 'next_page_num' => $next_page_num));
+        }
     }
 
     /**
      * 喜欢（次数增加）
      * 功能未开启
      */
-    public function like() {
+    public function dolike() {
         if (!$this->is_login) {
             echo $this->returnJson("403", '请登录', FALSE);
             exit;
