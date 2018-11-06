@@ -28,7 +28,23 @@ class Article extends Base_model {
      */
     public function getList($condition, $page = 1, $pageSize = 20) {
         $request = array();
-        $request['categoryId'] = $condition['categoryId'];
+        $request['channel'] = $condition['channel'];
+        if ($condition['q']) {
+            $request['q'] = $condition['q'];
+        }
+        if ($condition['cate_id']) {
+            $request['cate_id'] = $condition['cate_id'];
+        }
+        if ($condition['uid']) {
+            $request['uid'] = $condition['uid'];
+        }
+        if ($condition['aid']) {
+            $request['aid'] = $condition['aid'];
+        }
+        if ($condition['aids']) {
+            $request['aids'] = $condition['aids'];
+        }
+
         $request['api_key'] = $this->api_conf['api_key'];
         $request['page'] = $page;
         $request['pageSize'] = $pageSize;
@@ -39,6 +55,7 @@ class Article extends Base_model {
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
+
     /**
      * 详情
      * @param type $condition
@@ -55,6 +72,7 @@ class Article extends Base_model {
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
+
     /**
      * 收藏
      * @param type $param
@@ -72,4 +90,5 @@ class Article extends Base_model {
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
+
 }

@@ -19,8 +19,10 @@ class Index extends Base_Controller {
         $param = array();
         if (empty($get['code']) && empty($segment_array[1])) {
             $param['code'] = 'all';
+            $channel = '';
         } else {
             $param['code'] = $segment_array[1]; //当前频道
+            $channel = $param['code'];
         }
         $channel = $this->channel->getList($param);
         $this->assign("channels", $channel);
@@ -28,7 +30,7 @@ class Index extends Base_Controller {
         $this->assign("article_tops", array());
         //内容列表
         $condition = array();
-        $condition['categoryId'] = 1;
+        $condition['channel'] = $channel;
         $data = $this->article->getList($condition);
 //        print_r($data);
         $this->assign("next_uri_string", '/index/feed?page=2');
