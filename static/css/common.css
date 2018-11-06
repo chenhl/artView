@@ -937,3 +937,277 @@ body.utms-360wifi #indexHeader .top_bar {
 #kOSMVQDwvHFsuvQJVCE,#kOSMVQDwvHFsuvQJVCE *,#kOSMVQDwvHFsuvQJVCE:after,#kOSMVQDwvHFsuvQJVCE:after,#kOSMVQDwvHFsuvQJVCE:before,#kOSMVQDwvHFsuvQJVCE:before {
     box-sizing:content-box
 }
+
+
+#pageletPopupBanner.tt-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.5);
+}
+#pageletPopupBanner.tt-modal .popup {
+  width: 270px;
+  height: 225px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -113px;
+  margin-left: -135px;
+  border-radius: 10px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup {
+  width: 540px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup {
+  width: 810px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup {
+  height: 450px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup {
+  height: 675px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup {
+  margin-top: -225px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup {
+  margin-top: -338px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup {
+  margin-left: -270px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup {
+  margin-left: -405px;
+}
+#pageletPopupBanner.tt-modal .popup .close {
+  width: 40px;
+  height: 32px;
+  background: url(//s3.pstatp.com/growth/mobile_list/image/popup_banner_close_e6f62910.png) no-repeat center;
+  background-size: 17px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .close {
+  width: 80px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .close {
+  width: 120px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .close {
+  height: 64px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .close {
+  height: 96px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .close {
+  background-size: 34px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .close {
+  background-size: 51px;
+}
+#pageletPopupBanner.tt-modal .popup .download-btn {
+  margin-left: 25px;
+  width: 220px;
+  background: #ff6762;
+  text-align: center;
+  line-height: 40px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  text-shadow: 0px 1px 1px #f0221c;
+  color: #fff;
+  font-size: 20px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  margin-left: 50px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  margin-left: 75px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  width: 440px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  width: 660px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  line-height: 80px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  line-height: 120px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  margin-top: 10px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  margin-top: 15px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  margin-bottom: 30px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  margin-bottom: 45px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  font-size: 40px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .download-btn {
+  font-size: 60px;
+}
+#pageletPopupBanner.tt-modal .popup .banner {
+  margin-top: 10px;
+  margin-left: 54px;
+  width: 165px;
+  height: 121px;
+  background: url(//s3a.pstatp.com/growth/mobile_list/image/popup_banner_6006ac97.png) no-repeat;
+  background-size: contain;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .banner {
+  margin-top: 20px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .banner {
+  margin-top: 30px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .banner {
+  margin-left: 108px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .banner {
+  margin-left: 162px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .banner {
+  width: 330px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .banner {
+  width: 495px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup .banner {
+  height: 242px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup .banner {
+  height: 363px;
+}
+#pageletPopupBanner.tt-modal .popup p {
+  text-align: center;
+  color: #a5a5a5;
+  font-size: 17px;
+  margin-top: 6px;
+  margin-bottom: 24px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup p {
+  font-size: 34px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup p {
+  font-size: 51px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup p {
+  margin-top: 12px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup p {
+  margin-top: 18px;
+}
+[data-dpr="2"] #pageletPopupBanner.tt-modal .popup p {
+  margin-bottom: 48px;
+}
+[data-dpr="3"] #pageletPopupBanner.tt-modal .popup p {
+  margin-bottom: 72px;
+}
+@-webkit-keyframes x-spin {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  50% {
+    -webkit-transform: rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+.refreshBtn-container {
+  background-color: #d43d3d;
+  height: 44px;
+  width: 25px;
+  display: inline-block;
+}
+[data-dpr="2"] .refreshBtn-container {
+  height: 88px;
+}
+[data-dpr="3"] .refreshBtn-container {
+  height: 132px;
+}
+[data-dpr="2"] .refreshBtn-container {
+  width: 50px;
+}
+[data-dpr="3"] .refreshBtn-container {
+  width: 75px;
+}
+.refreshBtn-container .refresh_btn {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  background: url(//s3a.pstatp.com/growth/mobile_list/image/titlebar_refresh_small@3x_96fb31e4.png) no-repeat center center;
+  background-size: 15px;
+}
+[data-dpr="2"] .refreshBtn-container .refresh_btn {
+  background-size: 30px;
+}
+[data-dpr="3"] .refreshBtn-container .refresh_btn {
+  background-size: 45px;
+}
+.refreshBtn-container .rotate {
+  -webkit-transform-style: preserve-3d;
+  -webkit-animation: x-spin 0.7s linear;
+}
+
+@-webkit-keyframes scaleFromRight {
+  0% {
+    -webkit-transform: scaleX(0);
+  }
+  100% {
+    -webkit-transform: scaleX(1);
+  }
+}
+@-webkit-keyframes x-spin {
+  0% {
+    -webkit-transform: rotateZ(0deg);
+  }
+  50% {
+    -webkit-transform: rotateZ(180deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(360deg);
+  }
+}
+@-webkit-keyframes slideInFromLeft {
+  0% {
+    opacity: .5;
+    -webkit-transform: translateX(-270px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+  }
+}
+@-webkit-keyframes slideInFromTop {
+  0% {
+    -webkit-transform: translateY(-30px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+  }
+}
+

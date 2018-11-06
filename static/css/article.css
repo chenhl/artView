@@ -643,6 +643,10 @@ article pre[lang] {
 .article .tt-video-box .tt-video {
     background-color:initial
 }
+
+
+
+
 .new-style-test-unfold-text {
     border:solid 1px #f85959;
     display:block;
@@ -694,7 +698,9 @@ article pre[lang] {
     to {
         margin-top:50px
     }
-}.unfold-field-download .unflod-field__mask {
+}
+
+.unfold-field-download .unflod-field__mask {
     position:absolute;
     top:-78px;
     height:78px;
@@ -758,6 +764,7 @@ article pre[lang] {
     width:8px;
     margin-left:5px
 }
+
 .is_need_pay_novel_style {
     border:solid 1px #f85959;
     display:block;
@@ -1158,6 +1165,10 @@ article pre[lang] {
     background-image:url(//s3.pstatp.com/toutiao/tt_tps/static/images/ttemoji_v2/emoji_114_bomb@3x.png)
 }
 
+
+
+/**/
+
 .two-columns-container {
     vertical-align:top;
     width:50%;
@@ -1360,6 +1371,9 @@ article pre[lang] {
 .no-img-container .info .time-ago {
     margin-left:7px
 }
+
+
+
 .feed-list-container-new-article {
     -webkit-margin-after-collapse:separate;
     -webkit-margin-before-collapse:discard;
@@ -1868,6 +1882,8 @@ article pre[lang] {
 
 
 
+
+
 html {
     background:#fff;
     font-family:'PingFangSC','STHeiti','Microsoft YaHei','Helvetica','Arial',sans-serif;
@@ -2017,6 +2033,9 @@ img[inline="1"] {
     font-size:14px;
     color:#222121
 }
+
+
+
 #pageletBackflowAd .article_link {
     margin:0
 }
