@@ -28,21 +28,21 @@ class Article extends Base_model {
      */
     public function getList($condition, $page = 1, $pageSize = 20) {
         $request = array();
-        
+
         $request['channel'] = $condition['channel'];
-        if ($condition['q']) {
+        if (!empty($condition['q'])) {
             $request['q'] = $condition['q'];
         }
-        if ($condition['cate_id']) {
+        if (!empty($condition['cate_id'])) {
             $request['cate_id'] = $condition['cate_id'];
         }
-        if ($condition['uid']) {
+        if (!empty($condition['uid'])) {
             $request['uid'] = $condition['uid'];
         }
-        if ($condition['aid']) {
+        if (!empty($condition['aid'])) {
             $request['aid'] = $condition['aid'];
         }
-        if ($condition['aids']) {
+        if (!empty($condition['aids'])) {
             $request['aids'] = $condition['aids'];
         }
 
