@@ -1,10 +1,14 @@
 <?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 class Index extends Base_Controller {
+
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('article', 'channel'));
+        $this->load->model(array('article', 'channel', 'member_model'));
     }
+
     /**
      * 列表初始化
      * 
@@ -37,6 +41,7 @@ class Index extends Base_Controller {
         $this->assign("article_list", $data);
         $this->display('wap/index.html');
     }
+
     /**
      * ajax feed
      */
@@ -55,6 +60,7 @@ class Index extends Base_Controller {
             echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=3', 'result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
+
     /**
      * 详情
      */
@@ -82,8 +88,9 @@ class Index extends Base_Controller {
         $this->assign("article", $data);
         $this->display('wap/article.html');
     }
+
     /**
-     * 收藏
+     * 添加收藏
      */
     public function collection() {
         if (!$this->is_login) {
@@ -92,7 +99,7 @@ class Index extends Base_Controller {
         }
         //入参
         $param = $this->input->post();
-        if ($this->article->addCollection($param['goods_id'], $this->authList['user_id'])) {
+        if ($this->member_model->addCollection($param['aid'], $this->authList['user_id'])) {
             //添加至redis集合中
 //            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
             echo $this->returnJson("200", 'success', TRUE);
@@ -102,4 +109,68 @@ class Index extends Base_Controller {
             exit;
         }
     }
+
+    /**
+     * 取消收藏
+     */
+    public function cancelCollection() {
+        if (!$this->is_login) {
+            echo $this->returnJson("403", '请登录', FALSE);
+            exit;
+        }
+        //入参
+        $param = $this->input->post();
+        if ($this->member_model->cancelCollection($param['aid'], $this->authList['user_id'])) {
+            //添加至redis集合中
+//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+            echo $this->returnJson("200", 'success', TRUE);
+            exit;
+        } else {
+            echo $this->returnJson("500", 'fail', FALSE);
+            exit;
+        }
+    }
+
+    /**
+     * 添加关注
+     */
+    public function follow() {
+        if (!$this->is_login) {
+            echo $this->returnJson("403", '请登录', FALSE);
+            exit;
+        }
+        //入参
+        $param = $this->input->post();
+        if ($this->member_model->addFollow($param['fuid'], $this->authList['user_id'])) {
+            //添加至redis集合中
+//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+            echo $this->returnJson("200", 'success', TRUE);
+            exit;
+        } else {
+            echo $this->returnJson("500", 'fail', FALSE);
+            exit;
+        }
+    }
+
+    /**
+     * 取消关注
+     */
+    public function cancelFollow() {
+        if (!$this->is_login) {
+            echo $this->returnJson("403", '请登录', FALSE);
+            exit;
+        }
+        //入参
+        $param = $this->input->post();
+        if ($this->member_model->cancelFollow($param['fuid'], $this->authList['user_id'])) {
+            //添加至redis集合中
+//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+            echo $this->returnJson("200", 'success', TRUE);
+            exit;
+        } else {
+            echo $this->returnJson("500", 'fail', FALSE);
+            exit;
+        }
+    }
+
 }

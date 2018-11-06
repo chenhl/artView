@@ -83,6 +83,24 @@ class Member_model extends Base_model {
     }
 
     /**
+     * 收藏
+     * @param type $param
+     * @return type
+     */
+    public function cancelFollow($param) {
+        $request = array();
+        $request['fuid'] = $param['fuid'];
+        $request['uid'] = $param['uid'];
+        $request['api_key'] = $this->api_conf['api_key'];
+        $request['api_sign'] = $this->genSign($request);
+
+        $this->load->library(array("lib_curl"));
+        $res = Lib_curl::httpRequest($this->api_url . '/author/cancel', $request, TRUE);
+        $return = json_decode($res, TRUE);
+        return $return['data'];
+    }
+
+    /**
      * curl查询接口 我的收藏，
      * 
      * @param type $condition
@@ -119,6 +137,24 @@ class Member_model extends Base_model {
 
         $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . '/collection/add', $request, TRUE);
+        $return = json_decode($res, TRUE);
+        return $return['data'];
+    }
+
+    /**
+     * 收藏
+     * @param type $param
+     * @return type
+     */
+    public function cancelCollection($param) {
+        $request = array();
+        $request['aid'] = $param['aid'];
+        $request['uid'] = $param['uid'];
+        $request['api_key'] = $this->api_conf['api_key'];
+        $request['api_sign'] = $this->genSign($request);
+
+        $this->load->library(array("lib_curl"));
+        $res = Lib_curl::httpRequest($this->api_url . '/collection/cancel', $request, TRUE);
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
