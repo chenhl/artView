@@ -23,6 +23,15 @@ class Member extends Base_Controller {
      */
     public function message() {
         $this->assign('position', '系统消息');
+        //入参
+        $get = $this->input->get();
+//        $segment_array = $this->uri->segment_array();
+        $page = isset($get['page']) ? intval($get['page']) : 1;
+        $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
+        $condition = array();
+        $condition['uid'] = $this->authList['user_id'];
+        $data = $this->member_model->getMessageList($condition, $page, $pageSize);
+        $this->assign("collects", $data);
         $this->display('wap/uc_message.html');
     }
 
