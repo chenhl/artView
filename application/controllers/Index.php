@@ -90,6 +90,50 @@ class Index extends Base_Controller {
     }
 
     /**
+     * 喜欢（次数增加）
+     * 功能未开启
+     */
+    public function like() {
+        if (!$this->is_login) {
+            echo $this->returnJson("403", '请登录', FALSE);
+            exit;
+        }
+        //入参
+        $param = $this->input->post();
+        if ($this->article->like($param['aid'], $this->authList['user_id'])) {
+            //添加至redis集合中
+//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+            echo $this->returnJson("200", 'success', TRUE);
+            exit;
+        } else {
+            echo $this->returnJson("500", 'fail', FALSE);
+            exit;
+        }
+    }
+
+    /**
+     * 不喜欢（次数减少）
+     * 功能未开启
+     */
+    public function unlike() {
+        if (!$this->is_login) {
+            echo $this->returnJson("403", '请登录', FALSE);
+            exit;
+        }
+        //入参
+        $param = $this->input->post();
+        if ($this->article->unlike($param['aid'], $this->authList['user_id'])) {
+            //添加至redis集合中
+//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+            echo $this->returnJson("200", 'success', TRUE);
+            exit;
+        } else {
+            echo $this->returnJson("500", 'fail', FALSE);
+            exit;
+        }
+    }
+
+    /**
      * 添加收藏
      */
     public function collection() {
@@ -132,7 +176,7 @@ class Index extends Base_Controller {
     }
 
     /**
-     * 添加关注
+     * 添加关注（人）
      */
     public function follow() {
         if (!$this->is_login) {
@@ -153,7 +197,7 @@ class Index extends Base_Controller {
     }
 
     /**
-     * 取消关注
+     * 取消关注（人）
      */
     public function cancelFollow() {
         if (!$this->is_login) {

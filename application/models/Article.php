@@ -73,4 +73,13 @@ class Article extends Base_model {
         return $return['data'];
     }
 
+    public function like($data) {
+
+        return TRUE;
+    }
+
+    public function unlike($data) {
+        return TRUE;
+    }
+
 }
