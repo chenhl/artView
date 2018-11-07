@@ -84,7 +84,9 @@ class Index extends Base_Controller {
         $data = $this->article->getDetail($condition);
 //        print_r($data);
         $this->assign("article", $data);
-
+        //ajax like
+        $this->assign("like_uri", '/index/like');
+        
         $this->display('wap/article.html');
     }
 
@@ -114,9 +116,9 @@ class Index extends Base_Controller {
         
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
-            echo $this->returnJson(404, 'list is null', array('result_filter' => '', 'result_data' => array(), 'next_page_num' => $next_page_num));
+            echo $this->returnJson(404, 'list is null', array('result_filter' => '', 'result_data' => array(), 'next_page_num' => 0));
         } else {
-            echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=' . $next_page_num, 'result_data' => $data, 'next_page_num' => $next_page_num));
+            echo $this->returnJson(200, 'success', array('result_filter' => '', 'result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
 

@@ -31,12 +31,13 @@ $(function () {
                     try {
                         data = JSON.parse(data);
                         $("#next_uri").val(data.data.result_filter);
+                        var result = '';
                         if (data.code === 200) {
                             if (data.data.result_data.length === 0) {
                                 me.lock();
                                 me.noData();
                             } else {
-                                var result = articleList(data.data.result_data, {});
+                                result = articleList(data.data.result_data, {});
                             }
                         }
                         setTimeout(function () {

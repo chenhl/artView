@@ -144,26 +144,29 @@ $(function () {
         loadDownFn: function (me) {
 //            alert($(document).height());
 //            alert($('#pageletListContent').height());
-            if ($('#next_uri').val() === '') {
+            if ($('#like_page').val() === 0) {
                 return;
             }
-            var lang_url = app_http_url + $('#next_uri').val();
+            var url = app_http_url + '/index/like';
             $.ajax({
                 type: 'get',
-                url: lang_url,
+                url: url,
                 data: {
-                    "ajax": "1"
+                    'q': $('#like_q').val(),
+                    'aid': $('#like_aid').val(),
+                    'page':$('#like_page').val()
                 },
                 success: function (data) {
                     try {
                         data = JSON.parse(data);
                         $("#next_uri").val(data.data.result_filter);
+                        var result = '';
                         if (data.code === 200) {
                             if (data.data.result_data.length === 0) {
                                 me.lock();
                                 me.noData();
                             } else {
-                                var result = articleList(data.data.result_data, {});
+                                result = articleList(data.data.result_data, {});
                             }
                         }
                         setTimeout(function () {

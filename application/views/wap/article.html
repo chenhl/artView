@@ -4,6 +4,7 @@
         {{include file="common/header_meta.html"}}
         <link href="/static/css/common.css" rel="stylesheet">
         <link href="/static/css/article.css" rel="stylesheet">
+        <link href="/static/css/list.css" rel="stylesheet">
     </head>
 
     <body class="page-detail detail--wap" style="font-size: 12px;" libsign2018625="1" mainsign2018625="1" firstsign2018827="1" rlt="1"> 
@@ -70,9 +71,14 @@
                                                 </div>-->
                         <div class="recommendation-item">
                             <h2 class="container__header">猜你喜欢</h2>
-                            <div class="feed-list-container-new-article relatedNews-container">
+                            <input type="hidden" id="like_page" value="{{$like_page}}">
+                            <input type="hidden" id="like_aid" value="{{$article.aid}}">
+                            <input type="hidden" id="like_q" value="{{$article.keywords}}">
+                            
+                            <div class="feed-list-container-new-article relatedNews-container" id="pageletListContent">
                                 <div class="list-content">
-                                    <section data-group-id="6586519474126455300" class="feed-item left-img-container">
+                                    
+<!--                                    <section data-group-id="6586519474126455300" class="feed-item left-img-container">
                                         <a href="https://m.toutiao.com/group/6586519474126455300/" rel="nofollow" title="司机醉驾被查逆行20公里，交代妻子“判刑太长你就改嫁”">
                                             <div class="flex-container">
                                                 <div class="left">
@@ -88,7 +94,7 @@
                                                 </div>
                                             </div>
                                         </a>
-                                    </section>
+                                    </section>-->
 
                                 </div>
                             </div>
@@ -117,6 +123,7 @@
         <script src="/static/js/common/zepto.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
         <script src="/static/js/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
         <script src="/static/js/article.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+
     </body>
     <iframe id="__ToutiaoJSBridgeIframe_SetResult" style="display:none;"></iframe>
     <iframe id="__ToutiaoJSBridgeIframe" style="display:none;"></iframe>
