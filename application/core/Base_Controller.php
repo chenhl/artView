@@ -70,7 +70,7 @@ class Base_Controller extends CI_Controller {
 
         $this->is_login = $this->check_login();
         $this->sess_id = $this->_setSessionId();
-        $this->user_id = !empty($this->authList['user_id']) ? $this->authList['user_id'] : 0;
+        $this->user_id = !empty($this->userInfo['userid']) ? $this->userInfo['userid'] : 0;
     }
 
     private function assignCommon() {
@@ -83,13 +83,9 @@ class Base_Controller extends CI_Controller {
         $this->assign('app_relative_domain', APP_RELATIVE_MAIN);
 
         //是否登录。
-
         $this->assign("userInfo", $this->userInfo);
         $this->assign('is_login', $this->is_login);
-
         //初始化 控制性变量
-
-
         $this->channel();
     }
 
@@ -160,7 +156,7 @@ class Base_Controller extends CI_Controller {
      */
     private function checkAuthHash() {
 //        $this->load->config('dict');
-//        $key = $this->config->item('dict_cookie_key') . $this->authList['user_id'];
+//        $key = $this->config->item('dict_cookie_key') . $this->userInfo['userid'];
 //        $authHash = strtolower(md5($key));
 //        return (strtolower(trim($this->authList['auth_hash'])) == $authHash);
     }
