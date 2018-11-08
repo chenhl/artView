@@ -43,15 +43,8 @@ class Base_Controller extends CI_Controller {
     public $user_id = 0;
     //模板对应路径
     public $tpl = array();
-
     /**
-     * cookie中存的auth数组，登录验证用
-     * @var array
-     */
-    public $authList = array();
-
-    /**
-     * cookie中存的用户基本信息，仅用于展示
+     * cookie中存的用户基本信息
      *
      * @var array
      */
@@ -117,49 +110,24 @@ class Base_Controller extends CI_Controller {
     protected function check_login() {
         //用户详细信息
         $this->userInfo = $this->getCookie("userInfo");
-        //用户登录信息
-        $this->authList = $this->getCookie("authList");
         //未登录
-        if (empty($this->authList) || empty($this->userInfo)) {
-//            baby_log('check_login 0:' . json_encode($this->authList) . json_encode($this->authList) . json_encode($_COOKIE));
+        if (empty($this->userInfo)) {
             return false;
         }
         //验证用户信息
-        $this->load->model('users_model');
-        $member_info = $this->users_model->getUserProInfo(array("usr.id" => $this->authList["user_id"]));
+        $this->load->model('member_model');
+        $member_info = $this->member_model->getUserProInfo(array("usr.id" => $this->userInfo["user_id"]));
         if (empty($member_info)) {
-            baby_log('check_login 1:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
+            baby_log('check_login 1:' . json_encode(array('userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
             return FALSE;
         }
-        if (!isset($this->authList["session_id"])) {
-            baby_log('check_login 2:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
+        if (!isset($this->userInfo["session_id"])) {
+            baby_log('check_login 2:' . json_encode(array('userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
             return false;
         }
-//        if (!$this->checkAuthHash()) {
-//            // 判断是否篡改用户id
-//            baby_log('check_login 3:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'cookie' => $_COOKIE)));
-//            return false;
-//        }
-        //验证session信息
-//        $this->load->model('session_model');
-//        $session_info = $this->session_model->get($this->authList["session_id"]);
-//        if (!is_array($session_info)) {
-//            baby_log('check_login 4:' . json_encode(array('authList' => $this->authList, 'userInfo' => $this->userInfo, 'session_info' => $session_info, 'cookie' => $_COOKIE)));
-//            return false;
-//        }
-//        if ($this->authList['user_id'] != $session_info['user_id']) {
-//            // sessionid 冲突, 删除$_COOKIE["auth"]["session_id"], 并退出登录
-//            baby_log('check_login 5 :' . json_encode(array('authList'=> $this->authList,'userInfo'=> $this->userInfo,'session_info'=>$session_info,'cookie'=>$_COOKIE)));
-//            return false;
-//        }        
-        //更新session信息
-//        $this->session_model->update($this->authList["session_id"], $this->authList['expires']);
         //更新cookie
         $cookie_user = Handler_tool::passport_encrypt(http_build_query($this->userInfo), CRYPT_CODE_KEY);
-        $cookie_auth = Handler_tool::passport_encrypt(http_build_query($this->authList), CRYPT_CODE_KEY);
-        $this->input->set_cookie("authList", $cookie_auth, COOKIE_EXPIRE_TIME_ONEHOUR, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
         $this->input->set_cookie("userInfo", $cookie_user, COOKIE_EXPIRE_TIME_ONEHOUR, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
-
         return TRUE;
     }
 

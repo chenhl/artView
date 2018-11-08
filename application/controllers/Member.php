@@ -29,7 +29,7 @@ class Member extends Base_Controller {
         $page = isset($get['page']) ? intval($get['page']) : 1;
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
         $condition = array();
-        $condition['uid'] = $this->authList['user_id'];
+        $condition['uid'] = $this->userInfo['userid'];
         $data = $this->member_model->getMessageList($condition, $page, $pageSize);
         $this->assign("collects", $data);
         $this->display('wap/uc_message.html');
@@ -47,7 +47,7 @@ class Member extends Base_Controller {
         $page = isset($get['page']) ? intval($get['page']) : 1;
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
         $condition = array();
-        $condition['uid'] = $this->authList['user_id'];
+        $condition['uid'] = $this->userInfo['userid'];
         $data = $this->member_model->getFollowList($condition, $page, $pageSize);
         $this->assign("follows", $data);
         $this->display('wap/uc_follow.html');
@@ -65,7 +65,7 @@ class Member extends Base_Controller {
         $page = isset($get['page']) ? intval($get['page']) : 1;
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
         $condition = array();
-        $condition['uid'] = $this->authList['user_id'];
+        $condition['uid'] = $this->userInfo['userid'];
         $data = $this->member_model->getCollectList($condition, $page, $pageSize);
         $this->assign("collects", $data);
         $this->display('wap/uc_collect.html');

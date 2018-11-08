@@ -54,9 +54,9 @@ class Index extends Base_Controller {
         $condition['channel'] = $get['channel'];
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
-            echo $this->returnJson(404, 'list is null', array('result_filter' => '', 'result_data' => array(), 'next_page_num' => $next_page_num));
+            echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => $next_page_num));
         } else {
-            echo $this->returnJson(200, 'success', array('result_filter' => '/index/feed?page=' . $next_page_num, 'result_data' => $data, 'next_page_num' => $next_page_num));
+            echo $this->returnJson(200, 'success', array('result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
 
@@ -116,9 +116,9 @@ class Index extends Base_Controller {
         
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
-            echo $this->returnJson(404, 'list is null', array('result_filter' => '', 'result_data' => array(), 'next_page_num' => 0));
+            echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => 0));
         } else {
-            echo $this->returnJson(200, 'success', array('result_filter' => '', 'result_data' => $data, 'next_page_num' => $next_page_num));
+            echo $this->returnJson(200, 'success', array('result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
 
@@ -133,9 +133,9 @@ class Index extends Base_Controller {
         }
         //入参
         $param = $this->input->post();
-        if ($this->article->like($param['aid'], $this->authList['user_id'])) {
+        if ($this->article->like($param['aid'], $this->userInfo['userid'])) {
             //添加至redis集合中
-//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+//            $this->lib_redis->sAdd($this->userInfo['userid'], trim($post['goods_id']));
             echo $this->returnJson("200", 'success', TRUE);
             exit;
         } else {
@@ -155,9 +155,9 @@ class Index extends Base_Controller {
         }
         //入参
         $param = $this->input->post();
-        if ($this->article->unlike($param['aid'], $this->authList['user_id'])) {
+        if ($this->article->unlike($param['aid'], $this->userInfo['userid'])) {
             //添加至redis集合中
-//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+//            $this->lib_redis->sAdd($this->userInfo['userid'], trim($post['goods_id']));
             echo $this->returnJson("200", 'success', TRUE);
             exit;
         } else {
@@ -176,9 +176,9 @@ class Index extends Base_Controller {
         }
         //入参
         $param = $this->input->post();
-        if ($this->member_model->addCollection($param['aid'], $this->authList['user_id'])) {
+        if ($this->member_model->addCollection($param['aid'], $this->userInfo['userid'])) {
             //添加至redis集合中
-//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+//            $this->lib_redis->sAdd($this->userInfo['userid'], trim($post['goods_id']));
             echo $this->returnJson("200", 'success', TRUE);
             exit;
         } else {
@@ -197,9 +197,9 @@ class Index extends Base_Controller {
         }
         //入参
         $param = $this->input->post();
-        if ($this->member_model->cancelCollection($param['aid'], $this->authList['user_id'])) {
+        if ($this->member_model->cancelCollection($param['aid'], $this->userInfo['userid'])) {
             //添加至redis集合中
-//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+//            $this->lib_redis->sAdd($this->userInfo['userid'], trim($post['goods_id']));
             echo $this->returnJson("200", 'success', TRUE);
             exit;
         } else {
@@ -218,9 +218,9 @@ class Index extends Base_Controller {
         }
         //入参
         $param = $this->input->post();
-        if ($this->member_model->addFollow($param['fuid'], $this->authList['user_id'])) {
+        if ($this->member_model->addFollow($param['fuid'], $this->userInfo['userid'])) {
             //添加至redis集合中
-//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+//            $this->lib_redis->sAdd($this->userInfo['userid'], trim($post['goods_id']));
             echo $this->returnJson("200", 'success', TRUE);
             exit;
         } else {
@@ -239,9 +239,9 @@ class Index extends Base_Controller {
         }
         //入参
         $param = $this->input->post();
-        if ($this->member_model->cancelFollow($param['fuid'], $this->authList['user_id'])) {
+        if ($this->member_model->cancelFollow($param['fuid'], $this->userInfo['userid'])) {
             //添加至redis集合中
-//            $this->lib_redis->sAdd($this->authList['user_id'], trim($post['goods_id']));
+//            $this->lib_redis->sAdd($this->userInfo['userid'], trim($post['goods_id']));
             echo $this->returnJson("200", 'success', TRUE);
             exit;
         } else {
