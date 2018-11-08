@@ -159,7 +159,7 @@ $(function () {
                 success: function (data) {
                     try {
                         data = JSON.parse(data);
-                        $("#next_uri").val(data.data.result_filter);
+                        $("#like_page").val(data.data.next_page_num);
                         var result = '';
                         if (data.code === 200) {
                             if (data.data.result_data.length === 0) {

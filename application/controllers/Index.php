@@ -28,8 +28,8 @@ class Index extends Base_Controller {
             $param['code'] = $segment_array[1]; //当前频道
             $channel = $param['code'];
         }
-        $channel = $this->channel->getList($param);
-        $this->assign("channels", $channel);
+        $channels = $this->channel->getList($param);
+        $this->assign("channels", $channels);
         //置顶
         $this->assign("article_tops", array());
         //内容列表
@@ -37,7 +37,7 @@ class Index extends Base_Controller {
         $condition['channel'] = $channel;
         $data = $this->article->getList($condition);
 //        print_r($data);
-        $this->assign("next_uri_string", '/index/feed?page=2');
+        $this->assign("next_page", 2);
         $this->assign("article_list", $data);
         $this->display('wap/index.html');
     }

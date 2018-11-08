@@ -17,20 +17,20 @@ $(function () {
         loadDownFn: function (me) {
 //            alert($(document).height());
 //            alert($('#pageletListContent').height());
-            if ($('#next_uri').val() === '') {
+            if ($('#next_page').val() === '') {
                 return;
             }
-            var lang_url = app_http_url + $('#next_uri').val();
+            var lang_url = app_http_url + '/index/feed';
             $.ajax({
                 type: 'get',
                 url: lang_url,
                 data: {
-                    "ajax": "1"
+                    'page': $('#next_page').val()
                 },
                 success: function (data) {
                     try {
                         data = JSON.parse(data);
-                        $("#next_uri").val(data.data.result_filter);
+                        $("#next_page").val(data.data.next_page_num);
                         var result = '';
                         if (data.code === 200) {
                             if (data.data.result_data.length === 0) {
