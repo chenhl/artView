@@ -159,4 +159,23 @@ class Member_model extends Base_model {
         return $return['data'];
     }
 
+    /**
+     * 第三方登录
+     * 
+     * @param type $userInfo
+     */
+    public function authIn($userInfo, $openid, $auth) {
+        //
+        $request = $userInfo;
+        $request['openid'] = $openid;
+        $request['auth'] = $auth;
+        $request['api_key'] = $this->api_conf['api_key'];
+        $request['api_sign'] = $this->genSign($request);
+
+        $this->load->library(array("lib_curl"));
+        $res = Lib_curl::httpRequest($this->api_url . '/member/auth', $request, TRUE);
+        $return = json_decode($res, TRUE);
+        return $return['data'];
+    }
+
 }

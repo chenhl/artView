@@ -1,5 +1,4 @@
 <?php
-namespace Yurun\OAuthLogin\QQ;
 
 class OpenidMode
 {
