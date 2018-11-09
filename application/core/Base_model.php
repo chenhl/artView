@@ -22,12 +22,19 @@ class Base_model extends CI_Model {
         parent::__construct();
     }
 
+    /**
+     * 数据库连接
+     * @param type $base
+     * @param type $return
+     */
     protected function conDB($base = 'default', $return = FALSE) {
         $this->load->database($base, $return);
         //不使用CI框架自带的连接方式时，设置编码格式
         $this->db->query("SET NAMES 'UTF8'");
     }
-
+    /**
+     * 取接口配置
+     */
     protected function conAPI() {
         $this->load->config('api');
         $this->api_conf = $this->config->item('api_conf');
