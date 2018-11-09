@@ -109,20 +109,21 @@ class Member extends Base_Controller {
 //        $channels = $this->channel->getList($param);
 //        $this->assign("channels", $channels);
 //        $this->assign("article_list", $data);
+        $this->load->config('oauth');
         require dirname(__DIR__) . '/../vendor/autoload.php';
-
+        
         $login_auths = array();
 
-        $qqOAuth = new \Yurun\OAuthLogin\QQ\OAuth2($GLOBALS['oauth_qq']['appid'], $GLOBALS['oauth_qq']['appkey'], $GLOBALS['oauth_qq']['callbackUrl']);
+        $qqOAuth = new \Yurun\OAuthLogin\QQ\OAuth2($this->config->item('appid','oauth_qq'), $this->config->item('appkey','oauth_qq'), $this->config->item('callbackUrl','oauth_qq'));
         $login_auths['qq']['url'] = $qqOAuth->getAuthUrl();
 
-        $weiboOAuth = new \Yurun\OAuthLogin\Weibo\OAuth2($GLOBALS['oauth_weibo']['appid'], $GLOBALS['oauth_weibo']['appkey'], $GLOBALS['oauth_weibo']['callbackUrl']);
+        $weiboOAuth = new \Yurun\OAuthLogin\Weibo\OAuth2($this->config->item('appid','oauth_weibo'), $this->config->item('appkey','oauth_weibo'), $this->config->item('callbackUrl','oauth_weibo'));
         $login_auths['weibo']['url'] = $weiboOAuth->getAuthUrl();
 
-        $wxOAuth = new \Yurun\OAuthLogin\Weixin\OAuth2($GLOBALS['oauth_weixin']['appid'], $GLOBALS['oauth_weixin']['appkey']);
+        $wxOAuth = new \Yurun\OAuthLogin\Weixin\OAuth2($this->config->item('appid','oauth_weixin'), $this->config->item('appkey','oauth_weixin'));
         $login_auths['weixin']['url'] = $wxOAuth->getAuthUrl();
 
-        $baiduOAuth = new \Yurun\OAuthLogin\Baidu\OAuth2($GLOBALS['oauth_baidu']['appid'], $GLOBALS['oauth_baidu']['appkey'], $GLOBALS['oauth_baidu']['callbackUrl']);
+        $baiduOAuth = new \Yurun\OAuthLogin\Baidu\OAuth2($this->config->item('appid','oauth_baidu'), $this->config->item('appkey','oauth_baidu'), $this->config->item('callbackUrl','oauth_baidu'));
         $login_auths['baidu']['url'] = $baiduOAuth->getAuthUrl();
 
 
@@ -137,27 +138,27 @@ class Member extends Base_Controller {
      * 
      */
     public function oauth($auth) {
-
+        $this->load->config('oauth');
         require dirname(__DIR__) . '/../vendor/autoload.php';
         $auth = strtoupper($auth);
         switch ($auth) {
             case 'QQ':
-                $qqOAuth = new \Yurun\OAuthLogin\QQ\OAuth2($GLOBALS['oauth_qq']['appid'], $GLOBALS['oauth_qq']['appkey'], $GLOBALS['oauth_qq']['callbackUrl']);
+                $qqOAuth = new \Yurun\OAuthLogin\QQ\OAuth2($this->config->item('appid','oauth_qq'), $this->config->item('appkey','oauth_qq'), $this->config->item('callbackUrl','oauth_weibo'));
                 $userInfo = $qqOAuth->getUserInfo();
                 $openid = $qqOAuth->openid;
                 break;
             case 'WEIBO':
-                $weiboOAuth = new \Yurun\OAuthLogin\Weibo\OAuth2($GLOBALS['oauth_weibo']['appid'], $GLOBALS['oauth_weibo']['appkey'], $GLOBALS['oauth_weibo']['callbackUrl']);
+                $weiboOAuth = new \Yurun\OAuthLogin\Weibo\OAuth2($this->config->item('appid','oauth_weibo'), $this->config->item('appkey','oauth_weibo'), $this->config->item('callbackUrl','oauth_weibo'));
                 $userInfo = $weiboOAuth->getUserInfo();
                 $openid = $weiboOAuth->openid;
                 break;
             case 'WEIXIN':
-                $wxOAuth = new \Yurun\OAuthLogin\Weixin\OAuth2($GLOBALS['oauth_weixin']['appid'], $GLOBALS['oauth_weixin']['appkey']);
+                $wxOAuth = new \Yurun\OAuthLogin\Weixin\OAuth2($this->config->item('appid','oauth_weixin'), $this->config->item('appkey','oauth_weixin'));
                 $userInfo = $wxOAuth->getUserInfo();
                 $openid = $wxOAuth->openid;
                 break;
             case 'BAIDU':
-                $baiduOAuth = new \Yurun\OAuthLogin\Baidu\OAuth2($GLOBALS['oauth_baidu']['appid'], $GLOBALS['oauth_baidu']['appkey'], $GLOBALS['oauth_baidu']['callbackUrl']);
+                $baiduOAuth = new \Yurun\OAuthLogin\Baidu\OAuth2($this->config->item('appid','oauth_baidu'), $this->config->item('appkey','oauth_baidu'), $this->config->item('callbackUrl','oauth_baidu'));
                 $userInfo = $baiduOAuth->getUserInfo();
                 $openid = $baiduOAuth->openid;
                 break;

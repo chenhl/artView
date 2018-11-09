@@ -165,6 +165,9 @@ class Member_model extends Base_model {
      * @param type $userInfo
      */
     public function authIn($userInfo, $openid, $auth) {
+        if (empty($userInfo)) {
+            return;
+        }
         //
         $request = $userInfo;
         $request['openid'] = $openid;
