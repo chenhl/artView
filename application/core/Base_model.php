@@ -32,6 +32,7 @@ class Base_model extends CI_Model {
         //不使用CI框架自带的连接方式时，设置编码格式
         $this->db->query("SET NAMES 'UTF8'");
     }
+
     /**
      * 取接口配置
      */
