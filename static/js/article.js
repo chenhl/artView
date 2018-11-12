@@ -4,11 +4,13 @@ var domDown = {
     domLoad: '<div class="dropload-load"><div class="k-line k-line-1"></div><div class="k-line k-line-2"></div><div class="k-line k-line-3"></div><div class="k-line k-line-4"></div></div>',
     domNoData: '<div class="dropload-noData"></div>'
 };
+var hasClick = false;
 
 function showMsg() {
     $(".login_box").show();
     $(".alert").show();
 }
+
 $(function () {
     //打开全文
     $('.unflod-field__mask,.download-text').on('click', function () {
@@ -17,6 +19,11 @@ $(function () {
     });
     //收藏
     $('#collection').on('click', function () {
+        //点击锁
+        if (hasClick) {
+            return false;
+        }
+        hasClick = true;
         //客户端验证登录
         if (getCookie('uid') === '') {
             showMsg();
@@ -51,11 +58,16 @@ $(function () {
             error: function (data) {
             },
             complete: function (data) {
+                hasClick = false;
             }
         });
     });
 //关注
     $('#follow').on('click', function () {
+        if (hasClick) {
+            return false;
+        }
+        hasClick = true;
         //客户端验证登录
         if (getCookie('uid') === '') {
             showMsg();
@@ -91,12 +103,17 @@ $(function () {
             error: function (data) {
             },
             complete: function (data) {
+                hasClick = false;
             }
         });
     });
 
 //点赞 未开启
     $('#like').on('click', function () {
+        if (hasClick) {
+            return false;
+        }
+        hasClick = true;
         //客户端验证登录
         if (getCookie('uid') === '') {
             showMsg();
@@ -133,6 +150,7 @@ $(function () {
             error: function (data) {
             },
             complete: function (data) {
+                hasClick = false;
             }
         });
     });
@@ -154,7 +172,7 @@ $(function () {
                 data: {
                     'q': $('#like_q').val(),
                     'aid': $('#like_aid').val(),
-                    'page':$('#like_page').val()
+                    'page': $('#like_page').val()
                 },
                 success: function (data) {
                     try {
