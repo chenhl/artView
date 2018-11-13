@@ -25,7 +25,9 @@ $(function () {
                 type: 'get',
                 url: lang_url,
                 data: {
-                    'page': $('#next_page').val()
+                    page: $('#next_page').val(),
+                    pageSize: $('#page_size').val(),
+                    channel: $('#channel').val()
                 },
                 success: function (data) {
                     try {
@@ -37,7 +39,7 @@ $(function () {
                                 me.lock();
                                 me.noData();
                             } else {
-                                result = articleList(data.data.result_data, {});
+                                result = articleList(data.data.result_data.list, {});
                             }
                         }
                         setTimeout(function () {

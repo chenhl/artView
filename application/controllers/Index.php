@@ -35,9 +35,14 @@ class Index extends Base_Controller {
         //内容列表
         $condition = array();
         $condition['channel'] = $channel;
-        $data = $this->article->getList($condition);
+        $page = 1;
+        $page_size = 10;
+        $data = $this->article->getList($condition,$page,$page_size);
 //        print_r($data);
         $this->assign("next_page", 2);
+        $this->assign("page_size", $page_size);
+        $this->assign("channel", $channel);
+        
         $this->assign("article_list", $data['list']);
         $this->display('wap/index.html');
     }
@@ -48,10 +53,10 @@ class Index extends Base_Controller {
     public function feed() {
         $get = $this->input->get();
         $page = isset($get['page']) ? intval($get['page']) : 1;
-        $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
+        $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 10;
         $next_page_num = $page + 1;
         $condition = array();
-        $condition['channel'] = $get['channel'];
+        $condition['channel'] = isset($get['channel'])?$get['channel']:'';
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
             echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => $next_page_num));
