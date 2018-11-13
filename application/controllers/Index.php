@@ -38,7 +38,7 @@ class Index extends Base_Controller {
         $data = $this->article->getList($condition);
 //        print_r($data);
         $this->assign("next_page", 2);
-        $this->assign("article_list", $data);
+        $this->assign("article_list", $data['list']);
         $this->display('wap/index.html');
     }
 
