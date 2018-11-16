@@ -59,5 +59,12 @@ class Base_model extends CI_Model {
         $sign .= $this->api_conf['api_secret'];
         return hash("sha256", $sign);
     }
-
+    /**
+     * 生成图片全路径
+     * @param type $img
+     * @return type
+     */
+    protected function imgurl($img) {
+        return $_SERVER['IMG_HOST1'].$img;
+    }
 }
