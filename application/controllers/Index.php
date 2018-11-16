@@ -59,7 +59,7 @@ class Index extends Base_Controller {
         $condition['channel'] = isset($get['channel'])?$get['channel']:'';
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
-            echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => $next_page_num));
+            echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => ''));
         } else {
             echo $this->returnJson(200, 'success', array('result_data' => $data, 'next_page_num' => $next_page_num));
         }

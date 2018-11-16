@@ -30,6 +30,7 @@ $(function () {
                         var result = '';
                         if (data.code === 200) {
                             if (data.data.result_data.length === 0) {
+//                                $('#next_page').val('');
                                 me.lock();
                                 me.noData();
                             } else {
