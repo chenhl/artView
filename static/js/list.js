@@ -17,7 +17,7 @@ $(function () {
         scrollArea: window,
 //        threshold: $(document).height() - $('#pageletListContent').height(),
         loadDownFn: function (me) {
-            if ($('#next_page').val() === '') {
+            if ($('#next_page').val() === '' || $('#next_page').val() === 0) {    
                 return;
             }
             var lang_url = app_http_url + '/index/feed';
@@ -35,7 +35,7 @@ $(function () {
                         $("#next_page").val(data.data.next_page_num);
                         var result = '';
                         if (data.code === 200) {
-                            if (data.data.result_data.length === 0) {
+                            if (data.data.result_data.list.length === 0) {
 //                                $('#next_page').val('');
                                 me.lock();
                                 me.noData();

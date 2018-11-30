@@ -187,17 +187,10 @@ $(function () {
                                 me.noData();
                             } else {
                                 result = articleList(data.data.result_data.list, {});
-//                                $('.list-content').append(result);
-//                                alert(data.data.result_data);
-//                                alert(result);
                             }
                         }
                         setTimeout(function () {
-//                            alert(data.data.result_data);
-//                            alert(result);
-                            $('#pageletListContent').eq(0).find('div.list-content').append(result);
-            
-//                            $('#pageletListContent .list-content').append(result);
+                            $('#pageletListContent').eq(0).find('div.list_content').append(result);
                             me.resetload();
                         }, 500);
                     } catch (e) {

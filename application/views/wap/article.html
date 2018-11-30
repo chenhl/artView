@@ -48,12 +48,13 @@
                             <input type="hidden" id="like_page" value="1">
                             <input type="hidden" id="like_aid" value="{{$like.aid}}">
                             <input type="hidden" id="like_q" value="{{$like.q}}">
-                            
-                            <div class="feed-list-container-new-article relatedNews-container" id="pageletListContent">
-                                <div class="list-content">
+                            <!--list-->
+                            <content id="pageletListContent" class="feed-list-container">
+                                <div class="list_content" data-pull-fresh="1">
                                     
                                 </div>
-                            </div>
+                            </content>
+                            
                         </div>
                         <div class="recommendation-item " id="detailAd2">
                             <div>
