@@ -1,16 +1,22 @@
-$(function () {
+var domDown = {
+    domClass: 'dropload-down',
+    domRefresh: '<div class="dropload-refresh"></div>',
+    domLoad: '<div class="dropload-load"><div class="k-line k-line-1"></div><div class="k-line k-line-2"></div><div class="k-line k-line-3"></div><div class="k-line k-line-4"></div></div>',
+    domNoData: '<div class="dropload-noData"></div>'
+};
 
+$(function () {
+//    alert($(document).height());
+//    alert($('#pageletListContent').height());
     $('body').on('touchmove', throttle(function () {  //top
         isShowTop();
     }, 300, 1000));
     isShowTop();
-    
+
     $('#pageletListContent').eq(0).dropload({
         scrollArea: window,
 //        threshold: $(document).height() - $('#pageletListContent').height(),
         loadDownFn: function (me) {
-//            alert($(document).height());
-//            alert($('#pageletListContent').height());
             if ($('#next_page').val() === '') {
                 return;
             }

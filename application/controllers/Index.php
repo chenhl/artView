@@ -90,7 +90,10 @@ class Index extends Base_Controller {
 //        print_r($data);
         $this->assign("article", $data);
         //ajax like
-        $this->assign("like_uri", '/index/like');
+        $like = array();
+        $like['aid'] = $data['aid'];
+        $like['q'] = implode(' ', $data['tags']);
+        $this->assign("like", $like);
         
         $this->display('wap/article.html');
     }
@@ -115,13 +118,13 @@ class Index extends Base_Controller {
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
         $next_page_num = $page + 1;
         $condition = array();
-        $condition['channel'] = $get['channel'];
+//        $condition['channel'] = $get['channel'];
         $condition['q'] = $get['q'];
 //        $condition['q.op'] = 'OR';
-        
+
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
-            echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => 0));
+            echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => ''));
         } else {
             echo $this->returnJson(200, 'success', array('result_data' => $data, 'next_page_num' => $next_page_num));
         }

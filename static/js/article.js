@@ -13,6 +13,9 @@ function showMsg() {
 }
 
 $(function () {
+//    alert($(document).height());
+//    alert($('.recommendation-container').height());
+
     //打开全文
     $('.unflod-field__mask,.download-text').on('click', function () {
         $(this).parent().hide();
@@ -158,12 +161,10 @@ $(function () {
 
     $('#pageletListContent').eq(0).dropload({
         scrollArea: window,
-        threshold: $(document).height() - $('#pageletListContent').height(),
-        domDown: domDown,
+//        threshold: $(document).height() - $('.recommendation-item').height(),
+//        domDown: domDown,
         loadDownFn: function (me) {
-//            alert($(document).height());
-//            alert($('#pageletListContent').height());
-            if ($('#like_page').val() === 0) {
+            if ($('#like_page').val() === '' || $('#like_page').val() === 0) {
                 return;
             }
             var url = app_http_url + '/index/like';
@@ -181,15 +182,22 @@ $(function () {
                         $("#like_page").val(data.data.next_page_num);
                         var result = '';
                         if (data.code === 200) {
-                            if (data.data.result_data.length === 0) {
+                            if (data.data.result_data.list.length === 0) {
                                 me.lock();
                                 me.noData();
                             } else {
-                                result = articleList(data.data.result_data, {});
+                                result = articleList(data.data.result_data.list, {});
+//                                $('.list-content').append(result);
+//                                alert(data.data.result_data);
+//                                alert(result);
                             }
                         }
                         setTimeout(function () {
-                            $('#pageletListContent').eq(0).find('div.list_content').append(result);
+//                            alert(data.data.result_data);
+//                            alert(result);
+                            $('#pageletListContent').eq(0).find('div.list-content').append(result);
+            
+//                            $('#pageletListContent .list-content').append(result);
                             me.resetload();
                         }, 500);
                     } catch (e) {

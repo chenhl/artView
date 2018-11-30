@@ -42,60 +42,16 @@
                 </article>
                 <div style="min-height: 60px;">
                     <div class="recommendation-container">
-                        <!--                        <div class="recommendation-item">
-                                                    <h2 class="container__header">热门推荐</h2>
-                                                    <div class="feed-list-container-new-article appOnly-container">
-                                                        <div class="list-content">
-                                                            <section data-group-id="6587228228635591171" class="feed-item three-img-container">
-                                                                <a href="https://m.toutiao.com/group/6587228228635591171/" rel="nofollow" title="警官我车坏了打双闪，去找修车的半个小时回来发现贴罚单了咋办？">
-                                                                    <div><span class="title line2">警官我车坏了打双闪，去找修车的半个小时回来发现贴罚单了咋办？</span>
-                                                                        <div class="img-container">
-                                                                            <img class="img" src="http://p3.pstatp.com/list/pgc-image/1533708287869d19e2b63be" style="transition: opacity 200ms ease; opacity: 1;">
-                                                                            <img class="img" src="http://p1.pstatp.com/list/pgc-image/1533708470350a76aef9c52" style="transition: opacity 200ms ease; opacity: 1;">
-                                                                            <img class="img" src="http://p1.pstatp.com/list/pgc-image/1533708484532985bd0b7b4" style="transition: opacity 200ms ease; opacity: 1;">
-                                                                        </div>
-                                                                        <div class="info">
-                                                                            <span class="open-label">打开APP</span>
-                                                                            <span>半岛车事儿</span>
-                                                                            <span class="time-ago">40条评论</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </a>
-                                                            </section>
                         
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                        <!--                        <div class="recommendation-item " id="detailAd">
-                                                    <div></div>
-                                                </div>-->
                         <div class="recommendation-item">
                             <h2 class="container__header">猜你喜欢</h2>
-                            <input type="hidden" id="like_page" value="{{$like_page}}">
-                            <input type="hidden" id="like_aid" value="{{$article.aid}}">
-                            <input type="hidden" id="like_q" value="{{$article.keywords}}">
+                            <input type="hidden" id="like_page" value="1">
+                            <input type="hidden" id="like_aid" value="{{$like.aid}}">
+                            <input type="hidden" id="like_q" value="{{$like.q}}">
                             
                             <div class="feed-list-container-new-article relatedNews-container" id="pageletListContent">
                                 <div class="list-content">
                                     
-<!--                                    <section data-group-id="6586519474126455300" class="feed-item left-img-container">
-                                        <a href="https://m.toutiao.com/group/6586519474126455300/" rel="nofollow" title="司机醉驾被查逆行20公里，交代妻子“判刑太长你就改嫁”">
-                                            <div class="flex-container">
-                                                <div class="left">
-                                                    <img class="img" src="http://p3.pstatp.com/list/pgc-image/1533543555336d07331d4a7" style="transition: opacity 200ms ease; opacity: 1;">
-                                                </div>
-                                                <div class="right">
-                                                    <span class="title line2">司机醉驾被查逆行20公里，交代妻子“判刑太长你就改嫁”</span>
-                                                    <div class="info">
-                                                        <span class="open-label">打开APP</span>
-                                                        <span>唐山市人民检察院</span>
-                                                        <span class="time-ago">1条评论</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                    </section>-->
-
                                 </div>
                             </div>
                         </div>
@@ -121,8 +77,9 @@
         </div>
 
         <script src="/static/js/common/zepto.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
-        <script src="/static/js/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
-        <script src="/static/js/article.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+        <script src="/static/js/common/dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+        <script src="/static/js/common/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+        <script src="/static/js/article.js?v=1" data-from="{{$app_name}}" crossorigin="anonymous"></script>
 
     </body>
     <iframe id="__ToutiaoJSBridgeIframe_SetResult" style="display:none;"></iframe>

@@ -29,7 +29,10 @@ class Article extends Base_model {
     public function getList($condition, $page = 1, $pageSize = 20) {
         $request = array();
 
-        $request['channel'] = $condition['channel'];
+//        $request['channel'] = $condition['channel'];
+        if (!empty($condition['channel'])) {
+            $request['channel'] = $condition['channel'];
+        }
         if (!empty($condition['q'])) {
             $request['q'] = $condition['q'];
         }
@@ -53,6 +56,7 @@ class Article extends Base_model {
 
         $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . '/article/feed', $request, TRUE);
+//        print_r($res);
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
