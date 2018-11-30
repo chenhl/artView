@@ -37,12 +37,12 @@ class Index extends Base_Controller {
         $condition['channel'] = $channel;
         $page = 1;
         $page_size = 10;
-        $data = $this->article->getList($condition,$page,$page_size);
+        $data = $this->article->getList($condition, $page, $page_size);
 //        print_r($data);
         $this->assign("next_page", 2);
         $this->assign("page_size", $page_size);
         $this->assign("channel", $channel);
-        
+
         $this->assign("article_list", $data['list']);
         $this->display('wap/index.html');
     }
@@ -56,11 +56,14 @@ class Index extends Base_Controller {
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 10;
         $next_page_num = $page + 1;
         $condition = array();
-        $condition['channel'] = isset($get['channel'])?$get['channel']:'';
+        $condition['channel'] = isset($get['channel']) ? $get['channel'] : '';
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
             echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => ''));
         } else {
+            if ($data['total'] <= $page * $pageSize) {
+                $next_page_num = '';
+            }
             echo $this->returnJson(200, 'success', array('result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
@@ -94,7 +97,7 @@ class Index extends Base_Controller {
         $like['aid'] = $data['aid'];
         $like['q'] = implode(' ', $data['tags']);
         $this->assign("like", $like);
-        
+
         $this->display('wap/article.html');
     }
 
@@ -126,6 +129,9 @@ class Index extends Base_Controller {
         if (empty($data['list'])) {
             echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => ''));
         } else {
+            if ($data['total'] <= $page * $pageSize) {
+                $next_page_num = '';
+            }
             echo $this->returnJson(200, 'success', array('result_data' => $data, 'next_page_num' => $next_page_num));
         }
     }
