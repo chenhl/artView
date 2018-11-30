@@ -55,7 +55,7 @@ class Article extends Base_model {
         $request['api_sign'] = $this->genSign($request);
 
         $this->load->library(array("lib_curl"));
-        $res = Lib_curl::httpRequest($this->api_url . '/article/feed', $request, TRUE);
+        $res = Lib_curl::httpRequest($this->api_url . '/article/feed', $request, FALSE);
 //        print_r($res);
         $return = json_decode($res, TRUE);
         return $return['data'];
