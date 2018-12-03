@@ -17,9 +17,8 @@ class Author extends Base_Controller {
      */
     public function index() {
         $get = $this->input->get();
-        if (empty($get['uid'])) {
-            exit;
-        }
+        $segment_array = $this->uri->segment_array();
+        $author_id = $segment_array[2];
         //频道列表
         $param = array();
         $param['code'] = 'all';
@@ -29,7 +28,7 @@ class Author extends Base_Controller {
         
         //内容列表
         $condition = array();
-        $condition['uid'] = $get['uid'];
+        $condition['uid'] = $author_id;
         $page = 1;
         $page_size = 10;
         $data = $this->article->getList($condition, $page, $page_size);
@@ -38,7 +37,7 @@ class Author extends Base_Controller {
         $this->assign("page_size", $page_size);
         $this->assign("article_list", $data['list']);
 
-        $this->assign("uid", $get['uid']);
+        $this->assign("uid", $author_id);
         $this->assign("channel", $channel);
         $this->display('wap/index.html');
     }

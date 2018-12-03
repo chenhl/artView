@@ -65,6 +65,6 @@ class Base_model extends CI_Model {
      * @return type
      */
     protected function imgurl($img) {
-        return $_SERVER['IMG_HOST1'].$img;
+        return $_SERVER['IMG_HOST1'].'/'.$img;
     }
 }
