@@ -4,6 +4,26 @@
         {{include file="common/header_meta.html"}}
         <link href="/static/css/common.css" rel="stylesheet">
         <link href="/static/css/list.css" rel="stylesheet">
+
+        <style>
+            .jsx-847651808{max-width:2048px;margin:0 auto;}
+            .banner {height:356px;background:url(/static/images/usercenter.png);background-size:cover;overflow:hidden;}
+            .banner img{display:block;width:140px;height:140px;margin:0 auto;border-radius:50%;margin-top:60px;}
+            .banner .nick{font-size:32px;color:#fff;text-align:center;margin-top:20px;display:block;-webkit-text-decoration:none;text-decoration:none;}
+        </style>
+        <style id="__jsx-1405192524">
+            .aidbg.jsx-1405192524{padding:40px;background:url(/static/images/authorbg.png);padding-top:128px;position:relative;top:-88px;margin-bottom:-88px;overflow:hidden;}
+            .aidbg.jsx-1405192524 .icon.jsx-1405192524,.aidbg.jsx-1405192524 .icon.jsx-1405192524 div.jsx-1405192524{border-radius:50%;width:120px;height:120px;}
+            .aidbg.jsx-1405192524 .icon.jsx-1405192524{float:left;position:relative;}
+            .aidbg.jsx-1405192524 .icon.jsx-1405192524 div.jsx-1405192524{overflow:hidden;background-size:contain;}
+            .aidbg.jsx-1405192524 .icon.jsx-1405192524 i.jsx-1405192524{display:block;background:url(//mat1.gtimg.com/www/mobi/2017/image/om_small_icon.svg);width:36px;height:36px;position:absolute;bottom:0;right:0;}
+            .aidbg.jsx-1405192524 .info.jsx-1405192524{margin-left:156px;}
+            .aidbg.jsx-1405192524 .info.jsx-1405192524 .head.jsx-1405192524{overflow:hidden;position:relative;}
+            .aidbg.jsx-1405192524 .info.jsx-1405192524 .name.jsx-1405192524{font-size:32px;color:#3F4146;font-family:"PingFangSC-Medium";line-height:44px;margin-right:160px;display:block;float:left;}
+            .aidbg.jsx-1405192524 .info.jsx-1405192524 .desc.jsx-1405192524{color:#707175;font-size:24px;line-height:2.66;margin-top:20px;font-family:"PingFangSC-Regular";text-align:left;overflow:hidden;word-wrap:break-word;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;}
+            .aidbg.jsx-1405192524 .info.jsx-1405192524 a.jsx-1405192524{position:absolute;font-size:24px;color:#fff;padding:0 16px;-webkit-text-decoration:none;text-decoration:none;background:#498BF8;border-radius:11px;height:44px;line-height:44px;top:0;right:0;}
+            .aidbg.jsx-1405192524 .info.jsx-1405192524 a.followed.jsx-1405192524{color:#C4C8D4;background:#E6ECF5;}
+            .unfollow.jsx-1405192524 i.jsx-1405192524{background:url(//mat1.gtimg.com/www/mobi/2017/image/follow-icon.svg);width:20px;height:20px;display:inline-block;margin-right:6px;}</style>
     </head>
 
     <body class="android withHeader article utms-None utmm-None utmc-None list-page" style="font-size:12px;" rlt="1"> 
@@ -16,6 +36,33 @@
                 {{include file="common/header_header.html"}}
                 <div>
                     {{include file="common/header_menu.html"}}
+                    {{if $uid}}
+<!--                    <div class="banner">
+                        <a href="javascript:;">
+                            <img src="//thirdqq.qlogo.cn/g?b=sdk&amp;k=Z759agPGibhItyibbmia4YS0g&amp;s=100&amp;t=519" alt="乔木" class="jsx-847651808">
+                        </a>
+                        <a href="javascript:;" class="nick">乔木</a>
+                    </div>-->
+
+                    <div class="jsx-1405192524 aidbg">
+
+                        <div class="jsx-1405192524 icon">
+                            <div class="jsx-1405192524" style="background-image: url(http://inews.gtimg.com/newsapp_ls/0/87129268_100100/0);"></div>
+                            <i class="jsx-1405192524"></i>
+                        </div>
+
+                        <div class="jsx-1405192524 info">
+                            <div class="jsx-1405192524 head">
+                                <span class="jsx-1405192524 name">澎湃新闻</span>
+                                <a data-boss="c_unfollow" class="jsx-1405192524 followed">
+                                    <i class="jsx-1405192524"></i>已关注</a>
+                            </div>
+                            <div class="jsx-1405192524 desc">有内涵的时政类新媒体</div>
+                        </div>
+
+                    </div>
+
+                    {{/if}}
                     <div>
                         <!--list-->
                         <content id="pageletListContent" class="feed-list-container">

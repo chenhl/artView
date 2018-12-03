@@ -9,7 +9,7 @@ class Author extends Base_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('member_model'));
+        $this->load->model(array('article','channel'));
     }
 
     /**
@@ -20,6 +20,13 @@ class Author extends Base_Controller {
         if (empty($get['uid'])) {
             exit;
         }
+        //频道列表
+        $param = array();
+        $param['code'] = 'all';
+        $channel = '';
+        $channels = $this->channel->getList($param);
+        $this->assign("channels", $channels);
+        
         //内容列表
         $condition = array();
         $condition['uid'] = $get['uid'];
@@ -30,6 +37,9 @@ class Author extends Base_Controller {
         $this->assign("next_page", 2);
         $this->assign("page_size", $page_size);
         $this->assign("article_list", $data['list']);
+
+        $this->assign("uid", $get['uid']);
+        $this->assign("channel", $channel);
         $this->display('wap/index.html');
     }
 

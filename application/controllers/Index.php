@@ -42,7 +42,10 @@ class Index extends Base_Controller {
         $this->assign("next_page", 2);
         $this->assign("page_size", $page_size);
         $this->assign("channel", $channel);
-
+        
+        //是否用户文章 不同的头文件
+        $this->assign("uid", 0);    
+        
         $this->assign("article_list", $data['list']);
         $this->display('wap/index.html');
     }
