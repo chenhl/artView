@@ -47,7 +47,7 @@ class Index extends Base_Controller {
         $this->assign("uid", 0);    
         
         $this->assign("article_list", $data['list']);
-        $this->display('wap/index.html');
+        $this->display('web/index.html');
     }
 
     /**
