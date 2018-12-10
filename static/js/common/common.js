@@ -80,6 +80,7 @@ function articleListp(list, obj) {
             h3_cls,
             detail_cls;
     for (var i = 0; i < list.length; i++) {
+
         sec_cls = 'has_action';
         h3_cls = 'dotdot line3';
         detail_cls = 'item_detail';
@@ -88,6 +89,17 @@ function articleListp(list, obj) {
             h3_cls = 'dotdot line3 image-margin-right';
             detail_cls = 'item_detail desc';
         }
+        
+        result += '<li class="">';
+        if (list[i].images.length === 0 && list[i].image === '') {//无图
+            result +='<div class="no-mode">';
+        } else if (list[i].images.length === 0 && list[i].image !== '') {//一图
+            result +='<div class="bui-box single-mode">';
+        } else if (list[i].images.length > 0) {//多图
+            result +='<div class="more-mode">';    
+        }
+
+
 
         result += '<section class="' + sec_cls + '" data-item-id="' + list[i].aid + '" data-format="0">';
         result += '<a href="javascript: void(0)" data-action-label="click_headline" data-tag="news_society" class="article_link clearfix ">';
@@ -123,6 +135,8 @@ function articleListp(list, obj) {
         }
         result += '</a>';
         result += '</section>';
+
+        result += '</li>'
     }
     return result;
 }
