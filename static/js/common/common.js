@@ -75,11 +75,13 @@ function articleList(list, obj) {
 
 function articleListp(list, obj) {
     obj = obj || {};
-    var result = '',
+    var result = '', res_footer, res_title,
             sec_cls,
             h3_cls,
             detail_cls;
     for (var i = 0; i < list.length; i++) {
+        res_footer = '';
+        res_title = '';
 
         sec_cls = 'has_action';
         h3_cls = 'dotdot line3';
@@ -89,54 +91,43 @@ function articleListp(list, obj) {
             h3_cls = 'dotdot line3 image-margin-right';
             detail_cls = 'item_detail desc';
         }
-        
+
         result += '<li class="">';
         if (list[i].images.length === 0 && list[i].image === '') {//无图
-            result +='<div class="no-mode">';
+            result += '<div class="no-mode">';
         } else if (list[i].images.length === 0 && list[i].image !== '') {//一图
-            result +='<div class="bui-box single-mode">';
+            result += '<div class="bui-box single-mode">';
         } else if (list[i].images.length > 0) {//多图
-            result +='<div class="more-mode">';    
+            result += '<div class="more-mode">';
         }
 
+        res_title += '<div class="title-box">' +
+                '<a href="/group/6631502995152437764/" target="_blank" class="link">' +
+                '习近平会见葡萄牙议会议长罗德里格斯' +
+                '</a>' +
+                '</div>';
+
+        res_footer += '<div class="bui-box footer-bar">';
+        res_footer += '<div class="bui-left footer-bar-left">' +
+                '<a href="news_world" target="_blank" class="footer-bar-action tag tag-style-other">国际</a>' +
+                '<a href="/c/user/50502346173/" target="_blank" class="footer-bar-action media-avatar">' +
+                '<img src="//p3.pstatp.com/large/ca400072481685ad43b" lazy="loaded">' +
+                '</a>' +
+                '<a href="/c/user/50502346173/" target="_blank" class="footer-bar-action source">&nbsp;人民网&nbsp;⋅</a>' +
+                '<a href="/group/6631498365328687630//#comment_area" target="_blank" class="footer-bar-action source">&nbsp;499评论&nbsp;⋅</a>' +
+                '<span class="footer-bar-action">&nbsp;刚刚</span>' +
+                '</div>';
+        res_footer += '<div class="bui-right">' +
+                '<div class="action-dislike" dislikeurl="/api/dislike/">' +
+                '<i class="bui-icon icon-close_small" style="font-size: 16px; color: rgb(221, 221, 221);"></i>' +
+                '不感兴趣' +
+                '</div>' +
+                '</div>';
+        res_footer += '</div>';
 
 
-        result += '<section class="' + sec_cls + '" data-item-id="' + list[i].aid + '" data-format="0">';
-        result += '<a href="javascript: void(0)" data-action-label="click_headline" data-tag="news_society" class="article_link clearfix ">';
-        result += '<div class="' + detail_cls + '">';
-        result += '<h3 class="' + h3_cls + '">' + list[i].title + '</h3>';
 
-        if (list[i].images.length > 0) {
-            result += '<div class="list_image">';
-            result += '<ul class="clearfix">';
-            for (var k = 0; k < list[i].images.length; k++) {
-                if (k < 3) {
-                    result += '<li class="list_img_holder"><img src="' + list[i]['images'][k] + '"></li>';
-                }
-            }
-            result += '</ul>';
-            result += '</div>';
-        }
-
-        result += '<div class="item_info">';
-        result += '<div>';
-//      result += '<span class="hot_label space">热</span>';
-        result += '<span class="src space">' + list[i].uname + '</span>';
-//      result += '<span class="cmt space"><!-- react-text: 105 -->评论 <!-- /react-text --><!-- react-text: 106 -->519<!-- /react-text --></span>';
-        result += '<span class="time" title="' + list[i].create_time + '">' + list[i].create_time + '</span>';
-        result += '<span data-id="' + list[i].aid + '" class="dislike-news fr"></span>';
-        result += '</div>';
-        result += '</div>';
-        result += '</div>';
-        if (list[i].images.length === 0 && list[i].image.length > 0) {
-            result += '<div class="list_img_holder">';
-            result += '<img src="' + list[i].image + '">';
-            result += '</div>';
-        }
-        result += '</a>';
-        result += '</section>';
-
-        result += '</li>'
+        result += '</li>';
     }
     return result;
 }
