@@ -2456,7 +2456,7 @@ to {
 }
 .single-mode-rbox-inner {
 	display:inline-block;
-	width:100%;
+	width:99%;
 	vertical-align:middle
 }
 .tag-style-hot {
