@@ -306,148 +306,38 @@
                             <input type="hidden" id="page_size" value="{{$page_size}}">
                             <input type="hidden" id="channel" value="{{$channel}}">
                             {{foreach $article_list as $key=>$row}}
-                            
-                            {{/foreach}}
+                            {{assign var=a_url value="/a/"$row['aid']}}
+                            {{assign var=u_url value="/u/"$row['uid']}}
+
                             <li class="">
+                                {{if empty($row['images']) && empty($row['image'])}}
                                 <div class="no-mode">
-                                    <div class="title-box">
-                                        <a href="/group/6631502995152437764/" target="_blank" class="link">
-                                            习近平会见葡萄牙议会议长罗德里格斯
-                                        </a>
-                                    </div>
-                                    <div class="bui-box footer-bar">
-                                        <div class="bui-left footer-bar-left">
-                                            <a href="news_world" target="_blank" class="footer-bar-action tag tag-style-other">
-                                                国际
-                                            </a>
-                                            <a href="/c/user/5757425042/" target="_blank" class="footer-bar-action media-avatar">
-                                                <img src="//p2.pstatp.com/large/9519/925052030" lazy="loaded">
-                                            </a>
-                                            <a href="/c/user/5757425042/" target="_blank" class="footer-bar-action source">
-                                                &nbsp;新华社&nbsp;⋅
-                                            </a>
-                                            <a href="/group/6631502995152437764//#comment_area" target="_blank" class="footer-bar-action source">
-                                                &nbsp;252评论&nbsp;⋅
-                                            </a>
-                                            <span class="footer-bar-action">
-                                                &nbsp;刚刚
-                                            </span>
-                                        </div>
-                                        <div class="bui-right">
-                                            <div class="action-dislike" dislikeurl="/api/dislike/">
-                                                <i class="bui-icon icon-close_small" style="font-size: 16px; color: rgb(221, 221, 221);"></i>
-                                                不感兴趣
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {{include file="block/list_title.html"}}
+                                    {{include file="block/list_footer.html"}}
                                 </div>
-                            </li>
-                            <li class="">
+                                {{elseif empty($row['images']) && !empty($row['image'])}}
                                 <div class="bui-box single-mode">
-                                    <div class="bui-left single-mode-lbox">
-                                        <a href="/group/6631498365328687630/" target="_blank" class="img-wrap">
-                                            <img class="lazy-load-img" src="//p99.pstatp.com/list/190x124/pgc-image/RBnAi24HZsZObe" lazy="loaded">
-                                            <!---->
-                                        </a>
-                                    </div>
+                                    {{include file="block/list_img.html"}}
                                     <div class="single-mode-rbox">
                                         <div class="single-mode-rbox-inner">
-                                            <div class="title-box">
-                                                <a href="/group/6631498365328687630/" target="_blank" class="link">
-                                                    习近平主席鼓励中葡要积极发展“蓝色伙伴关系”在葡萄牙各界引发强烈共鸣
-                                                </a>
-                                            </div>
-                                            <div class="bui-box footer-bar">
-                                                <div class="bui-left footer-bar-left">
-                                                    <a href="news_world" target="_blank" class="footer-bar-action tag tag-style-other">
-                                                        国际
-                                                    </a>
-                                                    <a href="/c/user/50502346173/" target="_blank" class="footer-bar-action media-avatar">
-                                                        <img src="//p3.pstatp.com/large/ca400072481685ad43b" lazy="loaded">
-                                                    </a>
-                                                    <a href="/c/user/50502346173/" target="_blank" class="footer-bar-action source">
-                                                        &nbsp;人民网&nbsp;⋅
-                                                    </a>
-                                                    <a href="/group/6631498365328687630//#comment_area" target="_blank" class="footer-bar-action source">
-                                                        &nbsp;499评论&nbsp;⋅
-                                                    </a>
-                                                    <span class="footer-bar-action">
-                                                        &nbsp;刚刚
-                                                    </span>
-                                                </div>
-                                                <div class="bui-right">
-                                                    <div class="action-dislike" dislikeurl="/api/dislike/">
-                                                        <i class="bui-icon icon-close_small" style="font-size: 16px; color: rgb(221, 221, 221);"></i>
-                                                        不感兴趣
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {{include file="block/list_title.html"}}
+                                            {{include file="block/list_footer.html"}}
                                         </div>
                                     </div>
                                 </div>
-                            </li>
-                            <li class="">
+                                {{else}}
                                 <div class="more-mode">
-                                    <div class="title-box">
-                                        <a href="/group/6631042247792001543/" target="_blank" class="link">
-                                            老照片：晚清大内侍卫高手长啥样？负手而立，颇有一代宗师架势！
-                                        </a>
-                                    </div>
-                                    <div class="bui-box img-list">
-                                        <a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMCBBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYiIGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgPC9wYXRoPgo8L3N2Zz4K"
-                                                 lazy="loading">
-                                        </a>
-                                        <a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMCBBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYiIGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgPC9wYXRoPgo8L3N2Zz4K"
-                                                 lazy="loading">
-                                        </a>
-                                        <a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMCBBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYiIGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgPC9wYXRoPgo8L3N2Zz4K"
-                                                 lazy="loading">
-                                        </a>
-                                        <a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMCBBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYiIGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgPC9wYXRoPgo8L3N2Zz4K"
-                                                 lazy="loading">
-                                        </a>
-                                        <!---->
-                                        <i class="pic-tip">
-                                            <span>
-                                                8图
-                                            </span>
-                                        </i>
-                                    </div>
-                                    <div class="bui-box footer-bar">
-                                        <div class="bui-left footer-bar-left">
-                                            <a href="news_history" target="_blank" class="footer-bar-action tag tag-style-other">
-                                                历史
-                                            </a>
-                                            <a href="/c/user/3632094234/" target="_blank" class="footer-bar-action media-avatar">
-                                                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiIgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiBmaWxsPSJ3aGl0ZSI+CiAgPHBhdGggb3BhY2l0eT0iLjI1IiBkPSJNMTYgMCBBMTYgMTYgMCAwIDAgMTYgMzIgQTE2IDE2IDAgMCAwIDE2IDAgTTE2IDQgQTEyIDEyIDAgMCAxIDE2IDI4IEExMiAxMiAwIDAgMSAxNiA0Ii8+CiAgPHBhdGggZD0iTTE2IDAgQTE2IDE2IDAgMCAxIDMyIDE2IEwyOCAxNiBBMTIgMTIgMCAwIDAgMTYgNHoiPgogICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIGZyb209IjAgMTYgMTYiIHRvPSIzNjAgMTYgMTYiIGR1cj0iMC44cyIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+CiAgPC9wYXRoPgo8L3N2Zz4K"
-                                                     lazy="loading">
-                                            </a>
-                                            <a href="/c/user/3632094234/" target="_blank" class="footer-bar-action source">
-                                                &nbsp;叶之秋&nbsp;⋅
-                                            </a>
-                                            <a href="/group/6631042247792001543//#comment_area" target="_blank" class="footer-bar-action source">
-                                                &nbsp;610评论&nbsp;⋅
-                                            </a>
-                                            <span class="footer-bar-action">
-                                                &nbsp;刚刚
-                                            </span>
-                                            <!---->
-                                            <!---->
-                                            <!---->
-                                        </div>
-                                        <div class="bui-right">
-                                            <div class="action-dislike" dislikeurl="/api/dislike/">
-                                                <i class="bui-icon icon-close_small" style="font-size: 16px; color: rgb(221, 221, 221);"></i>
-                                                不感兴趣
-                                            </div>
-                                        </div>
-                                    </div>
+                                    {{include file="block/list_title.html"}}
+                                    {{include file="block/list_imgs.html"}}
+                                    {{include file="block/list_footer.html"}}
                                 </div>
+                                {{/if}}
+
                             </li>
+
+                            {{/foreach}}
+
+
 
                             <li class="">
                                 <div ga_event="refresh_item_click" class="refresh-mode">
