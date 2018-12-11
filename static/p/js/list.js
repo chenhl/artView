@@ -14,7 +14,7 @@ $(function () {
         } else {
             $('.channel').removeClass('channel-fixed');
         }
-    }
+    };
     //list
     $('#pageletListContent').eq(0).dropload({
         scrollArea: window,

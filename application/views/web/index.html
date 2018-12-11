@@ -120,7 +120,7 @@
                     <div class="bui-right">
                         <ul class="user-nav-list clearfix">
                             <li>
-                                <a href="//www.toutiao.com/complain/" ga_event="mh_nav_complain" target="blank"
+                                <a href="//www.toutiao.com/complain/" target="blank"
                                    class="tb-link">
                                     侵权投诉
                                 </a>
@@ -133,44 +133,14 @@
             <div class="bui-box container">
                 <div class="bui-left index-channel">
                     <div>
-                        <div ga_event="left-channel-click" class="channel">
+                        <div class="channel">
                             <a href="/" class="logo">
                                 <img src="//s3.pstatp.com/toutiao/static/img/logo.201f80d.png" alt="今日头条"
                                      style="width: 108px; height: 27px;">
                             </a>
                             <!---->
                             <ul>
-                                <li>
-                                    <a href="/" target="_self" ga_event="channel_recommand_click" class="channel-item active">
-                                        <span>
-                                            推荐
-                                        </span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="/ch/news_hot/" target="_self" ga_event="channel_hot_click" class="channel-item">
-                                        <span>
-                                            热点
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/ch/news_image/" target="_blank" ga_event="channel_image_click"
-                                       class="channel-item">
-                                        <span>
-                                            图片
-                                        </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="/ch/news_tech/" target="_self" ga_event="channel_technology_click"
-                                       class="channel-item">
-                                        <span>
-                                            科技
-                                        </span>
-                                    </a>
-                                </li>
+                                {{include file="./block/channel.html"}}
 
                                 <!--                                <li class="channel-more">
                                                                     <a href="javascript:void(0);" class="channel-item">
@@ -181,7 +151,7 @@
                                                                     <div class="channel-more-layer">
                                                                         <ul class="bui-box">
                                                                             <li class="bui-left">
-                                                                                <a href="/ch/news_military/" target="_self" ga_event="channel_military_click"
+                                                                                <a href="/ch/news_military/" target="_self"
                                                                                    class="channel-item">
                                                                                     <span>
                                                                                         军事

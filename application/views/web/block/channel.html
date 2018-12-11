@@ -1,0 +1,9 @@
+{{foreach $channels as $key=>$val}}
+<li>
+    <a href="{{$val.url}}" target="_self" class="channel-item active">
+        <span>
+            {{$val.name}}
+        </span>
+    </a>
+</li>
+{{/foreach}}
