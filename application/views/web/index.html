@@ -306,38 +306,34 @@
                             <input type="hidden" id="page_size" value="{{$page_size}}">
                             <input type="hidden" id="channel" value="{{$channel}}">
                             {{foreach $article_list as $key=>$row}}
-                            {{assign var=a_url value="/a/"$row['aid']}}
-                            {{assign var=u_url value="/u/"$row['uid']}}
+                            {{assign var=imgs_max value=4}}
 
                             <li class="">
                                 {{if empty($row['images']) && empty($row['image'])}}
                                 <div class="no-mode">
-                                    {{include file="block/list_title.html"}}
-                                    {{include file="block/list_footer.html"}}
+                                    {{include file="./block/list_title.html"}}
+                                    {{include file="./block/list_footer.html"}}
                                 </div>
                                 {{elseif empty($row['images']) && !empty($row['image'])}}
                                 <div class="bui-box single-mode">
-                                    {{include file="block/list_img.html"}}
+                                    {{include file="./block/list_img.html"}}
                                     <div class="single-mode-rbox">
                                         <div class="single-mode-rbox-inner">
-                                            {{include file="block/list_title.html"}}
-                                            {{include file="block/list_footer.html"}}
+                                            {{include file="./block/list_title.html"}}
+                                            {{include file="./block/list_footer.html"}}
                                         </div>
                                     </div>
                                 </div>
                                 {{else}}
                                 <div class="more-mode">
-                                    {{include file="block/list_title.html"}}
-                                    {{include file="block/list_imgs.html"}}
-                                    {{include file="block/list_footer.html"}}
+                                    {{include file="./block/list_title.html"}}
+                                    {{include file="./block/list_imgs.html"}}
+                                    {{include file="./block/list_footer.html"}}
                                 </div>
                                 {{/if}}
 
                             </li>
-
                             {{/foreach}}
-
-
 
                             <li class="">
                                 <div ga_event="refresh_item_click" class="refresh-mode">

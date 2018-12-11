@@ -85,8 +85,8 @@ function articleListp(list, obj) {
         res_img = '';
         res_imgs = '';
 
-        a_url = '/a/' + list[i].aid;
-        u_url = '/u/' + list[i].uid;
+        a_url = list[i].a_url;
+        u_url = list[i].u_url;
 
         result += '<li class="">';
 
@@ -125,7 +125,7 @@ function articleListp(list, obj) {
 
             res_img += '<div class="bui-left single-mode-lbox">' +
                     '<a href="' + a_url + '" target="_blank" class="img-wrap">' +
-                    '<img class="lazy-load-img" src="' + list[i].image + '" lazy="loaded">' +
+                    '<img class="lazy-load-img" src="' + list[i].image + '">' + // lazy="loaded"
                     '</a>' +
                     '</div>';
 
@@ -143,7 +143,7 @@ function articleListp(list, obj) {
             for (var k = 0; k < list[i].images.length; k++) {
                 if (k < imgs_max) {
                     res_imgs += '<a href="' + a_url + '" target="_blank" class="img-wrap img-item">' +
-                            '<img class="lazy-load-img" src="' + list[i]['images'][k] + '" lazy="loading">' +
+                            '<img class="lazy-load-img" src="' + list[i]['images'][k] + '">' + // lazy="loading"
                             '</a>';
                 }
             }
