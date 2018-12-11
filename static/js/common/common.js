@@ -25,6 +25,7 @@ function articleList(list, obj) {
             sec_cls,
             h3_cls,
             detail_cls;
+    var imgs_max = 4;
     for (var i = 0; i < list.length; i++) {
         sec_cls = 'has_action';
         h3_cls = 'dotdot line3';
@@ -36,7 +37,7 @@ function articleList(list, obj) {
         }
 
         result += '<section class="' + sec_cls + '" data-item-id="' + list[i].aid + '" data-format="0">';
-        result += '<a href="javascript: void(0)" data-action-label="click_headline" data-tag="news_society" class="article_link clearfix ">';
+        result += '<a href="/a/' + list[i].aid + '" data-action-label="click_headline" data-tag="news_society" class="article_link clearfix ">';
         result += '<div class="' + detail_cls + '">';
         result += '<h3 class="' + h3_cls + '">' + list[i].title + '</h3>';
 
@@ -44,7 +45,7 @@ function articleList(list, obj) {
             result += '<div class="list_image">';
             result += '<ul class="clearfix">';
             for (var k = 0; k < list[i].images.length; k++) {
-                if (k < 3) {
+                if (k < imgs_max) {
                     result += '<li class="list_img_holder"><img src="' + list[i]['images'][k] + '"></li>';
                 }
             }
@@ -75,49 +76,42 @@ function articleList(list, obj) {
 
 function articleListp(list, obj) {
     obj = obj || {};
-    var result = '', res_footer, res_title, res_img, res_imgs
-    sec_cls,
-            h3_cls,
-            detail_cls;
+    var result = '', res_footer, res_title, res_img, res_imgs;
+    var u_url, a_url;
+    var imgs_max = 4;
     for (var i = 0; i < list.length; i++) {
         res_footer = '';
         res_title = '';
         res_img = '';
         res_imgs = '';
 
-        sec_cls = 'has_action';
-        h3_cls = 'dotdot line3';
-        detail_cls = 'item_detail';
-        if (list[i].images.length === 0 && list[i].image.length > 0) {
-            sec_cls = 'middle_mode has_action';
-            h3_cls = 'dotdot line3 image-margin-right';
-            detail_cls = 'item_detail desc';
-        }
+        a_url = '/a/' + list[i].aid;
+        u_url = '/u/' + list[i].uid;
 
         result += '<li class="">';
 
         res_title += '<div class="title-box">' +
-                '<a href="/group/6631502995152437764/" target="_blank" class="link">' +
-                '习近平会见葡萄牙议会议长罗德里格斯' +
+                '<a href="' + a_url + '" target="_blank" class="link">' +
+                list[i].title +
                 '</a>' +
                 '</div>';
 
         res_footer += '<div class="bui-box footer-bar">';
         res_footer += '<div class="bui-left footer-bar-left">' +
-                '<a href="news_world" target="_blank" class="footer-bar-action tag tag-style-other">国际</a>' +
-                '<a href="/c/user/50502346173/" target="_blank" class="footer-bar-action media-avatar">' +
-                '<img src="//p3.pstatp.com/large/ca400072481685ad43b" lazy="loaded">' +
-                '</a>' +
-                '<a href="/c/user/50502346173/" target="_blank" class="footer-bar-action source">&nbsp;人民网&nbsp;⋅</a>' +
-                '<a href="/group/6631498365328687630//#comment_area" target="_blank" class="footer-bar-action source">&nbsp;499评论&nbsp;⋅</a>' +
-                '<span class="footer-bar-action">&nbsp;刚刚</span>' +
+//                '<a href="news_world" target="_blank" class="footer-bar-action tag tag-style-other">国际</a>' +
+//                '<a href="/u/'+list[i].uid+'" target="_blank" class="footer-bar-action media-avatar">' +
+//                '<img src="//p3.pstatp.com/large/ca400072481685ad43b" lazy="loaded">' +
+//                '</a>' +
+                '<a href="' + u_url + '" target="_blank" class="footer-bar-action source">&nbsp;' + list[i].uname + '&nbsp;⋅</a>' +
+//                '<a href="/group/6631498365328687630//#comment_area" target="_blank" class="footer-bar-action source">&nbsp;499评论&nbsp;⋅</a>' +
+                '<span class="footer-bar-action">&nbsp;' + list[i].create_time + '</span>' +
                 '</div>';
-        res_footer += '<div class="bui-right">' +
-                '<div class="action-dislike" dislikeurl="/api/dislike/">' +
-                '<i class="bui-icon icon-close_small" style="font-size: 16px; color: rgb(221, 221, 221);"></i>' +
-                '不感兴趣' +
-                '</div>' +
-                '</div>';
+//        res_footer += '<div class="bui-right">' +
+//                '<div class="action-dislike" dislikeurl="/api/dislike/">' +
+//                '<i class="bui-icon icon-close_small" style="font-size: 16px; color: rgb(221, 221, 221);"></i>' +
+//                '不感兴趣' +
+//                '</div>' +
+//                '</div>';
         res_footer += '</div>';
 
         if (list[i].images.length === 0 && list[i].image === '') {//无图
@@ -130,8 +124,8 @@ function articleListp(list, obj) {
             result += '<div class="bui-box single-mode">';
 
             res_img += '<div class="bui-left single-mode-lbox">' +
-                    '<a href="/group/6631498365328687630/" target="_blank" class="img-wrap">' +
-                    '<img class="lazy-load-img" src="//p99.pstatp.com/list/190x124/pgc-image/RBnAi24HZsZObe" lazy="loaded">' +
+                    '<a href="' + a_url + '" target="_blank" class="img-wrap">' +
+                    '<img class="lazy-load-img" src="' + list[i].image + '" lazy="loaded">' +
                     '</a>' +
                     '</div>';
 
@@ -145,23 +139,19 @@ function articleListp(list, obj) {
             result += '</div>';
         } else if (list[i].images.length > 0) {//多图
             result += '<div class="more-mode">';
-            res_imgs += '<div class="bui-box img-list">' +
-                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
-                    '<img class="lazy-load-img" src="" lazy="loading">' +
-                    '</a>' +
-                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
-                    '<img class="lazy-load-img" src="" lazy="loading">' +
-                    '</a>' +
-                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
-                    '<img class="lazy-load-img" src=""lazy="loading">' +
-                    '</a>' +
-                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
-                    '<img class="lazy-load-img" src="" lazy="loading">' +
-                    '</a>' +
-                    '<i class="pic-tip">' +
-                    '<span>8图</span>' +
-                    '</i>' +
-                    '</div>';
+            res_imgs += '<div class="bui-box img-list">';
+            for (var k = 0; k < list[i].images.length; k++) {
+                if (k < imgs_max) {
+                    res_imgs += '<a href="' + a_url + '" target="_blank" class="img-wrap img-item">' +
+                            '<img class="lazy-load-img" src="' + list[i]['images'][k] + '" lazy="loading">' +
+                            '</a>';
+                }
+            }
+            res_imgs += '<i class="pic-tip">' +
+//                    '<span>8图</span>' +
+                    '</i>';
+
+            res_imgs += '</div>';
 
             result += res_title;
             result += res_imgs;
