@@ -75,13 +75,15 @@ function articleList(list, obj) {
 
 function articleListp(list, obj) {
     obj = obj || {};
-    var result = '', res_footer, res_title,
-            sec_cls,
+    var result = '', res_footer, res_title, res_img, res_imgs
+    sec_cls,
             h3_cls,
             detail_cls;
     for (var i = 0; i < list.length; i++) {
         res_footer = '';
         res_title = '';
+        res_img = '';
+        res_imgs = '';
 
         sec_cls = 'has_action';
         h3_cls = 'dotdot line3';
@@ -93,13 +95,6 @@ function articleListp(list, obj) {
         }
 
         result += '<li class="">';
-        if (list[i].images.length === 0 && list[i].image === '') {//无图
-            result += '<div class="no-mode">';
-        } else if (list[i].images.length === 0 && list[i].image !== '') {//一图
-            result += '<div class="bui-box single-mode">';
-        } else if (list[i].images.length > 0) {//多图
-            result += '<div class="more-mode">';
-        }
 
         res_title += '<div class="title-box">' +
                 '<a href="/group/6631502995152437764/" target="_blank" class="link">' +
@@ -125,7 +120,55 @@ function articleListp(list, obj) {
                 '</div>';
         res_footer += '</div>';
 
+        if (list[i].images.length === 0 && list[i].image === '') {//无图
+            result += '<div class="no-mode">';
+            result += res_title;
+            result += res_footer;
+            result += '</div>';
 
+        } else if (list[i].images.length === 0 && list[i].image !== '') {//一图
+            result += '<div class="bui-box single-mode">';
+
+            res_img += '<div class="bui-left single-mode-lbox">' +
+                    '<a href="/group/6631498365328687630/" target="_blank" class="img-wrap">' +
+                    '<img class="lazy-load-img" src="//p99.pstatp.com/list/190x124/pgc-image/RBnAi24HZsZObe" lazy="loaded">' +
+                    '</a>' +
+                    '</div>';
+
+            result += '<div class="single-mode-rbox">' +
+                    '<div class="single-mode-rbox-inner">';
+            result += res_title;
+            result += res_footer;
+            result += '</div>';
+            result += '</div>';
+
+            result += '</div>';
+        } else if (list[i].images.length > 0) {//多图
+            result += '<div class="more-mode">';
+            res_imgs += '<div class="bui-box img-list">' +
+                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
+                    '<img class="lazy-load-img" src="" lazy="loading">' +
+                    '</a>' +
+                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
+                    '<img class="lazy-load-img" src="" lazy="loading">' +
+                    '</a>' +
+                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
+                    '<img class="lazy-load-img" src=""lazy="loading">' +
+                    '</a>' +
+                    '<a href="/group/6631042247792001543/" target="_blank" class="img-wrap img-item">' +
+                    '<img class="lazy-load-img" src="" lazy="loading">' +
+                    '</a>' +
+                    '<i class="pic-tip">' +
+                    '<span>8图</span>' +
+                    '</i>' +
+                    '</div>';
+
+            result += res_title;
+            result += res_imgs;
+            result += res_footer;
+
+            result += '</div>';
+        }
 
         result += '</li>';
     }
