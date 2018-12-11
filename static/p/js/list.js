@@ -8,13 +8,19 @@ var domDown = {
 $(function () {
 //    alert($(document).height());
 //    alert($('#pageletListContent').height());
-    
 
+    if ($(document).scrollTop() > 40) {
+        $('.channel').addClass('channel-fixed');
+    } else {
+        $('.channel').removeClass('channel-fixed');
+    }
+
+    //list
     $('#pageletListContent').eq(0).dropload({
         scrollArea: window,
 //        threshold: $(document).height() - $('#pageletListContent').height(),
         loadDownFn: function (me) {
-            if ($('#next_page').val() === '' || $('#next_page').val() === 0) {    
+            if ($('#next_page').val() === '' || $('#next_page').val() === 0) {
                 return;
             }
             var lang_url = app_http_url + '/index/feed';

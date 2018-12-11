@@ -131,9 +131,9 @@
                 <!---->
             </div>
             <div class="bui-box container">
-                <div ga_event="channel_click" class="bui-left index-channel">
+                <div class="bui-left index-channel">
                     <div>
-                        <div ga_event="left-channel-click" class="channel channel-fixed">
+                        <div ga_event="left-channel-click" class="channel">
                             <a href="/" class="logo">
                                 <img src="//s3.pstatp.com/toutiao/static/img/logo.201f80d.png" alt="今日头条"
                                      style="width: 108px; height: 27px;">
@@ -335,6 +335,8 @@
                             </li>
                             {{/foreach}}
 
+                            {{*刷新提示*}}
+                            {{*
                             <li class="">
                                 <div ga_event="refresh_item_click" class="refresh-mode">
                                     <span>
@@ -345,7 +347,9 @@
                                     </i>
                                 </div>
                             </li>
-
+                            *}}
+                            {{*插入广告*}}
+                            {{*
                             <li class="J_qihu_ad" ad_qihu_id="0" ad_show="0">
                                 <div ga_event="ad_item_click" class="more-mode">
                                     <div ga_event="ad_title_click" class="title-box">
@@ -402,8 +406,10 @@
                                     </div>
                                 </div>
                             </li>
+                            *}}
 
                         </ul>
+
                         <div class="loading ball-pulse" style="display: none;">
                             <div>
                             </div>
@@ -415,6 +421,7 @@
                                 加载中⋅⋅⋅
                             </span>
                         </div>
+
                     </div>
                 </div>
                 <div id="rightModule" class="bui-right index-right-bar">
@@ -721,3 +728,7 @@
     </body>
 
 </html>
+<script src="/static/js/common/jquery-3.2.1.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/p/js/list.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
