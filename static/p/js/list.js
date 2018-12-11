@@ -8,13 +8,13 @@ var domDown = {
 $(function () {
 //    alert($(document).height());
 //    alert($('#pageletListContent').height());
-
-    if ($(document).scrollTop() > 40) {
-        $('.channel').addClass('channel-fixed');
-    } else {
-        $('.channel').removeClass('channel-fixed');
+    window.onscroll = function () {
+        if ($(document).scrollTop() > 40) {
+            $('.channel').addClass('channel-fixed');
+        } else {
+            $('.channel').removeClass('channel-fixed');
+        }
     }
-
     //list
     $('#pageletListContent').eq(0).dropload({
         scrollArea: window,
