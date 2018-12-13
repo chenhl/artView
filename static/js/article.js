@@ -149,14 +149,15 @@ $(function () {
             if ($('#like_page').val() === '' || $('#like_page').val() === 0) {
                 return;
             }
-            var url = app_http_url + '/index/like';
+            var url = '/index/like';
+//            console.log(me);
             $.ajax({
                 type: 'get',
                 url: url,
                 data: {
-                    'q': $('#like_q').val(),
-                    'aid': $('#like_aid').val(),
-                    'page': $('#like_page').val()
+                    q: $('#like_q').val(),
+                    aid: $('#like_aid').val(),
+                    page: $('#like_page').val()
                 },
                 success: function (data) {
                     try {
@@ -168,11 +169,17 @@ $(function () {
                                 me.lock();
                                 me.noData();
                             } else {
-                                result = articleList(data.data.result_data.list, {platform:platform});
+                                result = articleList(data.data.result_data.list, {platform: platform});
+                                alert(result);
                             }
                         }
                         setTimeout(function () {
-                            $('#pageletListContent').eq(0).find('div.list_content').append(result);
+                            if (platform === 'p') {
+//                                alert(result);
+                                $('#pageletListContent').eq(0).find('ul').append(result);
+                            } else {
+                                $('#pageletListContent').eq(0).find('div.list_content').append(result);
+                            }
                             me.resetload();
                         }, 500);
                     } catch (e) {

@@ -13,7 +13,7 @@ $(function () {
             if ($('#next_page').val() === '' || $('#next_page').val() === 0) {    
                 return;
             }
-            var lang_url = app_http_url + '/index/feed';
+            var lang_url = '/index/feed';
             $.ajax({
                 type: 'get',
                 url: lang_url,
