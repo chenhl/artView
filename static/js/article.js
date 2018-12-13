@@ -1,26 +1,8 @@
-var domDown = {
-    domClass: 'dropload-down',
-    domRefresh: '<div class="dropload-refresh"></div>',
-    domLoad: '<div class="dropload-load"><div class="k-line k-line-1"></div><div class="k-line k-line-2"></div><div class="k-line k-line-3"></div><div class="k-line k-line-4"></div></div>',
-    domNoData: '<div class="dropload-noData"></div>'
-};
 //ajax防重点击锁
 var hasClick = false;
-
-function showMsg() {
-    $(".login_box").show();
-    $(".alert").show();
-}
-
 $(function () {
 //    alert($(document).height());
 //    alert($('.recommendation-container').height());
-
-    //打开全文
-    $('.unflod-field__mask,.download-text').on('click', function () {
-        $(this).parent().hide();
-        $('.article__content').css('height', 'auto');
-    });
     //收藏
     $('#collection').on('click', function () {
         //点击锁
@@ -186,7 +168,7 @@ $(function () {
                                 me.lock();
                                 me.noData();
                             } else {
-                                result = articleList(data.data.result_data.list, {});
+                                result = articleList(data.data.result_data.list, {platform:platform});
                             }
                         }
                         setTimeout(function () {

@@ -19,7 +19,17 @@ function setCookie(name, value) {
             + ";expires=" + exp.toGMTString() + ";path=/";
     return true;
 }
+
 function articleList(list, obj) {
+    obj = obj || {};
+    if (obj.platform === 'm') {
+        articleListm(list, obj);
+    } else {
+        articleListp(list, obj);
+    }
+}
+
+function articleListm(list, obj) {
     obj = obj || {};
     var result = '',
             sec_cls,

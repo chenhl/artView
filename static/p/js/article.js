@@ -6,16 +6,12 @@ var domDown = {
 };
 var platform = 'p';
 
+function showMsg() {
+    $(".login_box").show();
+    $(".alert").show();
+}
+
 $(function () {
-//    alert($(document).height());
-//    alert($('#pageletListContent').height());
-    //index首页 左侧channel
-    window.onscroll = function () {
-        if ($(document).scrollTop() > 40) {
-            $('.channel').addClass('channel-fixed');
-        } else {
-            $('.channel').removeClass('channel-fixed');
-        }
-    };
     
 });
+
