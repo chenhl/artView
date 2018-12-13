@@ -12,14 +12,22 @@ function showMsg() {
 }
 
 $(function () {
-    window.onscroll = function () {
-        if ($(document).scrollTop() > 40) {
+//    window.onscroll = function () {
+//        if ($(document).scrollTop() > 40) {
+//            $('.share-box').addClass('share-box-fixed');
+//        } else {
+//            $('.share-box').removeClass('share-box-fixed');
+//        }
+//    };
+    $(window).scroll(function () {
+        var st = $(document).scrollTop() || $('html,body').scrollTop();
+//        var offsettop = $('.share-box').offset().top;
+        if (st > 40) {
             $('.share-box').addClass('share-box-fixed');
         } else {
             $('.share-box').removeClass('share-box-fixed');
         }
-    };
-    
-    
+    });
+
 });
 

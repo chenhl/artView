@@ -335,30 +335,16 @@
                         <!---->
                         <div class="bui-box article-tag">
                             <div class="bui-left">
-                                <i class="bui-icon icon-tag" style="font-size: 21px; color: rgb(202, 202, 202);">
-                                </i>
+                                {{if !empty($article.tags)}}
+                                <i class="bui-icon icon-tag" style="font-size: 21px; color: rgb(202, 202, 202);"></i>
                                 <ul class="tag-list">
+                                    {{foreach $article.tags as $key=>$val}}
                                     <li class="tag-item">
-                                        <a href="/search/?keyword=三农" target="_blank" class="label-link">
-                                            三农
-                                        </a>
+                                        <a href="/search/?q={{$val}}" target="_blank" class="label-link">{{$val}}</a>
                                     </li>
-                                    <li class="tag-item">
-                                        <a href="/search/?keyword=农业" target="_blank" class="label-link">
-                                            农业
-                                        </a>
-                                    </li>
-                                    <li class="tag-item">
-                                        <a href="/search/?keyword=人力资源" target="_blank" class="label-link">
-                                            人力资源
-                                        </a>
-                                    </li>
-                                    <li class="tag-item">
-                                        <a href="/search/?keyword=第一书记" target="_blank" class="label-link">
-                                            第一书记
-                                        </a>
-                                    </li>
+                                    {{/foreach}}
                                 </ul>
+                                {{/if}}
                             </div>
                             <div class="bui-right">
                                 <div class="repin">
@@ -411,6 +397,7 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
 
                     <div ad-cursor="" name="adetail_main*bottom_1" id="J_ad_baidu_bottom"
