@@ -12,6 +12,14 @@ function showMsg() {
 }
 
 $(function () {
+    window.onscroll = function () {
+        if ($(document).scrollTop() > 40) {
+            $('.share-box').addClass('share-box-fixed');
+        } else {
+            $('.share-box').removeClass('share-box-fixed');
+        }
+    };
+    
     
 });
 
