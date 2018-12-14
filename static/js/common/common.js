@@ -1,19 +1,27 @@
 function getCookie(name) {
-    res = '';
+    var res = '';
     if (platform === 'p') {
         res = $.cookie(name);
     } else {
         res = $.fn.cookie(name);
     }
+    if (!res || res === '') {
+        res = '';
+    }
     return res;
 }
 
 function setCookie(name, value) {
-    res = false;
+    var res = false;
     if (platform === 'p') {
         res = $.cookie(name, value);
     } else {
         res = $.fn.cookie(name, value);
+    }
+    if (!res) {
+        res = false;
+    } else {
+        res = true;
     }
     return res;
 }
