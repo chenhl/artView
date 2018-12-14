@@ -180,3 +180,42 @@ function articleListp(list, obj) {
     }
     return result;
 }
+/**
+ * 异步取文章单页列表
+ * @param {type} condition
+ * @param {type} options
+ * @returns {undefined}
+ */
+function ajaxArticleList(condition, options) {
+    condition = condition || {};
+    options = options || {};
+    options.contentEle = options.contentEle || '.user-card-article-list';
+
+    $.ajax({
+        type: options.method || 'GET',
+        dataType: 'json',
+        url: options.url || '/index/feed',
+        data: condition,
+        async: options.async || false,
+        success: function (data) {
+            try {
+                data = JSON.parse(data);
+                var result = '';
+                if (data.code === 200 && data.data.result_data.list.length > 0) {
+//                    result = articleList(data.data.result_data.list, {platform: platform});
+                    result = 'ddddddd';
+                }
+                setTimeout(function () {
+                    $(options.contentEle).eq(0).append(result);
+                }, 500);
+            } catch (e) {
+//                console.log(e);
+            }
+        },
+        error: function (data) {
+        },
+        complete: function (data) {
+
+        }
+    });
+}

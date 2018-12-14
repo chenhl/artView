@@ -35,6 +35,7 @@ $(function () {
 //            $('.share-box').removeClass('share-box-fixed');
 //        }
 //    };
+    //scroll
     $(window).scroll(function () {
         var st = $(document).scrollTop() || $('html,body').scrollTop();
 //        var offsettop = $('.share-box').offset().top;
@@ -44,6 +45,13 @@ $(function () {
             $('.share-box').removeClass('share-box-fixed');
         }
     });
-
+    //author 文章
+    ajaxArticleList({
+        aid:$('#aid').val(),
+        uid:$('#uid').val()
+    },{
+        contentEle:'.user-card-article-list'
+    });
+    
 });
 

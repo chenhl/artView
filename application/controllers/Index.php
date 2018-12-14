@@ -101,7 +101,7 @@ class Index extends Base_Controller {
         $like['q'] = implode(' ', $data['tags']);
         $this->assign("like", $like);
 
-        $this->display('wap/article.html');
+        $this->display('web/article.html');
     }
 
     /**

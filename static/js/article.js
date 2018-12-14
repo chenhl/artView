@@ -33,7 +33,7 @@ $(function () {
             dataType: 'json',
             url: url,
             data: {
-                'aid': aid
+                aid: aid
             },
             async: false,
             success: function (data) {
@@ -77,7 +77,7 @@ $(function () {
             dataType: 'json',
             url: url,
             data: {
-                'fuid': fuid
+                fuid: fuid
             },
             async: false,
             success: function (data) {
@@ -124,7 +124,7 @@ $(function () {
             dataType: 'json',
             url: url,
             data: {
-                'aid': aid
+                aid: aid
             },
             async: false,
             success: function (data) {

@@ -400,6 +400,8 @@
                     <div class="pane-module">
                         <!---->
                         <div class="user-card">
+                            <input type="hidden" id="aid" value="{{$article.aid}}">
+                            <input type="hidden" id="uid" value="{{$article.uid}}">
                             <div class="user-card-head">
                                 <a target="_blank" href="/c/user/104246645773/" class="user-card-avatar">
                                     <img src="//p99.pstatp.com/large/b725000102bd7072f33f" alt="">
@@ -412,9 +414,7 @@
                                         <div class="left-arrow subscribe-btn">
                                             <i class="bui-icon icon-add_small" style="font-size: 12px; color: rgb(255, 255, 255);">
                                             </i>
-                                            <span>
-                                                关注
-                                            </span>
+                                            <span id="follow">关注</span>
                                         </div>
                                     </div>
                                 </div>
