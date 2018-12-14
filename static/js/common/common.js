@@ -199,12 +199,15 @@ function ajaxArticleList(condition, options) {
         async: options.async || false,
         success: function (data) {
             try {
-                data = JSON.parse(data);
+//                data = JSON.parse(data);
                 var result = '';
                 if (data.code === 200 && data.data.result_data.list.length > 0) {
 //                    result = articleList(data.data.result_data.list, {platform: platform});
                     result = 'ddddddd';
+                }else{
+//                    alert('a');
                 }
+//                console.log($(options.contentEle));
                 setTimeout(function () {
                     $(options.contentEle).eq(0).append(result);
                 }, 500);
