@@ -60,6 +60,7 @@ class Index extends Base_Controller {
         $next_page_num = $page + 1;
         $condition = array();
         $condition['channel'] = isset($get['channel']) ? $get['channel'] : '';
+        $condition['uid'] = isset($get['uid']) ? $get['uid'] : '';
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
             echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => ''));

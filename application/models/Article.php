@@ -53,7 +53,9 @@ class Article extends Base_model {
         $request['page'] = $page;
         $request['pageSize'] = $pageSize;
         $request['api_sign'] = $this->genSign($request);
-
+//        print_r($request);
+//        echo $this->api_url . '/article/feed';
+//        echo http_build_query($request);
         $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . '/article/feed', $request, FALSE);
 //        print_r($res);

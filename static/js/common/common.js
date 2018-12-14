@@ -30,19 +30,49 @@ function articleList(list, obj) {
     obj = obj || {};
     if (obj.platform === 'm') {
         return articleListm(list, obj);
-    } else {
+    } else if (obj.platform === 'p') {
         return articleListp(list, obj);
+    } else if (obj.platform === 'pu') {
+        return articleListpu(list, obj);
     }
 }
+/**
+ * pc 详情页，author最新列表
+ * @param {type} list
+ * @param {type} obj
+ * @returns {undefined}
+ */
+function articleListpu(list, obj) {
+    obj = obj || {};
+    var result = '';
+    var a_url;
+    for (var i = 0; i < list.length; i++) {
+        a_url = list[i].a_url;
+        result += '<li class="user-card-article-item">' +
+                '<a href="' + a_url + '" target="_blank">' + list[i].title + '</a>' +
+                '</li>';
+    }
+    return result;
 
+}
+/**
+ * mobile 列表、详情页列表
+ * @param {type} list
+ * @param {type} obj
+ * @returns {String}
+ */
 function articleListm(list, obj) {
     obj = obj || {};
     var result = '',
             sec_cls,
             h3_cls,
             detail_cls;
+    var u_url, a_url;
     var imgs_max = 4;
     for (var i = 0; i < list.length; i++) {
+        a_url = list[i].a_url;
+        u_url = list[i].u_url;
+
         sec_cls = 'has_action';
         h3_cls = 'dotdot line3';
         detail_cls = 'item_detail';
@@ -53,7 +83,7 @@ function articleListm(list, obj) {
         }
 
         result += '<section class="' + sec_cls + '" data-item-id="' + list[i].aid + '" data-format="0">';
-        result += '<a href="/a/' + list[i].aid + '" data-action-label="click_headline" data-tag="news_society" class="article_link clearfix ">';
+        result += '<a href="' + a_url + '" data-action-label="click_headline" data-tag="news_society" class="article_link clearfix ">';
         result += '<div class="' + detail_cls + '">';
         result += '<h3 class="' + h3_cls + '">' + list[i].title + '</h3>';
 
@@ -89,7 +119,12 @@ function articleListm(list, obj) {
     }
     return result;
 }
-
+/**
+ * pc 列表、详情页列表
+ * @param {type} list
+ * @param {type} obj
+ * @returns {String}
+ */
 function articleListp(list, obj) {
     obj = obj || {};
     var result = '', res_footer, res_title, res_img, res_imgs;
@@ -202,9 +237,10 @@ function ajaxArticleList(condition, options) {
 //                data = JSON.parse(data);
                 var result = '';
                 if (data.code === 200 && data.data.result_data.list.length > 0) {
-//                    result = articleList(data.data.result_data.list, {platform: platform});
-                    result = 'ddddddd';
-                }else{
+                    var p = platform+'u';
+                    result = articleList(data.data.result_data.list, {platform: p});
+//                    result = 'ddddddd';
+                } else {
 //                    alert('a');
                 }
 //                console.log($(options.contentEle));
