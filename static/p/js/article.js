@@ -6,11 +6,17 @@ var domDown = {
 };
 var platform = 'p';
 
+/**
+ * 收藏、喜欢、关注等点击时检查参数失败
+ * @returns {undefined}
+ */
 function ajaxCheckParamMsg() {
-    $(".login_box").show();
-    $(".alert").show();
+    window.location.href='/member/login';
 }
-
+/**
+ * 收藏、喜欢、关注等点击时结果
+ * @returns {undefined}
+ */
 function ajaxResultMsg() {
     $(".login_box").show();
     $(".alert").show();
