@@ -5,7 +5,7 @@ function getCookie(name) {
     } else {
         res = $.fn.cookie(name);
     }
-    if (!res || res === '') {
+    if (!res || res === '') { //null undefine NaN 都可以进入判断语句
         res = '';
     }
     return res;
