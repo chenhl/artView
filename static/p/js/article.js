@@ -6,6 +6,16 @@ var domDown = {
 };
 var platform = 'p';
 
+function ajaxCheckParamMsg() {
+    $(".login_box").show();
+    $(".alert").show();
+}
+
+function ajaxResultMsg() {
+    $(".login_box").show();
+    $(".alert").show();
+}
+
 function showMsg() {
     $(".login_box").show();
     $(".alert").show();

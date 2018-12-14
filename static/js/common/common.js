@@ -22,12 +22,9 @@ function setCookie(name, value) {
 
 function articleList(list, obj) {
     obj = obj || {};
-    alert(obj);
-    alert(obj.platform);
     if (obj.platform === 'm') {
         return articleListm(list, obj);
     } else {
-        alert(obj.platform)
         return articleListp(list, obj);
     }
 }
@@ -175,6 +172,5 @@ function articleListp(list, obj) {
 
         result += '</li>';
     }
-//    alert(result);
     return result;
 }

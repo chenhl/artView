@@ -12,7 +12,7 @@ $(function () {
         hasClick = true;
         //客户端验证登录
         if (getCookie('uid') === '') {
-            showMsg();
+            ajaxCheckParamMsg();
             return false;
         }
         //改变页面状态
@@ -38,7 +38,7 @@ $(function () {
             async: false,
             success: function (data) {
                 if (data.code === 403) {//未登录
-                    showMsg();
+                    ajaxResultMsg();
                 }
             },
             error: function (data) {
@@ -56,7 +56,7 @@ $(function () {
         hasClick = true;
         //客户端验证登录
         if (getCookie('uid') === '') {
-            showMsg();
+            ajaxCheckParamMsg();
             return false;
         }
         //改变页面状态
@@ -82,8 +82,7 @@ $(function () {
             async: false,
             success: function (data) {
                 if (data.code == "403") {//未登录
-                    $(".login_box").show();
-                    $(".alert").show();
+                    ajaxResultMsg();
                 }
             },
             error: function (data) {
@@ -102,7 +101,7 @@ $(function () {
         hasClick = true;
         //客户端验证登录
         if (getCookie('uid') === '') {
-            showMsg();
+            ajaxCheckParamMsg();
             return false;
         }
 
@@ -130,7 +129,7 @@ $(function () {
             async: false,
             success: function (data) {
                 if (data.code == "403") {//未登录
-                    showMsg();
+                    ajaxResultMsg();
                 }
             },
             error: function (data) {
@@ -170,7 +169,6 @@ $(function () {
                                 me.noData();
                             } else {
                                 result = articleList(data.data.result_data.list, {platform: platform});
-                                alert(result);
                             }
                         }
                         setTimeout(function () {
