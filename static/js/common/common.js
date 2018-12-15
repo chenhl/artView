@@ -28,11 +28,11 @@ function setCookie(name, value) {
 
 function articleList(list, obj) {
     obj = obj || {};
-    if (obj.platform === 'm') {
+    if (obj.platform === 'm') {//mobile article list 
         return articleListm(list, obj);
-    } else if (obj.platform === 'p') {
+    } else if (obj.platform === 'p') {//pc article list
         return articleListp(list, obj);
-    } else if (obj.platform === 'pu') {
+    } else if (obj.platform === 'pu') {//pc user article list
         return articleListpu(list, obj);
     }
 }
@@ -198,9 +198,9 @@ function articleListp(list, obj) {
                             '</a>';
                 }
             }
-            res_imgs += '<i class="pic-tip">' +
+//            res_imgs += '<i class="pic-tip">' +
 //                    '<span>8图</span>' +
-                    '</i>';
+//                    '</i>';
 
             res_imgs += '</div>';
 
@@ -258,3 +258,10 @@ function ajaxArticleList(condition, options) {
         }
     });
 }
+
+$(function () {
+    //scroll top
+   $('#icon-arrow_up_big').on('click',function(){
+       $(document).scrollTop(0);
+   }); 
+});
