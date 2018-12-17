@@ -32,6 +32,8 @@ function articleList(list, obj) {
         return articleListm(list, obj);
     } else if (obj.platform === 'p') {//pc article list
         return articleListp(list, obj);
+    } else if (obj.platform === 'ps') {//pc search article list
+        return articleListps(list, obj);
     } else if (obj.platform === 'pu') {//pc user article list
         return articleListpu(list, obj);
     }
@@ -215,6 +217,70 @@ function articleListp(list, obj) {
     }
     return result;
 }
+
+/**
+ * pc search列表
+ * @param {type} list
+ * @param {type} obj
+ * @returns {String}
+ */
+function articleListps(list, obj) {
+    obj = obj || {};
+    var result = '';
+    var u_url, a_url;
+
+    for (var i = 0; i < list.length; i++) {
+        a_url = list[i].a_url;
+        u_url = list[i].u_url;
+        
+        result += '<div id="J_section_0" riot-tag="articleCard" class="articleCard">';
+        result += '<div class="item">';
+        result += '<div class="item-inner  y-box">';
+        result += '<div class="normal rbox ">';
+
+        result += '<div class="rbox-inner">';
+        //title
+        result += '<div class="title-box">' +
+                '<a href="' + a_url + '" target="_blank" class="link title">' + '<span class="J_title" riot-tag="raw">' +
+                list[i].title +
+                '</span>' + '</a>' +
+                '</div>';
+        //title footer
+        result += '<div class="y-box footer">' +
+                '<div class="y-left">' +
+                '<div class="y-left">' +
+                '<a class="lbtn media-avatar" target="_blank" href="' + u_url + '">' +
+                '<img alt="" src="//p1.pstatp.com/medium/1dcf00100ad16f6cb8a9">' +
+                '</a>' +
+                '<a class="lbtn source J_source" target="_blank" href="' + u_url + '" riot-tag="raw">' +
+                '&nbsp;' + list[i].uname + '&nbsp;' +
+                '</a>' +
+                '</div>' + //y-left
+//                '<a class="lbtn comment" target="_blank" href="/group/6587709843321127438//#comment_area">' +
+//                '⋅&nbsp;9评论&nbsp;' +
+//                '</a>' +
+                '<span class="lbtn">' +
+                '⋅&nbsp;' + list[i].create_time +
+                '</span>' +
+                '</div>' + //y-left
+                '</div>';//y-box footer
+
+        result += '</div>'; // rbox-inner
+        result += '</div>';//normal
+        // left pic
+        result += '<div class="lbox">' +
+                '<a class="img-wrap" target="_blank" href="/group/6587709843321127438/">' +
+                '<img alt="" src="//p9-tt.bytecdn.cn/list/pgc-image/1533820654618f1554e1eb4">' +
+                '</a>' +
+                '</div>';
+
+        result += '</div>';//item-inner
+        result += '</div>'; //item
+        result += '</div>';//articleCard
+    }
+    return result;
+}
+
 /**
  * 异步取文章单页列表
  * @param {type} condition
@@ -237,7 +303,7 @@ function ajaxArticleList(condition, options) {
 //                data = JSON.parse(data);
                 var result = '';
                 if (data.code === 200 && data.data.result_data.list.length > 0) {
-                    var p = platform+'u';
+                    var p = platform + 'u';
                     result = articleList(data.data.result_data.list, {platform: p});
 //                    result = 'ddddddd';
                 } else {
@@ -261,7 +327,7 @@ function ajaxArticleList(condition, options) {
 
 $(function () {
     //scroll top
-   $('#icon-arrow_up_big').on('click',function(){
-       $(document).scrollTop(0);
-   }); 
+    $('#icon-arrow_up_big').on('click', function () {
+        $(document).scrollTop(0);
+    });
 });
