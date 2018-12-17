@@ -28,46 +28,10 @@
         <!--[if lt IE 9]>
       <p>您的浏览器版本过低，请<a href="http://browsehappy.com/">升级浏览器</a></p>
     <![endif]-->
-        <script src="//s3.pstatp.com/toutiao/monitor/sdk/slardar.js?ver=20171221_1" crossorigin="anonymous"></script>
-        <script>window.Slardar && window.Slardar.install({
-                sampleRate: 1,
-                bid: 'toutiao_pc',
-                pid: 'index_new',
-                ignoreAjax: [/\/action_log\//, /\/stream\/widget\//],
-                ignoreStatic: [/\.tanx\.com\//, /\.alicdn\.com\//, /\.mediav\.com/]
-            });</script>
+        
+        
         <link rel="stylesheet" href="/static/p/css/index.css">
-        <script>!function (e) {
-                function t(a) {
-                    if (c[a])
-                        return c[a].exports;
-                    var o = c[a] = {exports: {}, id: a, loaded: !1};
-                    return e[a].call(o.exports, o, o.exports, t), o.loaded = !0, o.exports
-                }
-                var a = window.webpackJsonp;
-                window.webpackJsonp = function (r, n) {
-                    for (var p, s, l = 0, i = []; l < r.length; l++)
-                        s = r[l], o[s] && i.push.apply(i, o[s]), o[s] = 0;
-                    for (p in n)
-                        Object.prototype.hasOwnProperty.call(n, p) && (e[p] = n[p]);
-                    for (a && a(r, n); i.length; )
-                        i.shift().call(null, t);
-                    if (n[0])
-                        return c[0] = 0, t(0)
-                };
-                var c = {}, o = {0: 0};
-                t.e = function (e, a) {
-                    if (0 === o[e])
-                        return a.call(null, t);
-                    if (void 0 !== o[e])
-                        o[e].push(a);
-                    else {
-                        o[e] = [a];
-                        var c = document.getElementsByTagName("head")[0], r = document.createElement("script");
-                        r.type = "text/javascript", r.charset = "utf-8", r.async = !0, r.src = t.p + "static/js/" + e + "." + {1: "4ad781596619323e2c61", 2: "e7ef03bac8738110d9ce", 3: "6eb494dc29ec50225b50", 4: "12e7cb551b4acdc20e40"}[e] + ".js", c.appendChild(r)
-                    }
-                }, t.m = e, t.c = c, t.p = "/toutiao/", t.p = "//s3.pstatp.com/toutiao/"
-            }([]);</script>
+        
         <style type="text/css">
             @keyframes resizeanim { from { opacity: 0; } to { opacity: 0; } } 
             .resize-triggers { animation: 1ms resizeanim; visibility: hidden; opacity: 0; }
@@ -75,7 +39,7 @@
             .resize-triggers > div { background: #eee; overflow: auto; }
             .contract-trigger:before { width: 200%; height: 200%; }
         </style>
-        <script async="" src="https://show-g.mediav.com/s?jsonp=_qihu_jsonpFun_&amp;type=1&amp;of=4&amp;newf=1&amp;showid=P5AcFE&amp;ref=toutiao.com&amp;uid=15440214374452674181990009996526&amp;scheme=https&amp;impct=5&amp;time=ts_1544021437445"></script>
+        
         <style id="59c58cb">
             .imga_wrapper{position:relative;display:inline-block;}
             .imga_flag{display: inline-block;position: absolute;bottom: 8px;left: 8px;border: 1px solid #fff;color: #fff;font-size: 12px;line-height: 12px;height: 12px;padding: 1px 2px;text-align: center;}
@@ -400,6 +364,7 @@
 
 </html>
 <script src="/static/js/common/jquery-3.2.1.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/swiper.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
 <script src="/static/js/common/jquery.cookie.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
 <script src="/static/js/common/dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
 
