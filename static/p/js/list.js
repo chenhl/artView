@@ -18,7 +18,7 @@ $(function () {
         }
     };
 
-    var swiperVideo = new Swiper('.swiper-container', {
+    var swiperVideo = new Swiper('.swiper-container .swiper-wrapper', {
         autoplay: true
     });
 
