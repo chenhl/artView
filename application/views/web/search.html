@@ -274,6 +274,7 @@
                     <div riot-tag="feedBox" class="feedBox">
                         <div name="feedBox">
                             <div class="sections">
+                                {{foreach $article_list as $key=>$row}}
                                 <div id="J_section_0" riot-tag="articleCard" class="articleCard">
                                     <div class="item">
                                         <div class="item-inner  y-box">
@@ -281,12 +282,7 @@
                                                 <div class="rbox-inner">
                                                     <div class="title-box">
                                                         <a class="link title" target="_blank" href="/group/6587709843321127438/">
-                                                            <span class="J_title" riot-tag="raw">不同
-                                                                <em class="highlight">
-                                                                    艺术家
-                                                                </em>
-                                                                笔下不同的维纳斯画作欣赏
-                                                            </span>
+                                                            <span class="J_title" riot-tag="raw">{}</span>
                                                         </a>
                                                     </div>
                                                     <div class="y-box footer">
@@ -319,6 +315,41 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div id="J_section_36" riot-tag="articleCard" class="articleCard">
+                                    <div class="item">
+                                        <div class="item-inner  y-box">
+                                            <div class="normal  ">
+                                                <div class="rbox-inner">
+                                                    <div class="title-box" >
+                                                        <a class="link title" target="_blank" href="/group/6620328249769591310/">
+                                                            <span class="Jtitle" riot-tag="raw">爬取猫眼top100、淘宝美食、微信文章、ip代理池实现、                                                        
+                                                                <em class="highlight">scrapy</em>入门
+                                                            </span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="y-box footer">
+                                                        <div class="y-left">
+                                                            <div class="y-left">
+                                                                <a class="lbtn media-avatar" target="_blank" href="http://toutiao.com/m1579600678464526/">
+                                                                    <img alt="" src="//p3.pstatp.com/medium/3c690002c80cba1af2ac">
+                                                                </a>
+                                                                <a class="lbtn source J_source" target="_blank" href="http://toutiao.com/m1579600678464526/" riot-tag="raw">
+                                                                    &nbsp;Python乐园&nbsp;
+                                                                </a>
+                                                                <a class="lbtn comment" target="_blank" href="/group/6620328249769591310//#comment_area">
+                                                                    ⋅&nbsp;0评论&nbsp;
+                                                                </a>
+                                                                <span class="lbtn">&nbsp;1月前</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/foreach}}
 
                                 <!--riot placeholder-->
                             </div>
@@ -462,7 +493,7 @@
                 curTab: tabInfo.cur_tab || 1
             });
         </script>
-        
+
     </body>
 
 </html>
