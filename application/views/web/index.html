@@ -1,37 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style class="vjs-styles-defaults">
-            .video-js {
-                width: 300px;
-                height: 150px;
-            }
-
-            .vjs-fluid {
-                padding-top: 56.25%
-            }
-        </style>
-        <meta charset="utf-8">
-        <title>{{$config['name']}}</title>
-        <meta http-equiv="x-dns-prefetch-control" content="on">
-        <meta name="renderer" content="webkit">
-        <link rel="dns-prefetch" href="//view.te.com/">
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
-
-        <meta name="keywords" content="今日头条，头条，头条网，头条新闻，今日头条官网">
-        <meta name="description" content="《今日头条》(www.toutiao.com)是一款基于数据挖掘的推荐引擎产品，它为用户推荐有价值的、个性化的信息，提供连接人与信息的新型服务，是国内移动互联网领域成长最快的产品服务之一。">
-        <link rel="alternate" media="only screen and (max-width: 640px)" href="//m.toutiao.com/">
-        <link rel="shortcut icon" href="//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/favicon_8e9c9c7.ico" type="image/x-icon">
-        <link rel="stylesheet" href="//s3.pstatp.com/toutiao/player/dist/pc_vue2.css" media="screen" title="no title">
-        <!--[if lt IE 9]>
-      <p>您的浏览器版本过低，请<a href="http://browsehappy.com/">升级浏览器</a></p>
-    <![endif]-->
-        
-        <link rel="stylesheet" href="/static/css/common/swiper.min.css">
+        {{include file="./block/header_html.html"}}
         <link rel="stylesheet" href="/static/p/css/index.css">
-        
+
         <style type="text/css">
             @keyframes resizeanim { from { opacity: 0; } to { opacity: 0; } } 
             .resize-triggers { animation: 1ms resizeanim; visibility: hidden; opacity: 0; }
@@ -39,24 +11,7 @@
             .resize-triggers > div { background: #eee; overflow: auto; }
             .contract-trigger:before { width: 200%; height: 200%; }
         </style>
-        
-        <style id="59c58cb">
-            .imga_wrapper{position:relative;display:inline-block;}
-            .imga_flag{display: inline-block;position: absolute;bottom: 8px;left: 8px;border: 1px solid #fff;color: #fff;font-size: 12px;line-height: 12px;height: 12px;padding: 1px 2px;text-align: center;}
-        </style>
-        <style id="20a8112">
-            .right-iframe-img{margin-bottom:16px; padding: 20px; background-color: #f4f5f6; position: relative; z-index: 1;}
-        </style>
-        <style id="51e2d8d">
-            #imagindexhover{margin-top: -10px; padding: 0 20px; position: relative; z-index: 1;} 
-            #imagindexhover > ins{position: relative!important}
-        </style>
-        <style id="94d886b">
-            .right-iframe-img{margin-bottom:16px; padding: 20px; background-color: #f4f5f6; position: relative; z-index: 1;}
-        </style>
-        <style id="aa98dd1">
-            .right-iframe-img{margin-bottom:16px; padding: 20px; background-color: #f4f5f6; position: relative; z-index: 1;}
-        </style>
+
     </head>
 
     <body> 
@@ -64,10 +19,14 @@
             <div class="art-header">
                 <div class="topbar">
                     <div class="bui-left clearfix">
-                        <!--                        <a href="//app.toutiao.com/news_article/" target="_blank" ga_event="mh_nav_others"
-                                                   class="download-app tb-link">
-                                                    下载APP
-                                                </a>-->
+                        <a href="//app.toutiao.com/news_article/" target="_blank" ga_event="mh_nav_others"
+                           class="download-app tb-link">
+                            下载APP
+                        </a>
+                        <a href="//app.toutiao.com/news_article/" target="_blank" ga_event="mh_nav_others"
+                           class="download-app tb-link">
+                            下载APP
+                        </a>
                     </div>
                     <!---->
                     <div class="bui-right">
