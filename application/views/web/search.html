@@ -278,74 +278,43 @@
                                 <div id="J_section_0" riot-tag="articleCard" class="articleCard">
                                     <div class="item">
                                         <div class="item-inner  y-box">
-                                            <div class="normal rbox ">
+                                            <div class="normal {{if !empty($row.image)}}rbox{{/if}}">
                                                 <div class="rbox-inner">
                                                     <div class="title-box">
-                                                        <a class="link title" target="_blank" href="/group/6587709843321127438/">
-                                                            <span class="J_title" riot-tag="raw">{}</span>
+                                                        <a class="link title" target="_blank" href="{{$row.a_url}}">
+                                                            <span class="J_title" riot-tag="raw">{{$row.title}}</span>
                                                         </a>
                                                     </div>
                                                     <div class="y-box footer">
                                                         <div class="y-left">
                                                             <div class="y-left">
                                                                 <a class="lbtn media-avatar" target="_blank"
-                                                                   href="http://toutiao.com/m52653347308/">
-                                                                    <img alt="" src="//p1.pstatp.com/medium/1dcf00100ad16f6cb8a9">
+                                                                   href="{{$row.u_url}}">
+                                                                    <img alt="" src="{{$row.userpic}}">
                                                                 </a>
                                                                 <a class="lbtn source J_source" target="_blank"
-                                                                   href="http://toutiao.com/m52653347308/" riot-tag="raw">
-                                                                    &nbsp;闻是书画&nbsp;
+                                                                   href="{{$row.u_url}}" riot-tag="raw">
+                                                                    &nbsp;{{$row.uname}}&nbsp;
                                                                 </a>
                                                             </div>
+                                                            {{*
                                                             <a class="lbtn comment" target="_blank" href="/group/6587709843321127438//#comment_area">
                                                                 ⋅&nbsp;9评论&nbsp;
-                                                            </a>
+                                                            </a>*}}
                                                             <span class="lbtn">
-                                                                ⋅&nbsp;4月前
+                                                                ⋅&nbsp;{{$row.create_time}}
                                                             </span>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
+                                            {{if !empty($row.image)}}
                                             <div class="lbox">
-                                                <a class="img-wrap" target="_blank" href="/group/6587709843321127438/">
-                                                    <img alt="" src="//p9-tt.bytecdn.cn/list/pgc-image/1533820654618f1554e1eb4">
+                                                <a class="img-wrap" target="_blank" href="{{$row.a_url}}">
+                                                    <img alt="" src="{{$row.image}}">
                                                 </a>
                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div id="J_section_36" riot-tag="articleCard" class="articleCard">
-                                    <div class="item">
-                                        <div class="item-inner  y-box">
-                                            <div class="normal  ">
-                                                <div class="rbox-inner">
-                                                    <div class="title-box" >
-                                                        <a class="link title" target="_blank" href="/group/6620328249769591310/">
-                                                            <span class="Jtitle" riot-tag="raw">爬取猫眼top100、淘宝美食、微信文章、ip代理池实现、                                                        
-                                                                <em class="highlight">scrapy</em>入门
-                                                            </span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="y-box footer">
-                                                        <div class="y-left">
-                                                            <div class="y-left">
-                                                                <a class="lbtn media-avatar" target="_blank" href="http://toutiao.com/m1579600678464526/">
-                                                                    <img alt="" src="//p3.pstatp.com/medium/3c690002c80cba1af2ac">
-                                                                </a>
-                                                                <a class="lbtn source J_source" target="_blank" href="http://toutiao.com/m1579600678464526/" riot-tag="raw">
-                                                                    &nbsp;Python乐园&nbsp;
-                                                                </a>
-                                                                <a class="lbtn comment" target="_blank" href="/group/6620328249769591310//#comment_area">
-                                                                    ⋅&nbsp;0评论&nbsp;
-                                                                </a>
-                                                                <span class="lbtn">&nbsp;1月前</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            {{/if}}
                                         </div>
                                     </div>
                                 </div>

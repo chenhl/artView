@@ -1,0 +1,44 @@
+<div class="bui-left index-channel">
+    <div>
+        <div class="channel">
+            <a href="/" class="logo">
+                <img src="//s3.pstatp.com/toutiao/static/img/logo.201f80d.png" alt="今日头条"
+                     style="width: 108px; height: 27px;">
+            </a>
+            <ul>
+                {{foreach $channels as $key=>$val}}
+                <li>
+                    <!--active-->
+                    <a href="{{$val.url}}" target="_self" class="channel-item">
+                        <span>
+                            {{$val.name}}
+                        </span>
+                    </a>
+                </li>
+                {{/foreach}}
+                {{*
+                <li class="channel-more">
+                    <a href="javascript:void(0);" class="channel-item">
+                        <span>
+                            更多
+                        </span>
+                    </a>
+                    <div class="channel-more-layer">
+                        <ul class="bui-box">
+                            <li class="bui-left">
+                                <a href="/ch/news_military/" target="_self"
+                                   class="channel-item">
+                                    <span>
+                                        军事
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                *}}
+
+            </ul>
+        </div>
+    </div>
+</div>

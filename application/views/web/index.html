@@ -43,44 +43,11 @@
                 <!---->
             </div>
             <div class="bui-box container">
-                <div class="bui-left index-channel">
-                    <div>
-                        <div class="channel">
-                            <a href="/" class="logo">
-                                <img src="//s3.pstatp.com/toutiao/static/img/logo.201f80d.png" alt="今日头条"
-                                     style="width: 108px; height: 27px;">
-                            </a>
-                            <!---->
-                            <ul>
-                                {{include file="./block/channel.html"}}
+                {{include file="./block/index_channel.html"}}
 
-                                <!--                                <li class="channel-more">
-                                                                    <a href="javascript:void(0);" class="channel-item">
-                                                                        <span>
-                                                                            更多
-                                                                        </span>
-                                                                    </a>
-                                                                    <div class="channel-more-layer">
-                                                                        <ul class="bui-box">
-                                                                            <li class="bui-left">
-                                                                                <a href="/ch/news_military/" target="_self"
-                                                                                   class="channel-item">
-                                                                                    <span>
-                                                                                        军事
-                                                                                    </span>
-                                                                                </a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div>
-                                                                </li>-->
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="bui-left index-content">
                     {{include file="./block/index_slide.html"}}
-                    <!---->
+
                     <div class="feed-infinite-wrapper">
                         <div class="loading ball-pulse" style="display: none;">
                             <div>
@@ -158,65 +125,7 @@
                                 </div>
                             </li>
                             *}}
-                            {{*插入广告*}}
-                            {{*
-                            <li class="J_qihu_ad" ad_qihu_id="0" ad_show="0">
-                                <div ga_event="ad_item_click" class="more-mode">
-                                    <div ga_event="ad_title_click" class="title-box">
-                                        <a href="https://max-l.mediav.com/rtb?type=3&amp;d=107&amp;b=12c2d04ef5f49002&amp;p=1696178&amp;l=291558&amp;s=1&amp;k=UIjryQAAAAA=&amp;i=UxUV2oMG69c7&amp;v=69821665104342211040018&amp;x=__OFFSET_X__&amp;y=__OFFSET_Y__&amp;st=__EVENT_TIME_START__&amp;et=__EVENT_TIME_END__&amp;tc=99491a&amp;turl=https%3A%2F%2Faw.kejet.net%2Fc%3F%26v%3D1544021461%26d%3DdWpc%26dch%3D0100%26c%3DWq%26m%3Da1uc%26n%3D32%26ip%3D111.63.14.100%26f%3Dtoutiao.com%26s%3D180x100%26ft%3D7%26y%3D32S-1696178%26b%3D12%26id%3D32_12c2d04ef5f49002%26g%3Dhttp%253A%252F%252Ftg.yxdou.com%252Ftgws11497_i0kd.htm%253Fwmsid%253D%2525ST%2525%2526yc%253D%2525YC%2525"
-                                           target="_blank" class="link">
-                                            传奇变态版！没有vip！开局就是六神装！打架不要太爽！
-                                        </a>
-                                    </div>
-                                    <div ga_event="ad_img_click" class="bui-box img-list">
-                                        <a href="https://max-l.mediav.com/rtb?type=3&amp;d=107&amp;b=12c2d04ef5f49002&amp;p=1696178&amp;l=291558&amp;s=1&amp;k=UIjryQAAAAA=&amp;i=UxUV2oMG69c7&amp;v=69821665104342211040018&amp;x=__OFFSET_X__&amp;y=__OFFSET_Y__&amp;st=__EVENT_TIME_START__&amp;et=__EVENT_TIME_END__&amp;tc=99491a&amp;turl=https%3A%2F%2Faw.kejet.net%2Fc%3F%26v%3D1544021461%26d%3DdWpc%26dch%3D0100%26c%3DWq%26m%3Da1uc%26n%3D32%26ip%3D111.63.14.100%26f%3Dtoutiao.com%26s%3D180x100%26ft%3D7%26y%3D32S-1696178%26b%3D12%26id%3D32_12c2d04ef5f49002%26g%3Dhttp%253A%252F%252Ftg.yxdou.com%252Ftgws11497_i0kd.htm%253Fwmsid%253D%2525ST%2525%2526yc%253D%2525YC%2525"
-                                           target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="https://m.kejet.net/ms/18a23/f87d1263c.gif"
-                                                 lazy="loaded">
-                                        </a>
-                                        <a href="https://max-l.mediav.com/rtb?type=3&amp;d=107&amp;b=12c2d04ef5f49002&amp;p=1696178&amp;l=291558&amp;s=1&amp;k=UIjryQAAAAA=&amp;i=UxUV2oMG69c7&amp;v=69821665104342211040018&amp;x=__OFFSET_X__&amp;y=__OFFSET_Y__&amp;st=__EVENT_TIME_START__&amp;et=__EVENT_TIME_END__&amp;tc=99491a&amp;turl=https%3A%2F%2Faw.kejet.net%2Fc%3F%26v%3D1544021461%26d%3DdWpc%26dch%3D0100%26c%3DWq%26m%3Da1uc%26n%3D32%26ip%3D111.63.14.100%26f%3Dtoutiao.com%26s%3D180x100%26ft%3D7%26y%3D32S-1696178%26b%3D12%26id%3D32_12c2d04ef5f49002%26g%3Dhttp%253A%252F%252Ftg.yxdou.com%252Ftgws11497_i0kd.htm%253Fwmsid%253D%2525ST%2525%2526yc%253D%2525YC%2525"
-                                           target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="https://m.kejet.net/ms/18a23/f87d128ef.gif"
-                                                 lazy="loaded">
-                                        </a>
-                                        <a href="https://max-l.mediav.com/rtb?type=3&amp;d=107&amp;b=12c2d04ef5f49002&amp;p=1696178&amp;l=291558&amp;s=1&amp;k=UIjryQAAAAA=&amp;i=UxUV2oMG69c7&amp;v=69821665104342211040018&amp;x=__OFFSET_X__&amp;y=__OFFSET_Y__&amp;st=__EVENT_TIME_START__&amp;et=__EVENT_TIME_END__&amp;tc=99491a&amp;turl=https%3A%2F%2Faw.kejet.net%2Fc%3F%26v%3D1544021461%26d%3DdWpc%26dch%3D0100%26c%3DWq%26m%3Da1uc%26n%3D32%26ip%3D111.63.14.100%26f%3Dtoutiao.com%26s%3D180x100%26ft%3D7%26y%3D32S-1696178%26b%3D12%26id%3D32_12c2d04ef5f49002%26g%3Dhttp%253A%252F%252Ftg.yxdou.com%252Ftgws11497_i0kd.htm%253Fwmsid%253D%2525ST%2525%2526yc%253D%2525YC%2525"
-                                           target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="https://m.kejet.net/ms/18a23/f87d12adb.gif"
-                                                 lazy="loaded">
-                                        </a>
-                                        <a href="https://max-l.mediav.com/rtb?type=3&amp;d=107&amp;b=12c2d04ef5f49002&amp;p=1696178&amp;l=291558&amp;s=1&amp;k=UIjryQAAAAA=&amp;i=UxUV2oMG69c7&amp;v=69821665104342211040018&amp;x=__OFFSET_X__&amp;y=__OFFSET_Y__&amp;st=__EVENT_TIME_START__&amp;et=__EVENT_TIME_END__&amp;tc=99491a&amp;turl=https%3A%2F%2Faw.kejet.net%2Fc%3F%26v%3D1544021461%26d%3DdWpc%26dch%3D0100%26c%3DWq%26m%3Da1uc%26n%3D32%26ip%3D111.63.14.100%26f%3Dtoutiao.com%26s%3D180x100%26ft%3D7%26y%3D32S-1696178%26b%3D12%26id%3D32_12c2d04ef5f49002%26g%3Dhttp%253A%252F%252Ftg.yxdou.com%252Ftgws11497_i0kd.htm%253Fwmsid%253D%2525ST%2525%2526yc%253D%2525YC%2525"
-                                           target="_blank" class="img-wrap img-item">
-                                            <img class="lazy-load-img" src="https://m.kejet.net/ms/18a23/f87d12d7b.gif"
-                                                 lazy="loaded">
-                                        </a>
-                                        <!---->
-                                        <!---->
-                                    </div>
-                                    <div class="bui-box footer-bar">
-                                        <div class="bui-left footer-bar-left">
-                                            <!---->
-                                            <a href="/search/?keyword=新数网络" ga_event="ad_avatar_click" class="footer-bar-action media-avatar avatar-style-3">
-                                                新
-                                            </a>
-                                            <a href="/search/?keyword=新数网络" target="_blank" ga_event="ad_name_click"
-                                               class="footer-bar-action source">
-                                                &nbsp;新数网络&nbsp;⋅
-                                            </a>
-                                            <span class="footer-bar-action">
-                                                &nbsp;刚刚
-                                            </span>
-                                            <!---->
-                                            <!---->
-                                            <a target="_blank" href="https://ad.toutiao.com/promotion/?source2=pcfeedadtag"
-                                               class="footer-bar-action ad">
-                                                广告
-                                            </a>
-                                        </div>
-                                        <!---->
-                                    </div>
-                                </div>
-                            </li>
-                            *}}
+
 
                         </ul>
 

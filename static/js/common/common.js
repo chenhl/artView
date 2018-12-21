@@ -226,27 +226,24 @@ function articleListp(list, obj) {
  */
 function articleListps(list, obj) {
     obj = obj || {};
-    var result = '';
+    var result = '', res_rbox, res_lbox;
     var u_url, a_url;
 
     for (var i = 0; i < list.length; i++) {
         a_url = list[i].a_url;
         u_url = list[i].u_url;
-        
-        result += '<div id="J_section_0" riot-tag="articleCard" class="articleCard">';
-        result += '<div class="item">';
-        result += '<div class="item-inner  y-box">';
-        result += '<div class="normal rbox ">';
+        res_rbox = '';
+        res_lbox = '';
 
-        result += '<div class="rbox-inner">';
+        res_rbox += '<div class="rbox-inner">';
         //title
-        result += '<div class="title-box">' +
+        res_rbox += '<div class="title-box">' +
                 '<a href="' + a_url + '" target="_blank" class="link title">' + '<span class="J_title" riot-tag="raw">' +
                 list[i].title +
                 '</span>' + '</a>' +
                 '</div>';
         //title footer
-        result += '<div class="y-box footer">' +
+        res_rbox += '<div class="y-box footer">' +
                 '<div class="y-left">' +
                 '<div class="y-left">' +
                 '<a class="lbtn media-avatar" target="_blank" href="' + u_url + '">' +
@@ -264,15 +261,27 @@ function articleListps(list, obj) {
                 '</span>' +
                 '</div>' + //y-left
                 '</div>';//y-box footer
+        res_rbox += '</div>'; // rbox-inner
 
-        result += '</div>'; // rbox-inner
-        result += '</div>';//normal
-        // left pic
-        result += '<div class="lbox">' +
-                '<a class="img-wrap" target="_blank" href="/group/6587709843321127438/">' +
-                '<img alt="" src="//p9-tt.bytecdn.cn/list/pgc-image/1533820654618f1554e1eb4">' +
-                '</a>' +
-                '</div>';
+        result += '<div id="J_section_0" riot-tag="articleCard" class="articleCard">';
+        result += '<div class="item">';
+        result += '<div class="item-inner  y-box">';
+
+        if (list[i].images.length === 0 && list[i].image === '') {//无图
+            result += '<div class="normal">';//normal start
+            result += res_rbox;
+        } else {
+            result += '<div class="normal rbox ">';//normal start
+            result += res_rbox;
+            // left pic
+            res_lbox += '<div class="lbox">' +
+                    '<a class="img-wrap" target="_blank" href="/group/6587709843321127438/">' +
+                    '<img alt="" src="//p9-tt.bytecdn.cn/list/pgc-image/1533820654618f1554e1eb4">' +
+                    '</a>' +
+                    '</div>';
+            result += res_lbox;
+        }
+        result += '</div>';//normal end
 
         result += '</div>';//item-inner
         result += '</div>'; //item
