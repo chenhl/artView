@@ -1,0 +1,17 @@
+<div class="topbar">
+    <div class="bui-left clearfix">
+        {{foreach $channels as $key=>$val}}
+        <a href="{{$val.url}}" target="_self" class="download-app tb-link">
+            {{$val.name}}
+        </a>
+        {{/foreach}}
+    </div>
+    <!---->
+    <div class="bui-right">
+        <ul class="user-nav-list clearfix">
+            <li>
+                <a href="#" class="tb-link">侵权投诉</a>
+            </li>
+        </ul>
+    </div>
+</div>

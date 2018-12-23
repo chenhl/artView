@@ -17,29 +17,8 @@
     <body> 
         <div>
             <div class="art-header">
-                <div class="topbar">
-                    <div class="bui-left clearfix">
-                        <a href="//app.toutiao.com/news_article/" target="_blank" ga_event="mh_nav_others"
-                           class="download-app tb-link">
-                            下载APP
-                        </a>
-                        <a href="//app.toutiao.com/news_article/" target="_blank" ga_event="mh_nav_others"
-                           class="download-app tb-link">
-                            下载APP
-                        </a>
-                    </div>
-                    <!---->
-                    <div class="bui-right">
-                        <ul class="user-nav-list clearfix">
-                            <li>
-                                <a href="//www.toutiao.com/complain/" target="blank"
-                                   class="tb-link">
-                                    侵权投诉
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                
+                {{include file="./block/top_bar.html"}}
                 <!---->
             </div>
             <div class="bui-box container">
@@ -49,6 +28,7 @@
                     {{include file="./block/index_slide.html"}}
 
                     <div class="feed-infinite-wrapper">
+                        {{*
                         <div class="loading ball-pulse" style="display: none;">
                             <div>
                             </div>
@@ -77,6 +57,7 @@
                                 </div>
                             </div>
                         </div>
+                        *}}
                         <ul id="pageletListContent" infinite-scroll-disabled="loading" infinite-scroll-immediate-check="containerCheck"
                             infinite-scroll-immediate-check-count="containerCheckCount" infinite-scroll-distance="80">
                             <input type="hidden" id="next_page" value="{{$next_page}}">
@@ -144,21 +125,14 @@
                     </div>
                 </div>
                 <div id="rightModule" class="bui-right index-right-bar">
-                    <div ga_event="index_search_click" class="search-wrapper">
+                    <div class="search-wrapper">
                         <div class="search-wrap">
                             <div class="tt-autocomplete">
                                 <div class="tt-input tt-input-group tt-input-group--append">
-                                    <!---->
-                                    <!---->
                                     <input type="text" placeholder="请输入要搜索的内容" autocomplete="off" class="tt-input__inner">
-                                    <!---->
                                     <div class="tt-input-group__append">
                                         <button type="button" class="tt-button tt-button--default">
-                                            <!---->
-                                            <!---->
-                                            <span>
-                                                搜索
-                                            </span>
+                                            <span>搜索</span>
                                         </button>
                                     </div>
                                 </div>
