@@ -78,7 +78,7 @@ function articleListm(list, obj) {
         sec_cls = 'has_action';
         h3_cls = 'dotdot line3';
         detail_cls = 'item_detail';
-        if (list[i].images.length === 0 && list[i].image.length > 0) {
+        if (list[i].images.length < 3 && list[i].image.length > 0) {
             sec_cls = 'middle_mode has_action';
             h3_cls = 'dotdot line3 image-margin-right';
             detail_cls = 'item_detail desc';
@@ -89,7 +89,7 @@ function articleListm(list, obj) {
         result += '<div class="' + detail_cls + '">';
         result += '<h3 class="' + h3_cls + '">' + list[i].title + '</h3>';
 
-        if (list[i].images.length > 0) {
+        if (list[i].images.length > 2) {
             result += '<div class="list_image">';
             result += '<ul class="clearfix">';
             for (var k = 0; k < list[i].images.length; k++) {
@@ -173,7 +173,7 @@ function articleListp(list, obj) {
             result += res_footer;
             result += '</div>';
 
-        } else if (list[i].images.length === 0 && list[i].image !== '') {//一图
+        } else if (list[i].images.length < 3 && list[i].image !== '') {//一图
             result += '<div class="bui-box single-mode">';
 
             res_img += '<div class="bui-left single-mode-lbox">' +
@@ -267,7 +267,7 @@ function articleListps(list, obj) {
         result += '<div class="item">';
         result += '<div class="item-inner  y-box">';
 
-        if (list[i].images.length === 0 && list[i].image === '') {//无图
+        if (list[i].images.length < 3 && list[i].image === '') {//无图
             result += '<div class="normal">';//normal start
             result += res_rbox;
         } else {
