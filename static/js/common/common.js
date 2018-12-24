@@ -185,6 +185,7 @@ function articleListp(list, obj) {
             result += '<div class="single-mode-rbox">' +
                     '<div class="single-mode-rbox-inner">';
             result += res_title;
+            result += res_img;
             result += res_footer;
             result += '</div>';
             result += '</div>';
