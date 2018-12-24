@@ -248,7 +248,7 @@ function articleListps(list, obj) {
                 '<div class="y-left">' +
                 '<div class="y-left">' +
                 '<a class="lbtn media-avatar" target="_blank" href="' + u_url + '">' +
-                '<img alt="" src="'+list[i].upic+'">' +
+                '<img alt="" src="' + list[i].upic + '">' +
                 '</a>' +
                 '<a class="lbtn source J_source" target="_blank" href="' + u_url + '" riot-tag="raw">' +
                 '&nbsp;' + list[i].uname + '&nbsp;' +
@@ -339,5 +339,14 @@ $(function () {
     //scroll top
     $('#icon-arrow_up_big').on('click', function () {
         $(document).scrollTop(0);
+    });
+    //search
+    $('#search_btn').on('click', function () {
+        var txt = $('#input_q').val();
+        if (txt !== '') {
+            window.location.href = '/search/?q=' + txt;
+        } else {
+            return false;
+        }
     });
 });
