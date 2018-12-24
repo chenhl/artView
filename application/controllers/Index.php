@@ -6,7 +6,7 @@ class Index extends Base_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('article', 'channel', 'member_model','conf_model'));
+        $this->load->model(array('article', 'channel', 'member_model', 'conf_model'));
     }
 
     /**
@@ -22,7 +22,7 @@ class Index extends Base_Controller {
         //配置
         $config = $this->conf_model->getConf();
         $this->assign('config', $config);
-        
+
         //频道列表
         $param = array();
         if (empty($get['code']) && empty($segment_array[1])) {
@@ -46,12 +46,57 @@ class Index extends Base_Controller {
         $this->assign('next_page', 2);
         $this->assign('page_size', $page_size);
         $this->assign('channel', $channel);
-        
+
         //是否用户文章 不同的头文件
-        $this->assign('uid', 0);    
-        
+        $this->assign('uid', 0);
+
         $this->assign('article_list', $data['list']);
         $this->display('web/index.html');
+    }
+
+    /**
+     * 列表初始化
+     * 
+     */
+    public function search() {
+//        print_r($this->artsmarty);
+//        exit;
+        //入参
+        $get = $this->input->get();
+        $segment_array = $this->uri->segment_array();
+        //配置
+        $config = $this->conf_model->getConf();
+        $this->assign('config', $config);
+//        print_r($config);
+        //频道列表
+        $param = array();
+        if (empty($get['code']) && empty($segment_array[1])) {
+            $param['code'] = 'all';
+            $channel = '';
+        } else {
+            $param['code'] = $segment_array[1]; //当前频道
+            $channel = $param['code'];
+        }
+        $channels = $this->channel->getList($param);
+        $this->assign('channels', $channels);
+        //置顶
+        $this->assign('article_tops', array());
+        //内容列表
+        $condition = array();
+        $condition['channel'] = $channel;
+        $page = 1;
+        $page_size = 10;
+        $data = $this->article->getList($condition, $page, $page_size);
+//        print_r($data);
+        $this->assign('next_page', 2);
+        $this->assign('page_size', $page_size);
+        $this->assign('channel', $channel);
+
+        //是否用户文章 不同的头文件
+        $this->assign('uid', 0);
+
+        $this->assign('article_list', $data['list']);
+        $this->display('web/search.html');
     }
 
     /**

@@ -54,8 +54,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //频道
 
 $route['default_controller'] = 'index/index';
+//文章列表
 $route['(news|artist|exhibit|gallery|edu)$'] = 'index/index/?code=$1';
+//搜索文章列表
+$route['search$'] = 'index/search';
+//文章详情
 $route['a/(:num)$'] = 'index/detail/?aid=$1';
+//作者 文章列表
 $route['u/(:num)$'] = 'author/index/?uid=$1';
 
 //$route['member/auth/(:any)$'] = 'index/detail/?aid=$1';

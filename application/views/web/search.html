@@ -28,15 +28,14 @@
                 <script src="//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/js/lib/es5-shim_110642e.js">
                 </script>
         <![endif]-->
-        <script src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/js/common/lib_d2cb17c.js"
+<!--        <script src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/js/common/lib_d2cb17c.js"
                 crossorigin="anonymous">
-        </script>
+        </script>-->
         <link rel="stylesheet" href="/static/p/css/search.css">
     </head>
     <body style="min-width: 768px; overflow-x: hidden;" libsign2018625="1"
           mainsign2018827="1" firstsign2018827="1" rlt="1">
-        <a href="/articles_news_society/" style="display:none;">
-        </a>
+        <a href="/articles_news_society/" style="display:none;"></a>
         <div class="y-wrap">
             <div id="header">
                 <div riot-tag="wtopbar" style="height: 34px; background: #222;">
@@ -254,6 +253,7 @@
                             </div>
                         </form>
                     </div>
+                    {{*
                     <div riot-tag="tabBar" class="tabBar">
                         <ul class="y-box tab-list" ga_event="result_tab_click">
                             <li class="y-left tab-item active">
@@ -271,6 +271,7 @@
                             <!--riot placeholder-->
                         </ul>
                     </div>
+                    *}}
                     <div riot-tag="feedBox" class="feedBox">
                         <div name="feedBox">
                             <div class="sections">
@@ -290,7 +291,7 @@
                                                             <div class="y-left">
                                                                 <a class="lbtn media-avatar" target="_blank"
                                                                    href="{{$row.u_url}}">
-                                                                    <img alt="" src="{{$row.userpic}}">
+                                                                    <img alt="" src="{{$row.upic}}">
                                                                 </a>
                                                                 <a class="lbtn source J_source" target="_blank"
                                                                    href="{{$row.u_url}}" riot-tag="raw">
@@ -364,105 +365,7 @@
                 </div>
             </div>
         </div>
-        <script>
-            window.globals = window.globals || {};
-
-            window.taAnalysis && taAnalysis.setup({
-                c: '/search/'
-            });
-            window.taAnalysis && taAnalysis.send('pageview', {});
-
-            utils.on(document.getElementsByTagName('body')[0], 'click',
-                    function (e) {
-                        var target = utils.getTarget(e),
-                                ga_event,
-                                ga_category,
-                                ga_label,
-                                ga_value;
-
-                        while (target && target.nodeName.toUpperCase() !== 'BODY') {
-                            ga_event = utils.getAttribute(target, 'ga_event');
-                            ga_category = utils.getAttribute(target, 'ga_category') || '/search/';
-                            ga_label = utils.getAttribute(target, 'ga_label');
-                            ga_value = utils.getAttribute(target, 'ga_value') || 1;
-
-                            ga_event && window._czc && _czc.push(["_trackEvent", ga_category, ga_event, ga_label, ga_value]);
-                            ga_event && taAnalysis && taAnalysis.send('event', {
-                                ev: ga_event
-                            });
-                            target = target.parentNode;
-                        }
-                    });
-
-            riot.observable(window);
-        </script>
-        <script src="//s2.pstatp.com/growth/confucius/confs/toutiao.web.toutiao_pc-pc-fe_switch.js?t=12171059">
-        </script>
-        <script>
-            var PAGE_SWITCH = window['toutiao.web.toutiao_pc/pc/fe_switch'] || {};
-        </script>
-        <script>
-            // 用户信息
-            var userInfo = {
-                id: 0,
-                name: '',
-                avatarUrl: '',
-                isPgc: false,
-                isOwner: false
-            };
-
-            var tabInfo = {
-                "tab_list": [{
-                        "tab_name": "\u7efc\u5408",
-                        "tab_code": "search_tab",
-                        "tab_id": 1
-                    },
-                    {
-                        "tab_name": "\u89c6\u9891",
-                        "tab_code": "video",
-                        "tab_id": 2
-                    },
-                    {
-                        "tab_name": "\u56fe\u96c6",
-                        "tab_code": "gallery",
-                        "tab_id": 3
-                    },
-                    {
-                        "tab_name": "\u7528\u6237",
-                        "tab_code": "media",
-                        "tab_id": 4
-                    }],
-                "cur_tab": 1
-            };
-        </script>
-        <script src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/page/search/search_7ddcc6a.js">
-        </script>
-        <script>
-            riot.mount('wtopbar', {
-                home: false,
-                userInfo: userInfo
-            });
-        </script>
-        <script>
-            var KEYWORD = '';
-
-            KEYWORD = "\u827a\u672f\u5bb6";
-        </script>
-        <script>
-            riot.mount('searchBar', {
-                keyword: KEYWORD
-            });
-            riot.mount('tabBar', {
-                tabInfo: tabInfo
-            });
-        </script>
-        <script>
-            riot.mount('feedBox', {
-                keyword: KEYWORD,
-                curTab: tabInfo.cur_tab || 1
-            });
-        </script>
-
+        
     </body>
 
 </html>

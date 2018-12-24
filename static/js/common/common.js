@@ -247,7 +247,7 @@ function articleListps(list, obj) {
                 '<div class="y-left">' +
                 '<div class="y-left">' +
                 '<a class="lbtn media-avatar" target="_blank" href="' + u_url + '">' +
-                '<img alt="" src="//p1.pstatp.com/medium/1dcf00100ad16f6cb8a9">' +
+                '<img alt="" src="'+list[i].upic+'">' +
                 '</a>' +
                 '<a class="lbtn source J_source" target="_blank" href="' + u_url + '" riot-tag="raw">' +
                 '&nbsp;' + list[i].uname + '&nbsp;' +
