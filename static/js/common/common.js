@@ -277,13 +277,12 @@ function articleListps(list, obj) {
             // left pic
             res_lbox += '<div class="lbox">' +
                     '<a class="img-wrap" target="_blank" href="/group/6587709843321127438/">' +
-                    '<img alt="" src="//p9-tt.bytecdn.cn/list/pgc-image/1533820654618f1554e1eb4">' +
+                    '<img alt="" src="' + list[i].image + '">' +
                     '</a>' +
                     '</div>';
-            result += res_lbox;
         }
         result += '</div>';//normal end
-
+        result += res_lbox;
         result += '</div>';//item-inner
         result += '</div>'; //item
         result += '</div>';//articleCard

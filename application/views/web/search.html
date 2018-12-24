@@ -28,9 +28,9 @@
                 <script src="//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/js/lib/es5-shim_110642e.js">
                 </script>
         <![endif]-->
-<!--        <script src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/js/common/lib_d2cb17c.js"
-                crossorigin="anonymous">
-        </script>-->
+        <!--        <script src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/js/common/lib_d2cb17c.js"
+                        crossorigin="anonymous">
+                </script>-->
         <link rel="stylesheet" href="/static/p/css/search.css">
     </head>
     <body style="min-width: 768px; overflow-x: hidden;" libsign2018625="1"
@@ -273,6 +273,9 @@
                     </div>
                     *}}
                     <div riot-tag="feedBox" class="feedBox" id="pageletListContent">
+                        <input type="hidden" id="next_page" value="{{$next_page}}">
+                        <input type="hidden" id="page_size" value="{{$page_size}}">
+                        <input type="hidden" id="channel" value="{{$channel}}">
                         <div name="feedBox">
                             <div class="sections">
                                 {{foreach $article_list as $key=>$row}}
@@ -365,7 +368,7 @@
                 </div>
             </div>
         </div>
-        
+
     </body>
 
 </html>

@@ -40,7 +40,7 @@ $(function () {
                             if(platform ==='p'){
                                 $('#pageletListContent').eq(0).append(result);
                             }else if(platform ==='ps'){
-                                $('#pageletListContent').eq(0).find('div.feedBox div.sections').append(result);
+                                $('#pageletListContent').eq(0).find('div.sections').append(result);
                             }else{
                                 $('#pageletListContent').eq(0).find('div.list_content').append(result);
                             }
