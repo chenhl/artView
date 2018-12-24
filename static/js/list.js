@@ -37,7 +37,13 @@ $(function () {
                             }
                         }
                         setTimeout(function () {
-                            $('#pageletListContent').eq(0).find('div.list_content').append(result);
+                            if(platform ==='p'){
+                                $('#pageletListContent').eq(0).append(result);
+                            }else if(platform ==='ps'){
+                                $('#pageletListContent').eq(0).find('div.feedBox div.sections').append(result);
+                            }else{
+                                $('#pageletListContent').eq(0).find('div.list_content').append(result);
+                            }
                             me.resetload();
                         }, 500);
                     } catch (e) {
