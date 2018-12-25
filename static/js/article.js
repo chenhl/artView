@@ -1,29 +1,35 @@
 //ajax防重点击锁
 var hasClick = false;
 
-function collection() {
+function collection(param) {
+    param = param || {};
     //点击锁
     if (hasClick) {
         return false;
     }
     hasClick = true;
+    var _ele = this;
+    if (param.data.ele) {
+        _ele = param.data.ele;
+    }
     //客户端验证登录
     if (getCookie('uid') === '') {
         ajaxCheckParamMsg();
         return false;
     }
     //改变页面状态
-//        $(this).toggleClass('collection');
+
     var class_str = 'collection';
     var url = '/index/collection';
-    if ($(this).hasClass(class_str)) {
-        $(this).removeClass(class_str);
+    if ($(_ele).hasClass(class_str)) {
+        $(_ele).removeClass(class_str);
         url = '/index/cancelCollection';
     } else {
-        $(this).addClass(class_str);
+        $(_ele).addClass(class_str);
     }
     //提交数据
-    var aid = $(this).attr('data-aid');
+    var aid = $(_ele).attr('data-aid');
+
     return false;
     $.ajax({
         type: 'POST',
@@ -92,9 +98,9 @@ $(function () {
 //    alert($(document).height());
 //    alert($('.recommendation-container').height());
     //收藏
-    $('#collection').on('click', collection);
-    //关注
-    $('#follow').on('click', follow);
+//    $('#collection').on('click', collection);
+//    //关注
+//    $('#follow').on('click', follow);
 
 //点赞 未开启
     $('#like').on('click', function () {

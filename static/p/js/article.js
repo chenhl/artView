@@ -11,7 +11,7 @@ var platform = 'p';
  * @returns {undefined}
  */
 function ajaxCheckParamMsg() {
-    window.location.href='/member/login';
+    window.location.href = '/member/login';
 }
 /**
  * 收藏、喜欢、关注等点击时结果
@@ -45,13 +45,17 @@ $(function () {
             $('.share-box').removeClass('share-box-fixed');
         }
     });
+    //收藏
+    $('.repin i,.repin span').on('click', {platform: platform,ele:'.repin i'}, collection);
+    //关注
+    $('#follow').on('click', {platform: platform}, follow);
     //author 文章
     ajaxArticleList({
-        aid:$('#aid').val(),
-        uid:$('#uid').val()
-    },{
-        contentEle:'.user-card-article-list'
+        aid: $('#aid').val(),
+        uid: $('#uid').val()
+    }, {
+        contentEle: '.user-card-article-list'
     });
-    
+
 });
 

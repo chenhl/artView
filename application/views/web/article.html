@@ -162,7 +162,7 @@
                             </div>
                             <div class="bui-right">
                                 <div class="repin">
-                                    <i class="bui-icon icon-favorite_line" style="font-size: 18px; {{if !empty($article.is_collected)}}color: rgb(255, 189, 29){{else}}color: rgb(202, 202, 202){{/if}};"></i>
+                                    <i data-aid="{{$article.aid}}" class="bui-icon icon-favorite_line" style="font-size: 18px; {{if !empty($article.is_collected)}}color: rgb(255, 189, 29){{else}}color: rgb(202, 202, 202){{/if}};"></i>
                                     <span id="collection">收藏</span>
                                 </div>
                                 <div class="report">
