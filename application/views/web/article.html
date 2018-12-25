@@ -17,75 +17,7 @@
           rlt="1" style="">
         <div>
             <div class="toutiao-header">
-                <div class="topbar">
-                    <!---->
-                    <div class="bui-left clearfix">
-                    </div>
-                    <div class="bui-right">
-                        <ul class="user-nav-list clearfix">
-                            <!---->
-                            <!---->
-                            <!---->
-                            <li class="nav-login">
-                                <a ga_event="nav_login" class="tb-link">
-                                    登录
-                                </a>
-                            </li>
-                            <!---->
-                            <li>
-                                <a href="//www.toutiao.com/complain/" ga_event="mh_nav_complain" target="blank"
-                                   class="tb-link">
-                                    侵权投诉
-                                </a>
-                            </li>
-                            <li>
-                                <div class="tt-dropdown">
-                                    <a href="javascript:;" class="tt-dropdown-link tb-link">
-                                        头条产品
-                                    </a>
-                                    <ul class="tt-dropdown-menu" style="display: none;">
-                                        <li class="tt-dropdown-menu__item">
-                                            <a href="https://www.wukong.com/" target="_blank" ga_event="mh_nav_others"
-                                               class="layer-item">
-                                                问答
-                                            </a>
-                                        </li>
-                                        <li class="tt-dropdown-menu__item">
-                                            <a href="https://mp.toutiao.com/" target="_blank" ga_event="mh_nav_others"
-                                               class="layer-item">
-                                                头条号
-                                            </a>
-                                        </li>
-                                        <li class="tt-dropdown-menu__item">
-                                            <a href="https://tuchong.com?utm_source=toutiao&amp;utm_medium=pc_header"
-                                               target="_blank" ga_event="mh_nav_others" class="layer-item">
-                                                图虫
-                                            </a>
-                                        </li>
-                                        <li class="tt-dropdown-menu__item">
-                                            <a href="https://stock.tuchong.com/?source=ttweb" target="_blank" ga_event="mh_nav_others"
-                                               class="layer-item">
-                                                正版图库
-                                            </a>
-                                        </li>
-                                        <li class="tt-dropdown-menu__item">
-                                            <a href="https://ad.toutiao.com/promotion/?source2=pchometop" target="_blank"
-                                               ga_event="mh_nav_ad" class="layer-item">
-                                                广告投放
-                                            </a>
-                                        </li>
-                                        <li class="tt-dropdown-menu__item">
-                                            <a href="http://s.pstatp.com/site/motor/" target="_blank" ga_event="mh_nav_others"
-                                               class="layer-item">
-                                                懂车帝
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                {{include file="./block/top_bar.html"}}
                 <div class="middlebar">
                     <div class="middlebar-inner clearfix" style="width: 1170px;">
                         <div class="bui-left logo-box">
@@ -230,14 +162,16 @@
                             </div>
                             <div class="bui-right">
                                 <div class="repin">
-                                    <i class="bui-icon icon-favorite_line" style="font-size: 18px; color: rgb(202, 202, 202);"></i>
+                                    <i class="bui-icon icon-favorite_line" style="font-size: 18px; {{if !empty($article.is_collected)}}color: rgb(255, 189, 29){{else}}color: rgb(202, 202, 202){{/if}};"></i>
                                     <span id="collection">收藏</span>
                                 </div>
                                 <div class="report">
+                                    {{*
                                     <div class="areport">
                                         <i class="bui-icon icon-report" style="font-size: 14px; color: rgb(202, 202, 202);"></i>
                                         <span>举报</span>
                                     </div>
+                                    
                                     <div class="tt-dialog__wrapper" style="display: none;">
                                         <div class="tt-dialog tt-dialog--tiny" style="top: 15%;">
                                             <div class="tt-dialog__header">
@@ -262,6 +196,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    *}}
                                 </div>
                             </div>
                         </div>
