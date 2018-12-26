@@ -18,10 +18,10 @@ function ajax_simple_handle(param) {
         _ele = param.data.ele;
     }
     //客户端验证登录
-//    if (getCookie('uid') === '') {
-//        ajax_check_param_msg();
-//        return false;
-//    }
+    if (getCookie('uid') === '') {
+        ajax_check_param_msg();
+        return false;
+    }
     //改变页面状态
     if (param.data.view_func) {//自定义的func
             var url = param.data.view_func();
@@ -57,104 +57,8 @@ function ajax_simple_handle(param) {
         }
     });
 }
-function follow() {
-    if (hasClick) {
-        return false;
-    }
-    hasClick = true;
-    //客户端验证登录
-    if (getCookie('uid') === '') {
-        ajax_check_param_msg();
-        return false;
-    }
-    //改变页面状态
-//        $(this).toggleClass('follow');
-    var class_str = 'follow';
-    var url = '/index/follow';
-    if ($(this).hasClass(class_str)) {
-        $(this).removeClass(class_str);
-        url = '/index/cancelFollow';
-    } else {
-        $(this).addClass(class_str);
-    }
-    //提交数据
-    var fuid = $(this).attr('data-uid');
-    return false;
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: url,
-        data: {
-            fuid: fuid
-        },
-        async: false,
-        success: function (data) {
-            if (data.code == "403") {//未登录
-                ajaxResultMsg();
-            }
-        },
-        error: function (data) {
-        },
-        complete: function (data) {
-            hasClick = false;
-        }
-    });
-}
+
 $(function () {
-//    alert($(document).height());
-//    alert($('.recommendation-container').height());
-    //收藏
-//    $('#collection').on('click', collection);
-//    //关注
-//    $('#follow').on('click', follow);
-
-//点赞 未开启
-    $('#like').on('click', function () {
-        if (hasClick) {
-            return false;
-        }
-        hasClick = true;
-        //客户端验证登录
-        if (getCookie('uid') === '') {
-            ajax_check_param_msg();
-            return false;
-        }
-
-        //改变页面状态
-//        $(this).toggleClass('like');
-        var class_str = 'like';
-        var url = '/index/dolike';
-        if ($(this).hasClass(class_str)) {
-            $(this).removeClass(class_str);
-            url = '/index/cancelLike';
-        } else {
-            $(this).addClass(class_str);
-        }
-        //提交数据
-        var aid = $(this).attr('data-aid');
-
-        return false;
-        $.ajax({
-            type: 'POST',
-            dataType: 'json',
-            url: url,
-            data: {
-                aid: aid
-            },
-            async: false,
-            success: function (data) {
-                if (data.code == "403") {//未登录
-                    ajaxResultMsg();
-                }
-            },
-            error: function (data) {
-            },
-            complete: function (data) {
-                hasClick = false;
-            }
-        });
-    });
-
     $('#pageletListContent').eq(0).dropload({
         scrollArea: window,
 //        threshold: $(document).height() - $('.recommendation-item').height(),

@@ -162,8 +162,8 @@
                             </div>
                             <div class="bui-right">
                                 <div class="repin">
-                                    <i data-aid="{{$article.aid}}" class="bui-icon icon-favorite_line" style="font-size: 18px; {{if !empty($article.is_collected)}}color: rgb(255, 189, 29){{else}}color: rgb(202, 202, 202){{/if}};"></i>
-                                    <span id="collection">收藏</span>
+                                    <i class="bui-icon icon-favorite_line" style="font-size: 18px; {{if !empty($article.is_collected)}}color: rgb(255, 189, 29){{else}}color: rgb(202, 202, 202){{/if}};"></i>
+                                    <span id="collection" data-aid="{{$article.aid}}">收藏</span>
                                 </div>
                                 <div class="report">
                                     {{*
@@ -232,7 +232,7 @@
                                         <div class="left-arrow subscribe-btn">
                                             <i class="bui-icon icon-add_small" style="font-size: 12px; color: rgb(255, 255, 255);">
                                             </i>
-                                            <span id="follow">关注</span>
+                                            <span id="follow" data-uid="{{$article.uid}}">关注</span>
                                         </div>
                                     </div>
                                 </div>

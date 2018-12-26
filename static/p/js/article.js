@@ -48,21 +48,28 @@ $(function () {
     //收藏
     $('.repin i,.repin span').on('click', {
         platform: platform,
-        ajax_data:{
-            aid:''
+        ajax_data: {
+            aid: $('#collection').attr('data-aid')
         },
-        view_param: {
-            ele: '.repin i',
-            cls: 'collection',
-            ajax_url: '/index/collection',
-            reverse_ajax_url: '/index/cancelCollection'
+        view_func: function () {
+            var class_str = 'collection';
+            var url = '/index/collection';
+            if ($('.repin i').hasClass(class_str)) {
+                url = '/index/cancelCollection';
+                $('.repin i').removeClass(class_str);
+                $('.repin i').css({'font-size': '18px', 'color': 'rgb(202, 202, 202)'});
+            } else {
+                $('.repin i').addClass(class_str);
+                $('.repin i').css({'font-size': '18px', 'color': 'rgb(255, 189, 29)'});
+            }
+            return url;
         }
     }, ajax_simple_handle);
     //关注
     $('.subscribe').on('click', {
         platform: platform,
-        ajax_data:{
-            
+        ajax_data: {
+            fuid: $('#follow').attr('data-uid')
         },
         view_func: function () {
             var class_str = 'follow';
@@ -70,24 +77,24 @@ $(function () {
             if ($('.subscribe').hasClass(class_str)) {
                 url = '/index/cancelFollow';
                 $('.subscribe').removeClass(class_str);
-                
+
                 $('.subscribe .left-arrow').removeClass('unsubscribe-btn');
                 $('.subscribe .left-arrow').addClass('subscribe-btn');
-                
+
                 $('.subscribe i').removeClass('icon-check');
                 $('.subscribe i').addClass('icon-add_small');
-                $('.subscribe i').css({'font-size': '12px','color': 'rgb(255, 255, 255)'});
-                
+                $('.subscribe i').css({'font-size': '12px', 'color': 'rgb(255, 255, 255)'});
+
                 $('.subscribe span').text('关注');
             } else {
                 $('.subscribe').addClass(class_str);
-                
+
                 $('.subscribe .left-arrow').removeClass('subscribe-btn');
                 $('.subscribe .left-arrow').addClass('unsubscribe-btn');
-                
+
                 $('.subscribe i').removeClass('icon-add_small');
                 $('.subscribe i').addClass('icon-check');
-                $('.subscribe i').css({'font-size': '8px','color': 'rgb(119, 119, 119)'});
+                $('.subscribe i').css({'font-size': '8px', 'color': 'rgb(119, 119, 119)'});
 
                 $('.subscribe span').text('已关注');
             }
