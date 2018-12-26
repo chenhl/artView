@@ -1,43 +1,49 @@
 //ajax防重点击锁
 var hasClick = false;
-
-function collection(param) {
+/**
+ * collection、follow、like 等的ajax请求
+ * @param {type} param
+ * @returns {Boolean}
+ */
+function ajax_simple_handle(param) {
     param = param || {};
     //点击锁
     if (hasClick) {
         return false;
     }
     hasClick = true;
+    //事件ele
     var _ele = this;
     if (param.data.ele) {
         _ele = param.data.ele;
     }
     //客户端验证登录
-    if (getCookie('uid') === '') {
-        ajaxCheckParamMsg();
-        return false;
-    }
+//    if (getCookie('uid') === '') {
+//        ajax_check_param_msg();
+//        return false;
+//    }
     //改变页面状态
-
-    var class_str = 'collection';
-    var url = '/index/collection';
-    if ($(_ele).hasClass(class_str)) {
-        $(_ele).removeClass(class_str);
-        url = '/index/cancelCollection';
-    } else {
-        $(_ele).addClass(class_str);
+    if (param.data.view_func) {//自定义的func
+            var url = param.data.view_func();
+            hasClick = false;
+            alert(url);
+    } else {//默认的func
+        var class_str = param.data.view_param.cls;
+        var url = param.data.view_param.ajax_url;
+        if ($(_ele).hasClass(class_str)) {
+            $(_ele).removeClass(class_str);
+            url = param.data.view_param.reverse_ajax_url;
+        } else {
+            $(_ele).addClass(class_str);
+        }
     }
-    //提交数据
-    var aid = $(_ele).attr('data-aid');
-
     return false;
+    //提交数据
     $.ajax({
         type: 'POST',
         dataType: 'json',
         url: url,
-        data: {
-            aid: aid
-        },
+        data: param.data.ajax_data,
         async: false,
         success: function (data) {
             if (data.code === 403) {//未登录
@@ -58,7 +64,7 @@ function follow() {
     hasClick = true;
     //客户端验证登录
     if (getCookie('uid') === '') {
-        ajaxCheckParamMsg();
+        ajax_check_param_msg();
         return false;
     }
     //改变页面状态
@@ -110,7 +116,7 @@ $(function () {
         hasClick = true;
         //客户端验证登录
         if (getCookie('uid') === '') {
-            ajaxCheckParamMsg();
+            ajax_check_param_msg();
             return false;
         }
 

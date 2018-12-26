@@ -6,7 +6,7 @@ var domDown = {
 };
 var platform = 'm';
 
-function ajaxCheckParamMsg() {
+function ajax_check_param_msg() {
     $(".login_box").show();
     $(".alert").show();
 }
