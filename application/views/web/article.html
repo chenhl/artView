@@ -221,11 +221,11 @@
                             <input type="hidden" id="aid" value="{{$article.aid}}">
                             <input type="hidden" id="uid" value="{{$article.uid}}">
                             <div class="user-card-head">
-                                <a target="_blank" href="/c/user/104246645773/" class="user-card-avatar">
-                                    <img src="//p99.pstatp.com/large/b725000102bd7072f33f" alt="">
+                                <a target="_blank" href="{{$article.u_url}}" class="user-card-avatar">
+                                    <img src="{{$article.upic}}" alt="">
                                 </a>
                                 <div class="user-card-name">
-                                    <a href="/c/user/104246645773/" target="_blank">
+                                    <a href="{{$article.u_url}}" target="_blank">
                                         {{$article.uname}}
                                     </a>
                                     <div class="subscribe">
