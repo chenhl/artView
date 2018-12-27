@@ -1790,7 +1790,8 @@ to {
 	transform:translateX(-100%);
 	opacity:0
 }
-}.tt-message-box {
+}
+.tt-message-box {
 	text-align:left;
 	display:inline-block;
 	vertical-align:middle;
@@ -3493,7 +3494,9 @@ to {
 	margin-right:1px;
 	margin-bottom:3px
 }
-.slide {
+/*slide start*/
+
+/*.slide {
 	margin-bottom:6px
 }
 .slide-hidden {
@@ -3571,7 +3574,11 @@ to {
 	border-right:6px solid #ed4040;
 	border-right:6px solid rgba(237,64,64,.8);
 	border-bottom:6px solid transparent
-}
+}*/
+
+/*slide end*/
+
+
 .channel {
 	width:110px
 }

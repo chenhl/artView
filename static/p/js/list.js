@@ -17,9 +17,29 @@ $(function () {
             $('.channel').removeClass('channel-fixed');
         }
     };
-
-    var swiperVideo = new Swiper('.swiper-container .swiper-wrapper', {
-        autoplay: true
+//          return '<span class="' + className + '">' + (index + 1) + '</span>';
+    var swiperVideo = new Swiper('.swiper-container', {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: '.slide-tab',
+            bulletClass: 'slide-tab-item',
+            bulletActiveClass: 'slide-tab-item-active',
+            clickable: true,
+            renderBullet: function (index, className) {
+                return '<li class="' + className + '">要闻' + (index + 1) + '</li>';
+            }
+        }
     });
-
+    
+    //此方法为模拟的，hover到分页器的小圆点后自动触发其本身的click事件
+    $(".slide-tab-item").hover(function () {
+        $(this).click(); //鼠标划上去之后，自动触发点击事件来模仿鼠标划上去的事件
+    }, function () {
+        swiperVideo.autoplay.start(); //鼠标移出之后，自动轮播开启
+    });
 });
