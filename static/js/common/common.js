@@ -25,7 +25,27 @@ function setCookie(name, value) {
     }
     return res;
 }
-
+function throttle(method, delay, duration) {
+    var timer = null, begin = new Date();
+    return function () {
+        var context = this, args = arguments, current = new Date();
+        clearTimeout(timer);
+        if (current - begin >= duration) {
+            method.apply(context, args);
+            begin = current;
+        } else {
+            timer = setTimeout(function () {
+                method.apply(context, args);
+            }, delay);
+        }
+    };
+}
+/**
+ * 异步文章列表入口
+ * @param {type} list
+ * @param {type} obj
+ * @returns {undefined|String}
+ */
 function articleList(list, obj) {
     obj = obj || {};
     if (obj.platform === 'm') {//mobile article list 
@@ -333,7 +353,65 @@ function ajaxArticleList(condition, options) {
         }
     });
 }
-
+//ajax防重点击锁
+var hasClick = false;
+/**
+ * collection、follow、like 等的ajax请求
+ * @param {type} param
+ * @returns {Boolean}
+ */
+function ajax_simple_handle(param) {
+    param = param || {};
+    //点击锁
+    if (hasClick) {
+        return false;
+    }
+    hasClick = true;
+    //事件ele
+    var _ele = this;
+    if (param.data.ele) {
+        _ele = param.data.ele;
+    }
+    //客户端验证登录
+    if (getCookie('uid') === '') {
+        ajax_check_param_msg();
+        return false;
+    }
+    //改变页面状态
+    if (param.data.view_func) {//自定义的func
+        var url = param.data.view_func();
+        hasClick = false;
+        alert(url);
+    } else {//默认的func
+        var class_str = param.data.view_param.cls;
+        var url = param.data.view_param.ajax_url;
+        if ($(_ele).hasClass(class_str)) {
+            $(_ele).removeClass(class_str);
+            url = param.data.view_param.reverse_ajax_url;
+        } else {
+            $(_ele).addClass(class_str);
+        }
+    }
+    return false;
+    //提交数据
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: url,
+        data: param.data.ajax_data,
+        async: false,
+        success: function (data) {
+            if (data.code === 403) {//未登录
+                ajaxResultMsg();
+            }
+        },
+        error: function (data) {
+        },
+        complete: function (data) {
+            hasClick = false;
+        }
+    });
+}
 $(function () {
     //scroll top
     $('#icon-arrow_up_big').on('click', function () {

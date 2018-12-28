@@ -1,11 +1,17 @@
-var domDown = {
-    domClass: 'dropload-down',
-    domRefresh: '<div class="dropload-refresh"></div>',
-    domLoad: '<div class="dropload-load"><div class="k-line k-line-1"></div><div class="k-line k-line-2"></div><div class="k-line k-line-3"></div><div class="k-line k-line-4"></div></div>',
-    domNoData: '<div class="dropload-noData"></div>'
-};
 var platform = 'm';
-
+var domDown = {
+    domClass: 'list_bottom',
+    domRefresh: '<section class="loadmoretip"><a href="#">加载中...</a></section>',
+    domLoad: '<section class="loadmoretip"><a href="#">加载中...</a></section>',
+    domNoData: '<section class="loadmoretip"><a href="#">没有更多了</a></section>'
+};
+var dropload_param = {
+    ajax_data: {
+        page: $('#next_page').val(),
+        channel: $('#channel').val()
+    },
+    append_ele: '#pageletListContent div.list_content'
+};
 $(function () {
 
 });

@@ -1,10 +1,20 @@
+var platform = 'm';
+
 var domDown = {
     domClass: 'dropload-down',
     domRefresh: '<div class="dropload-refresh"></div>',
     domLoad: '<div class="dropload-load"><div class="k-line k-line-1"></div><div class="k-line k-line-2"></div><div class="k-line k-line-3"></div><div class="k-line k-line-4"></div></div>',
     domNoData: '<div class="dropload-noData"></div>'
 };
-var platform = 'm';
+
+var dropload_param = {
+    ajax_data: {
+        q: $('#like_q').val(),
+        aid: $('#like_aid').val(),
+        page: $('#next_page').val()
+    },
+    append_ele:'#pageletListContent div.list_content'
+};
 
 function ajax_check_param_msg() {
     $(".login_box").show();

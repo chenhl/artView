@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html style="font-size:40px;" data-dpr="1">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
         {{include file="common/header_meta.html"}}
-        <link href="/static/css/common.css" rel="stylesheet">
-        <link href="/static/css/article.css" rel="stylesheet">
-        <link href="/static/css/list.css" rel="stylesheet">
+        <link href="/static/m/css/common.css" rel="stylesheet">
+        <link href="/static/m/css/article.css" rel="stylesheet">
+        <link href="/static/m/css/list.css" rel="stylesheet">
     </head>
 
     <body class="page-detail detail--wap" style="font-size: 12px;" libsign2018625="1" mainsign2018625="1" firstsign2018827="1" rlt="1"> 
@@ -37,7 +38,7 @@
                     </div>
                     <div class="unfold-field unfold-field-download">
                         <div class="unflod-field__mask"></div>
-                        <a href="javascript:void(0)" class="download-text">打开APP阅读全文</a>
+                        <!--<a href="javascript:void(0)" class="download-text">打开APP阅读全文</a>-->
                     </div>
                 </article>
                 <div style="min-height: 60px;">
@@ -45,7 +46,7 @@
                         
                         <div class="recommendation-item">
                             <h2 class="container__header">猜你喜欢</h2>
-                            <input type="hidden" id="like_page" value="1">
+                            <input type="hidden" id="next_page" value="1">
                             <input type="hidden" id="like_aid" value="{{$like.aid}}">
                             <input type="hidden" id="like_q" value="{{$like.q}}">
                             <!--list-->
@@ -57,10 +58,11 @@
                             
                         </div>
                         <div class="recommendation-item " id="detailAd2">
-                            <div>
-                            </div>
+                            <div></div>
                         </div>
                     </div>
+                    
+                    {{*
                     <div class="bottom-banner-container show-banner-undefined ">
                         <div class="slogan-wrapper">
                             <img src="//s1.pstatp.com/growth/mobile_detail/image/banner_toutiao_icon.AIJZbRFb.png" class="logo">
@@ -70,7 +72,7 @@
                         </div>
                         <div class="open">打开</div>
                     </div>
-
+                    *}}
                 </div>
 
                 {{include file="common/footer_comment.html"}}
@@ -83,7 +85,7 @@
         
         <script src="/static/m/js/article.js?v=1" data-from="{{$app_name}}" crossorigin="anonymous"></script>
         <script src="/static/js/common/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
-        <script src="/static/js/article.js?v=1" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+        <script src="/static/js/list_dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
         
 
     </body>

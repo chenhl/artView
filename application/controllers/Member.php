@@ -68,7 +68,7 @@ class Member extends Base_Controller {
         $condition['uid'] = $this->user_id;
         $data = $this->member_model->getCollectList($condition, $page, $pageSize);
         $this->assign("collects", $data);
-        $this->display('wap/uc_collect.html');
+        $this->display('web/uc_collect.html');
     }
 
     /**

@@ -30,38 +30,27 @@
                 <div class="bui-left index-content">
                     {{include file="./block/index_slide.html"}}
 
-                    <div class="feed-infinite-wrapper">
+                    <div class="feed-infinite-wrapper" id="pageletListContent">
                         {{*
                         <div class="loading ball-pulse" style="display: none;">
-                            <div>
-                            </div>
-                            <div>
-                            </div>
-                            <div>
-                            </div>
-                            <span>
-                                推荐中⋅⋅⋅
-                            </span>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <span>推荐中⋅⋅⋅</span>
                         </div>
                         <div>
                             <div class="msg-alert msg-alert-hidden">
-                                <span>
-                                    为您推荐了10篇文章
-                                </span>
-                                <!---->
+                                <span>为您推荐了10篇文章</span>
                             </div>
                             <div class="msgAlert-place" style="display: none;">
-                                <div ga_event="refresh_float_click" class="msg-alert">
-                                    <span>
-                                        您有未读新闻，点击查看
-                                    </span>
-                                    <i class="bui-icon icon-close_small" style="font-size: 15px; color: rgb(255, 255, 255);">
-                                    </i>
+                                <div class="msg-alert">
+                                    <span>您有未读新闻，点击查看</span>
+                                    <i class="bui-icon icon-close_small" style="font-size: 15px; color: rgb(255, 255, 255);"></i>
                                 </div>
                             </div>
                         </div>
                         *}}
-                        <ul id="pageletListContent" infinite-scroll-disabled="loading" infinite-scroll-immediate-check="containerCheck"
+                        <ul infinite-scroll-disabled="loading" infinite-scroll-immediate-check="containerCheck"
                             infinite-scroll-immediate-check-count="containerCheckCount" infinite-scroll-distance="80">
                             <input type="hidden" id="next_page" value="{{$next_page}}">
                             <input type="hidden" id="page_size" value="{{$page_size}}">
@@ -109,22 +98,15 @@
                                 </div>
                             </li>
                             *}}
-
-
                         </ul>
-
+                        {{*
                         <div class="loading ball-pulse" style="display: none;">
-                            <div>
-                            </div>
-                            <div>
-                            </div>
-                            <div>
-                            </div>
-                            <span>
-                                加载中⋅⋅⋅
-                            </span>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <span>加载中⋅⋅⋅</span>
                         </div>
-
+                        *}}
                     </div>
                 </div>
                 <div id="rightModule" class="bui-right index-right-bar">
@@ -215,4 +197,4 @@
 
 <script src="/static/p/js/list.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
 <script src="/static/js/common/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
-<script src="/static/js/list.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/list_dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>

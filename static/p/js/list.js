@@ -1,11 +1,17 @@
-var domDown = {
-    domClass: 'dropload-down',
-    domRefresh: '<div class="dropload-refresh"></div>',
-    domLoad: '<div class="dropload-load"><div class="k-line k-line-1"></div><div class="k-line k-line-2"></div><div class="k-line k-line-3"></div><div class="k-line k-line-4"></div></div>',
-    domNoData: '<div class="dropload-noData"></div>'
-};
 var platform = 'p';
-
+var domDown = {
+    domClass: 'loading',
+    domRefresh: '<div class="loading ball-pulse" style="display: none;"></div>',
+    domLoad: '<div class="loading ball-pulse"><div></div><div></div><div></div><span>加载中⋅⋅⋅</span></div>',
+    domNoData: '<div class=""><div></div><div></div><div></div><span>没有更多了</span></div>'
+};
+var dropload_param = {
+    ajax_data: {
+        page: $('#next_page').val(),
+        channel: $('#channel').val()
+    },
+    append_ele:'#pageletListContent ul'
+};
 $(function () {
 //    alert($(document).height());
 //    alert($('#pageletListContent').height());
@@ -35,7 +41,7 @@ $(function () {
             }
         }
     });
-    
+
     //此方法为模拟的，hover到分页器的小圆点后自动触发其本身的click事件
     $(".slide-tab-item").hover(function () {
         $(this).click(); //鼠标划上去之后，自动触发点击事件来模仿鼠标划上去的事件

@@ -5,15 +5,16 @@ var domDown = {
     domNoData: '<div class="dropload-noData"></div>'
 };
 var platform = 'ps'; //pc search
-var dropload_param = {
-    ajax_data: {
-        q: $('#q').val(),
-        page: $('#next_page').val()
-    },
-    append_ele:'#pageletListContent div.sections'
-};
 
 $(function () {
-
+    window.onscroll = function () {
+        if ($(document).scrollTop() > 40) {
+            $('.channel').addClass('channel-fixed');
+        } else {
+            $('.channel').removeClass('channel-fixed');
+        }
+    };
     
+    
+
 });

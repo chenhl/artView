@@ -10,7 +10,7 @@ class Index extends Base_Controller {
     }
 
     /**
-     * 列表初始化
+     * 首页列表初始化
      * 
      */
     public function index() {
@@ -55,7 +55,7 @@ class Index extends Base_Controller {
     }
 
     /**
-     * 列表初始化
+     * 搜索页列表初始化
      * 
      */
     public function search() {
@@ -108,8 +108,17 @@ class Index extends Base_Controller {
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 10;
         $next_page_num = $page + 1;
         $condition = array();
-        $condition['channel'] = isset($get['channel']) ? $get['channel'] : '';
-        $condition['uid'] = isset($get['uid']) ? $get['uid'] : '';
+
+        if (!empty($get['channel'])) {
+            $condition['channel'] = $get['channel'];
+        }
+        if (!empty($get['q'])) {//文章页的推荐、搜索页的dropload更多
+            $condition['q'] = $get['q'];
+        }
+        if (!empty($get['uid'])) {
+            $condition['uid'] = $get['uid'];
+        }
+
         $data = $this->article->getList($condition, $page, $pageSize);
         if (empty($data['list'])) {
             echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => ''));
@@ -161,32 +170,6 @@ class Index extends Base_Controller {
      */
     public function recommend() {
         
-    }
-
-    /**
-     * ajax 猜你喜欢
-     * 相关keywords,tags 
-     * @param type $param
-     */
-    public function like() {
-        $get = $this->input->get();
-        $page = isset($get['page']) ? intval($get['page']) : 1;
-        $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
-        $next_page_num = $page + 1;
-        $condition = array();
-//        $condition['channel'] = $get['channel'];
-        $condition['q'] = $get['q'];
-//        $condition['q.op'] = 'OR';
-
-        $data = $this->article->getList($condition, $page, $pageSize);
-        if (empty($data['list'])) {
-            echo $this->returnJson(404, 'list is null', array('result_data' => array(), 'next_page_num' => ''));
-        } else {
-            if ($data['total'] <= $page * $pageSize) {
-                $next_page_num = '';
-            }
-            echo $this->returnJson(200, 'success', array('result_data' => $data, 'next_page_num' => $next_page_num));
-        }
     }
 
     /**

@@ -1,27 +1,22 @@
-<input type="hidden" id="like_page" value="1">
+<input type="hidden" id="next_page" value="1">
 <input type="hidden" id="like_aid" value="{{$like.aid}}">
 <input type="hidden" id="like_q" value="{{$like.q}}">
 <div class="detail-feed">
     <div class="title">
         相关推荐
     </div>
-    <div class="feed-infinite-wrapper">
+    <div class="feed-infinite-wrapper"  id="pageletListContent">
+        {{*
         <div class="loading ball-pulse" style="display: none;">
-            <div>
-            </div>
-            <div>
-            </div>
-            <div>
-            </div>
-            <span>
-                推荐中⋅⋅⋅
-            </span>
+            <div></div>
+            <div></div>
+            <div></div>
+            <span>推荐中⋅⋅⋅</span>
         </div>
+        *}}
+        {{*
         <div>
-            <div class="msg-alert msg-alert-hidden">
-                <!---->
-                <!---->
-            </div>
+            <div class="msg-alert msg-alert-hidden"></div>
             <div class="msgAlert-place" style="display: none;">
                 <div class="msg-alert">
                     <span>
@@ -32,25 +27,20 @@
                 </div>
             </div>
         </div>
-        <div id="pageletListContent">
-
+        *}}
+        <div>
             <ul infinite-scroll-disabled="loading" infinite-scroll-immediate-check="containerCheck"
                 infinite-scroll-immediate-check-count="containerCheckCount" infinite-scroll-distance="80">
-
-
             </ul>
         </div>
+        {{*
         <div class="loading ball-pulse" style="display: none;">
-            <div>
-            </div>
-            <div>
-            </div>
-            <div>
-            </div>
-            <span>
-                加载中⋅⋅⋅
-            </span>
+            <div></div>
+            <div></div>
+            <div></div>
+            <span>加载中⋅⋅⋅</span>
         </div>
+        *}}
     </div>
 
 </div>
