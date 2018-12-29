@@ -1,14 +1,10 @@
 <div class="bui-box img-list">
     {{foreach $row['images'] as $img_key=>$img_val}}
     {{if $img_key<$imgs_max}}
-    <a href="{{$row['a_url']}}" target="_blank" class="img-wrap img-item">
-        <img class="lazy-load-img" src="{{$img_val}}" {{*lazy="loading"*}}>
-    </a>
+    <a href="{{$row['a_url']}}" target="_blank" class="img-wrap img-item"><img class="lazy-load-img" src="{{$img_val}}" {{*lazy="loading"*}}></a>
     {{/if}}
     {{/foreach}}
     {{*
-    <i class="pic-tip">
-    <span>8图</span>
-    </i>
+    <i class="pic-tip"><span>8图</span></i>
     *}}
 </div>

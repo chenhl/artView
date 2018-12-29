@@ -26,13 +26,7 @@
                             </a>
                         </div>
                         <div class="bui-left chinese-tag">
-                            <a href="/" target="_blank">
-                                首页
-                            </a>
-                            /
-                            <span class="text">
-                                正文
-                            </span>
+                            <a href="/" target="_blank">首页</a>/<span class="text">正文</span>
                         </div>
                         <div class="bui-right">
                             <div class="search-wrap">
@@ -51,21 +45,17 @@
                                                 <ul class="tt-scrollbar__view tt-autocomplete-suggestion__list" style="position: relative;">
                                                     <div class="resize-triggers">
                                                         <div class="expand-trigger">
-                                                            <div style="width: 1px; height: 1px;">
-                                                            </div>
+                                                            <div style="width: 1px; height: 1px;"></div>
                                                         </div>
-                                                        <div class="contract-trigger">
-                                                        </div>
+                                                        <div class="contract-trigger"></div>
                                                     </div>
                                                 </ul>
                                             </div>
                                             <div class="tt-scrollbar__bar is-horizontal">
-                                                <div class="tt-scrollbar__thumb" style="transform: translateX(0%);">
-                                                </div>
+                                                <div class="tt-scrollbar__thumb" style="transform: translateX(0%);"></div>
                                             </div>
                                             <div class="tt-scrollbar__bar is-vertical">
-                                                <div class="tt-scrollbar__thumb" style="transform: translateY(0%);">
-                                                </div>
+                                                <div class="tt-scrollbar__thumb" style="transform: translateY(0%);"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -144,9 +134,7 @@
                                 <i class="bui-icon icon-tag" style="font-size: 21px; color: rgb(202, 202, 202);"></i>
                                 <ul class="tag-list">
                                     {{foreach $article.tags as $key=>$val}}
-                                    <li class="tag-item">
-                                        <a href="/search/?q={{$val}}" target="_blank" class="label-link">{{$val}}</a>
-                                    </li>
+                                    <li class="tag-item"><a href="/search/?q={{$val}}" target="_blank" class="label-link">{{$val}}</a></li>
                                     {{/foreach}}
                                 </ul>
                                 {{/if}}
