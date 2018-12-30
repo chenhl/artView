@@ -1,17 +1,14 @@
+{{if !empty($links)}}
 <div class="pane-module">
     <div class="module-head">
         友情链接
     </div>
     <ul class="friend-links-content">
+        {{foreach $links as $key=>$row}}
         <li class="item">
-            <a target="_blank" href="http://www.gmw.cn/">
-                光明网
-            </a>
+            <a target="_blank" href="{{$row.url}}">{{$row.name}}</a>
         </li>
-        <li class="item">
-            <a target="_blank" href="http://www.cnr.cn/">
-                央广网
-            </a>
-        </li>
+        {{/foreach}}
     </ul>
 </div>
+{{/if}}

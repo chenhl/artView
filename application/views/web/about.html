@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{include file="./block/header_html.html"}}
+        <link rel="stylesheet" href="/static/p/css/about.css">
+        
+    </head>
+    <body>
+        <div>
+            <div class="header">
+                {{include file="./block/top_bar.html"}}
+                <div class="middlebar">
+                    <div class="middlebar-inner clearfix" style="width: 1120px;">
+                        <div class="bui-left logo-box">
+                            <a href="/" ga_event="go_home" class="logo-link">
+                                <img src="//s3.pstatp.com/toutiao/static/img/logo.201f80d.png" class="logo">
+                            </a>
+                        </div>
+                        <ul class="bui-right doc-header-tab">
+                            {{foreach $cats as $key=>$val}}
+                            <li class="doc-header-tab-item{{if $val.catdir==$catdir}} doc-header-tab-item-active{{/if}}">
+                                <a href="{{$val.url}}"><span>{{$val.catname}}</span></a>
+                            </li>
+                            {{/foreach}}
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="doc-container">
+                <div class="doc-article">
+                    <section>
+                        {{$article.content}}
+                    </section>
+                </div>
+            </div>
+            <div class="footer">
+                <div>
+                    <span class="fitem">
+                        © 2018 今日头条 www.toutiao.com
+                    </span>
+                    <a href="http://www.12377.cn/" target="_blank" class="fitem">
+                        中国互联网举报中心
+                    </a>
+                    <a href="http://www.miibeian.gov.cn/" target="_blank" class="fitem">
+                        京ICP证140141号
+                    </a>
+                    <a href="http://www.miibeian.gov.cn/" target="_blank" class="fitem">
+                        京ICP备12025439号-3
+                    </a>
+                    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
+                       target="_blank" class="fitem">
+                        <img src="//s3.pstatp.com/toutiao/static/img/gongan.d0289dc.png">
+                        京公网安备 11000002002023号
+                    </a>
+                </div>
+                <div>
+                    <a href="/license/" target="_blank" class="fitem">
+                        网络文化经营许可证
+                    </a>
+                    <a href="/a3642705768/" target="_blank" class="fitem">
+                        跟帖评论自律管理承诺书
+                    </a>
+                    <span class="fitem">
+                        违法和不良信息举报电话：010-58341833
+                    </span>
+                    <span class="fitem">
+                        公司名称：北京字节跳动科技有限公司
+                    </span>
+                </div>
+            </div>
+        </div>
+        {{*
+        <style>
+            a[href*='//www.cnzz.com/stat'] { display: none!important; }
+        </style>
+        <a href="https://www.cnzz.com/stat/website.php?web_id=1259612802" target="_blank"
+           title="站长统计">
+            站长统计
+        </a>
+        *}}
+    </body>
+
+</html>

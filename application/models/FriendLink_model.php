@@ -11,9 +11,9 @@
  *
  * @author Administrator
  */
-class Channel extends Base_model {
+class FriendLink_model extends Base_model {
 
-    private $api_uri = '/channel/index';
+    private $api_uri = '/friendLink/index';
 
     public function __construct() {
         parent::__construct();
@@ -26,7 +26,7 @@ class Channel extends Base_model {
      * @param type $condition
      * @return type
      */
-    public function getList($get) {
+    public function getList() {
         $request = array();
         $request['api_key'] = $this->api_conf['api_key'];
         $request['api_sign'] = $this->genSign($request);
@@ -34,23 +34,7 @@ class Channel extends Base_model {
         $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . $this->api_uri, $request, TRUE);
         $data = json_decode($res, TRUE);
-        $return = array();
-        if ($data['data']) {
-            foreach ($data['data'] as $row) {
-                if($row['code'] == 'all'){
-                    $row['url'] = '/';
-                } else {
-                    $row['url'] = '/'.$row['code'];
-                }
-                if ($get['code'] == $row['code']) {
-                    $row['cur'] = ' cur';
-                } else {
-                    $row['cur'] = '';
-                }
-                $return[] = $row;
-            }
-        }
-        return $return;
+        return $data;
     }
 
 }

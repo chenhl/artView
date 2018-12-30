@@ -67,3 +67,5 @@ $route['u/(:num)$'] = 'author/index/?uid=$1';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+//关于我们
+$route['aboutus$'] = 'about/index';

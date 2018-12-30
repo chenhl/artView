@@ -8,12 +8,7 @@
             <ul>
                 {{foreach $channels as $key=>$val}}
                 <li>
-                    <!--active-->
-                    <a href="{{$val.url}}" target="_self" class="channel-item">
-                        <span>
-                            {{$val.name}}
-                        </span>
-                    </a>
+                    <a href="{{$val.url}}" target="_self" class="channel-item"><span>{{$val.name}}</span></a>
                 </li>
                 {{/foreach}}
                 {{*

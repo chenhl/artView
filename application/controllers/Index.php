@@ -6,7 +6,7 @@ class Index extends Base_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('article', 'channel', 'member_model', 'conf_model'));
+        $this->load->model(array('article', 'channel', 'member_model', 'conf_model','friendLink_model'));
     }
 
     /**
@@ -51,6 +51,11 @@ class Index extends Base_Controller {
         $this->assign('uid', 0);
 
         $this->assign('article_list', $data['list']);
+        
+        //friend link
+        $links = $this->friendLink_model->getList();
+        $this->assign('links', $links['data']);
+        
         $this->display('web/index.html');
     }
 
