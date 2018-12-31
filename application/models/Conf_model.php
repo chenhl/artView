@@ -26,6 +26,8 @@ class Conf_model extends Base_model {
      */
     public function getConf($condition = array()) {
         $request = array();
+        $request['api_key'] = $this->api_conf['api_key'];
+        $request['api_sign'] = $this->genSign($request);
         $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . '/site/getConf', $request, TRUE);
         $return = json_decode($res, TRUE);

@@ -56,6 +56,10 @@ class Index extends Base_Controller {
         $links = $this->friendLink_model->getList();
         $this->assign('links', $links['data']);
         
+        
+        //seo
+        $this->seo($this->siteConf);
+        
         $this->display('web/index.html');
     }
 
@@ -101,6 +105,10 @@ class Index extends Base_Controller {
         $this->assign('uid', 0);
 
         $this->assign('article_list', $data['list']);
+        
+        //seo
+        $this->seo($this->siteConf);
+        
         $this->display('web/search.html');
     }
 
@@ -165,6 +173,9 @@ class Index extends Base_Controller {
         $like['q'] = implode(' ', $data['tags']);
         $this->assign("like", $like);
 
+        //seo
+        $this->seo($this->siteConf);
+        
         $this->display('web/article.html');
     }
 

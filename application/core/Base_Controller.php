@@ -43,12 +43,14 @@ class Base_Controller extends CI_Controller {
     public $user_id = 0;
     //模板对应路径
     public $tpl = array();
+
     /**
      * cookie中存的用户基本信息
      *
      * @var array
      */
     public $userInfo = array();
+    protected $siteConf = array();
 
     public function __construct() {
         parent::__construct();
@@ -87,6 +89,24 @@ class Base_Controller extends CI_Controller {
         $this->assign('is_login', $this->is_login);
         //初始化 控制性变量
         $this->channel();
+        $this->site_conf();
+
+//        print_r($this->siteConf);
+    }
+
+    private function site_conf() {
+        $this->load->model(array('conf_model'));
+        $this->siteConf = $this->conf_model->getConf();
+        $this->assign("site", $this->siteConf);
+    }
+
+    protected function seo($param) {
+        $seo = array(
+            'title' => $param['site_title'],
+            'keywords' => $param['keywords'],
+            'description' => $param['description']
+        );
+        $this->assign("seo", $seo);
     }
 
     /**

@@ -47,6 +47,9 @@ class About extends Base_Controller {
             $this->assign("article", $article);
         }
         
+        //seo
+        $this->seo($this->siteConf);
+        
         $this->display('web/about.html');
     }
 
