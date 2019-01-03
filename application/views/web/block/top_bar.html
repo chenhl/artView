@@ -1,9 +1,7 @@
 <div class="topbar">
     <div class="bui-left clearfix">
         {{foreach $channels as $key=>$val}}
-        <a href="{{$val.url}}" target="_self" class="download-app tb-link">
-            {{$val.name}}
-        </a>
+        <a href="{{$val.url}}" target="_self" class="download-app tb-link">{{$val.name}}</a>
         {{/foreach}}
     </div>
     
