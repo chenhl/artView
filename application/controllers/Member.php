@@ -174,19 +174,16 @@ class Member extends Base_Controller {
             }
             //登录 cookie 跳转。
             $user_info = array();
-            $user_info['userid'] = $memInfo['userid']; //userid
-            $user_info["m_uid"] = md5($memInfo['id']); //名称
+            $user_info['userid'] = $memInfo['userid']; //userid 自增id
+            $user_info["m_uid"] = md5($memInfo['uid']); //名称
             $user_info['nickname'] = $memInfo['nickname']; //名称
             $user_info['username'] = $memInfo['username']; //名称
-            $user_info['user_code'] = $memInfo['user_code']; //我的对外推荐code
             $user_info['email'] = $memInfo['email']; //邮箱
             $user_info['mobile'] = $memInfo['mobile']; //手机号
-            $user_info['sex'] = $memInfo['sex']; //性别
-            $user_info['birthday'] = $memInfo['birthday']; //生日
             $cookie_user = Util::passport_encrypt(http_build_query($user_info), CRYPT_CODE_KEY);
-            $this->input->set_cookie("userInfo", $cookie_user, COOKIE_EXPIRE_TIME_ONEHOUR, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
+            $this->input->set_cookie("userInfo", $cookie_user, COOKIE_EXPIRE_TIME, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
             //js cookie
-            $this->input->set_cookie("m_uid", $user_info['m_uid'], COOKIE_EXPIRE_TIME_ONEHOUR, COOKIE_DOMAIN, '/', '', NULL, NULL);
+            $this->input->set_cookie("m_uid", $user_info['m_uid'], COOKIE_EXPIRE_TIME, COOKIE_DOMAIN, '/', '', NULL, NULL);
             
             $this->userInfo = $user_info;
             $this->user_id = $user_info['userid'];

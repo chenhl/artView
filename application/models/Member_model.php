@@ -158,7 +158,7 @@ class Member_model extends Base_model {
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
-
+##################登录相关
     /**
      * 第三方登录
      * 
@@ -180,5 +180,13 @@ class Member_model extends Base_model {
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
-
+    /**
+     * 
+     * @param type $param
+     */
+    public function getUserInfo($param) {
+        
+    }
+    
+########################
 }

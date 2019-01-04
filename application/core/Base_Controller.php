@@ -143,7 +143,7 @@ class Base_Controller extends CI_Controller {
         }
         //更新cookie
         $cookie_user = Handler_tool::passport_encrypt(http_build_query($this->userInfo), CRYPT_CODE_KEY);
-        $this->input->set_cookie("userInfo", $cookie_user, COOKIE_EXPIRE_TIME_ONEHOUR, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
+        $this->input->set_cookie("userInfo", $cookie_user, COOKIE_EXPIRE_TIME, COOKIE_DOMAIN, '/', '', HTTPS, TRUE);
         return TRUE;
     }
 
