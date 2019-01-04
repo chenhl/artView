@@ -7,7 +7,7 @@
     </head>
     <body style="min-width: 768px; overflow-x: hidden;" libsign2018625="1"
           mainsign2018827="1" firstsign2018827="1" rlt="1">
-        
+
         <div class="y-wrap">
             <div id="header">
                 <div riot-tag="wtopbar" style="height: 34px; background: #222;">
@@ -20,7 +20,7 @@
                                         <a target="_self" class="nav-link " href="{{$val.url}}">{{$val.name}}</a>
                                     </li>
                                     {{/foreach}}
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -79,6 +79,7 @@
                         <input type="hidden" id="next_page" value="{{$next_page}}">
                         <input type="hidden" id="page_size" value="{{$page_size}}">
                         <div name="feedBox">
+                            {{if !empty($article_list)}}
                             <div class="sections">
                                 {{foreach $article_list as $key=>$row}}
                                 <div id="J_section_0" riot-tag="articleCard" class="articleCard">
@@ -125,14 +126,20 @@
                                     </div>
                                 </div>
                                 {{/foreach}}
-
                                 <!--riot placeholder-->
                             </div>
+                            {{else}}
+                            <div class="no-feed"> 
+                                <div class="empty-img"> 
+                                    <img src="/static/images/empty_result.png" alt=""> 
+                                </div> 
+                                <p>在这个星球中找不到</p> 
+                            </div>
+                            {{/if}}
                         </div>
                     </div>
                 </div>
-                <div class="y-right index-right">
-                </div>
+                <div class="y-right index-right"></div>
             </div>
             <div id="footer">
                 <div>
@@ -150,7 +157,7 @@
                         {{$site.license}}
                     </a>
                     {{/if}}
-                    
+
                     {{*<a class="fitem" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
                        target="_blank" ga_event="click_about">
                         <img src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/gongan_d0289dc.png">
