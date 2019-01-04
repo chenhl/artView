@@ -6,7 +6,7 @@ class Index extends Base_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('article', 'channel', 'member_model', 'conf_model','friendLink_model'));
+        $this->load->model(array('article', 'channel', 'member_model', 'conf_model', 'friendLink_model'));
     }
 
     /**
@@ -17,49 +17,35 @@ class Index extends Base_Controller {
 //        print_r($this->artsmarty);
 //        exit;
         //入参
-        $get = $this->input->get();
         $segment_array = $this->uri->segment_array();
-        //配置
-        $config = $this->conf_model->getConf();
-        $this->assign('config', $config);
-
         //频道列表
-        $param = array();
-        if (empty($get['code']) && empty($segment_array[1])) {
-            $param['code'] = 'all';
-            $channel = '';
-        } else {
-            $param['code'] = $segment_array[1]; //当前频道
-            $channel = $param['code'];
-        }
-        $channels = $this->channel->getList($param);
-        $this->assign('channels', $channels);
+        $cur_channel = !empty($segment_array[1]) ? $segment_array[1] : 'all';
+        $this->_channel($cur_channel);
+
         //置顶
         $this->assign('article_tops', array());
         //内容列表
         $condition = array();
-        $condition['channel'] = $channel;
+        $condition['channel'] = $cur_channel;
         $page = 1;
         $page_size = 10;
         $data = $this->article->getList($condition, $page, $page_size);
 //        print_r($data);
         $this->assign('next_page', 2);
         $this->assign('page_size', $page_size);
-        $this->assign('channel', $channel);
 
         //是否用户文章 不同的头文件
         $this->assign('uid', 0);
 
         $this->assign('article_list', $data['list']);
-        
+
         //friend link
         $links = $this->friendLink_model->getList();
         $this->assign('links', $links['data']);
-        
-        
+
         //seo
         $this->seo($this->siteConf);
-        
+
         $this->display('web/index.html');
     }
 
@@ -72,43 +58,31 @@ class Index extends Base_Controller {
 //        exit;
         //入参
         $get = $this->input->get();
-        $segment_array = $this->uri->segment_array();
-        //配置
-        $config = $this->conf_model->getConf();
-        $this->assign('config', $config);
-//        print_r($config);
+        $q = $get['q'];
         //频道列表
-        $param = array();
-        if (empty($get['code']) && empty($segment_array[1])) {
-            $param['code'] = 'all';
-            $channel = '';
-        } else {
-            $param['code'] = $segment_array[1]; //当前频道
-            $channel = $param['code'];
-        }
-        $channels = $this->channel->getList($param);
-        $this->assign('channels', $channels);
+        $cur_channel = 'all';
+        $this->_channel($cur_channel);
+
         //置顶
         $this->assign('article_tops', array());
         //内容列表
         $condition = array();
-        $condition['channel'] = $channel;
+        $condition['q'] = $q;
         $page = 1;
         $page_size = 10;
         $data = $this->article->getList($condition, $page, $page_size);
 //        print_r($data);
         $this->assign('next_page', 2);
         $this->assign('page_size', $page_size);
-        $this->assign('channel', $channel);
-
-        //是否用户文章 不同的头文件
-        $this->assign('uid', 0);
+        $this->assign('channel', $cur_channel);
 
         $this->assign('article_list', $data['list']);
-        
+
         //seo
         $this->seo($this->siteConf);
-        
+        //关键字
+        $this->assign('q', $q);
+
         $this->display('web/search.html');
     }
 
@@ -148,17 +122,10 @@ class Index extends Base_Controller {
      */
     public function detail() {
         //入参
-        $get = $this->input->get();
         $segment_array = $this->uri->segment_array();
         //频道列表
-        $param = array();
-        if (empty($get['code']) && empty($segment_array[1])) {
-            $param['code'] = 'all';
-        } else {
-            $param['code'] = $segment_array[1]; //当前频道
-        }
-        $channel = $this->channel->getList($param);
-        $this->assign("channels", $channel);
+        $cur_channel = 'all';
+        $this->_channel($cur_channel);
         //置顶
         $this->assign("article_tops", array());
         //内容
@@ -175,8 +142,20 @@ class Index extends Base_Controller {
 
         //seo
         $this->seo($this->siteConf);
-        
+
         $this->display('web/article.html');
+    }
+
+    /**
+     * channel
+     */
+    private function _channel($cur_channel) {
+        $param = array(
+            'code' => $cur_channel
+        );
+        $channels = $this->channel->getList($param);
+        $this->assign('channels', $channels);
+        $this->assign('channel', $cur_channel);
     }
 
     /**

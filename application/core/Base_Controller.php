@@ -81,7 +81,7 @@ class Base_Controller extends CI_Controller {
         $this->assign('app_server_name', $this->app_server_name); //主要用在smarty取图片域的参数        
 
         $this->assign('app_name', 'yishujia');
-
+        //dns-prefetch 相关domain
         $this->assign('app_relative_domain', APP_RELATIVE_MAIN);
 
         //是否登录。
@@ -93,7 +93,7 @@ class Base_Controller extends CI_Controller {
 
 //        print_r($this->siteConf);
     }
-
+    
     private function site_conf() {
         $this->load->model(array('conf_model'));
         $this->siteConf = $this->conf_model->getConf();
