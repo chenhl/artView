@@ -37,19 +37,17 @@ class Base_Controller extends CI_Controller {
     public $sess_id;
 
     /**
-     * 用户id
-     * @var type 
+     * 用户id md5
+     * @var string 
      */
-    public $user_id = 0;
+    public $m_uid = '';
     //模板对应路径
     public $tpl = array();
 
     /**
-     * cookie中存的用户基本信息
-     *
-     * @var array
+     * 基本配置
+     * @var array 
      */
-    public $userInfo = array();
     protected $siteConf = array();
 
     public function __construct() {

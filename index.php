@@ -286,8 +286,8 @@ define('CRYPT_CODE_KEY', 'art123!@#'); //加密后缀密钥,系统级别
 define('SESSION_EXPIRE_TIME', 60 * 60);
 //cookie过期时间,存放用户信息 1小时
 define('COOKIE_EXPIRE_TIME_ONEHOUR', 60 * 60);
-//cookie长期有效 两个月
-define('COOKIE_EXPIRE_TIME', 86400*60);
+//cookie长期有效 三个月
+define('COOKIE_EXPIRE_TIME', 86400*90);
 //cookie中的网站作用域
 define('COOKIE_DOMAIN', $domain);
 //session_id名称
