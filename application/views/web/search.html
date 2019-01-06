@@ -14,13 +14,12 @@
                     <div class="y-box wtopbar">
                         <div class="y-left y-nav-topbar" riot-tag="nav">
                             <div class="nav">
-                                <ul class="y-box nav-list" ga_event="mh_channel">
+                                <ul class="y-box nav-list">
                                     {{foreach $channels as $key=>$val}}
                                     <li class="y-left nav-item">
                                         <a target="_self" class="nav-link " href="{{$val.url}}">{{$val.name}}</a>
                                     </li>
                                     {{/foreach}}
-
                                 </ul>
                             </div>
                         </div>
@@ -82,7 +81,7 @@
                             {{if !empty($article_list)}}
                             <div class="sections">
                                 {{foreach $article_list as $key=>$row}}
-                                <div id="J_section_0" riot-tag="articleCard" class="articleCard">
+                                <div riot-tag="articleCard" class="articleCard">
                                     <div class="item">
                                         <div class="item-inner  y-box">
                                             <div class="normal {{if !empty($row.image)}}rbox{{/if}}">

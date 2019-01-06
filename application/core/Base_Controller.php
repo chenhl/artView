@@ -91,7 +91,7 @@ class Base_Controller extends CI_Controller {
 
 //        print_r($this->siteConf);
     }
-    
+
     private function site_conf() {
         $this->load->model(array('conf_model'));
         $this->siteConf = $this->conf_model->getConf();
@@ -105,6 +105,19 @@ class Base_Controller extends CI_Controller {
             'description' => $param['description']
         );
         $this->assign("seo", $seo);
+    }
+
+    /**
+     * channel
+     */
+    protected function _channel($cur_channel) {
+        $this->load->model(array('channel'));
+        $param = array(
+            'code' => $cur_channel
+        );
+        $channels = $this->channel->getList($param);
+        $this->assign('channels', $channels);
+        $this->assign('channel', $cur_channel);
     }
 
     /**

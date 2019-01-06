@@ -6,7 +6,7 @@ class Index extends Base_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model(array('article', 'channel', 'member_model', 'conf_model', 'friendLink_model'));
+        $this->load->model(array('article', 'member_model', 'conf_model', 'friendLink_model'));
     }
 
     /**
@@ -146,17 +146,7 @@ class Index extends Base_Controller {
         $this->display('web/article.html');
     }
 
-    /**
-     * channel
-     */
-    private function _channel($cur_channel) {
-        $param = array(
-            'code' => $cur_channel
-        );
-        $channels = $this->channel->getList($param);
-        $this->assign('channels', $channels);
-        $this->assign('channel', $cur_channel);
-    }
+    
 
     /**
      * ajax 热门推荐

@@ -43,6 +43,10 @@ class Member extends Base_Controller {
         $this->assign('position', '我的关注');
         //入参
         $get = $this->input->get();
+        //频道列表
+        $cur_channel = 'all';
+        $this->_channel($cur_channel);
+        
 //        $segment_array = $this->uri->segment_array();
         $page = isset($get['page']) ? intval($get['page']) : 1;
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
@@ -50,7 +54,10 @@ class Member extends Base_Controller {
         $condition['uid'] = $this->user_id;
         $data = $this->member_model->getFollowList($condition, $page, $pageSize);
         $this->assign("follows", $data);
-        $this->display('wap/uc_follow.html');
+        
+        //seo
+        $this->seo($this->siteConf);
+        $this->display('web/uc_follow.html');
     }
 
     /**
@@ -61,6 +68,10 @@ class Member extends Base_Controller {
         $this->assign('position', '我的收藏');
         //入参
         $get = $this->input->get();
+        //频道列表
+        $cur_channel = 'all';
+        $this->_channel($cur_channel);
+        
 //        $segment_array = $this->uri->segment_array();
         $page = isset($get['page']) ? intval($get['page']) : 1;
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
@@ -68,6 +79,10 @@ class Member extends Base_Controller {
         $condition['uid'] = $this->user_id;
         $data = $this->member_model->getCollectList($condition, $page, $pageSize);
         $this->assign("collects", $data);
+        
+        //seo
+        $this->seo($this->siteConf);
+        
         $this->display('web/uc_collect.html');
     }
 
