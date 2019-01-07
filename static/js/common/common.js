@@ -427,10 +427,11 @@ function ajax_simple_handle(param) {
         _ele = param.data.ele;
     }
     //客户端验证登录
-    if (getCookie('uid') === '') {
-        ajax_check_param_msg();
-        return false;
-    }
+//    if (getCookie('uid') === '') {
+//        ajax_check_param_msg();
+//        return false;
+//    }
+    alert(param.data.ajax_data.fuid);
     //改变页面状态
     if (param.data.view_func) {//自定义的func
         var url = param.data.view_func();
