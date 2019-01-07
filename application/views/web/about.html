@@ -35,49 +35,7 @@
                 </div>
             </div>
             <div class="footer">
-                <div>
-                    <span class="fitem">
-                        © 2018 {{$site.name}} {{$site.domain}}
-                    </span>
-                    <a href="http://www.12377.cn/" target="_blank" class="fitem">
-                        中国互联网举报中心
-                    </a>
-                    <a href="http://www.miibeian.gov.cn/" target="_blank" class="fitem">
-                        {{$site.icp}}
-                    </a>
-                    {{if $site.license}}
-                    <a href="http://www.miibeian.gov.cn/" target="_blank" class="fitem">
-                        {{$site.license}}
-                    </a>
-                    {{/if}}
-                    {{*
-                    <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
-                       target="_blank" class="fitem">
-                        <img src="//s3.pstatp.com/toutiao/static/img/gongan.d0289dc.png">
-                        京公网安备 11000002002023号
-                    </a>
-                    *}}
-                </div>
-                <div>
-                    {{if $site.license}}
-                    <a href="/license/" target="_blank" class="fitem">
-                        网络文化经营许可证
-                    </a>
-                    {{/if}}
-                    {{if $site.self_discipline}}
-                    <a href="/{{$site.self_discipline}}" target="_blank" class="fitem">
-                        跟帖评论自律管理承诺书
-                    </a>
-                    {{/if}}
-                    {{if $site.report}}
-                    <span class="fitem">
-                        违法和不良信息举报电话：{{$site.report}}
-                    </span>
-                    {{/if}}
-                    <span class="fitem">
-                        公司名称：{{$site.company_name}}
-                    </span>
-                </div>
+               {{include file="./block/footer.html"}}
             </div>
         </div>
         {{*

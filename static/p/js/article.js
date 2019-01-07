@@ -11,7 +11,10 @@ var dropload_param = {
         aid: $('#like_aid').val(),
         page: $('#next_page').val()
     },
-    append_ele:'#pageletListContent ul'
+    append_ele:'#pageletListContent ul',
+    platform:platform,
+    item_wrap:'',
+    item_wrap_end:''
 };
 /**
  * 收藏、喜欢、关注等点击时检查参数失败

@@ -83,45 +83,7 @@
                                 {{foreach $article_list as $key=>$row}}
                                 <div riot-tag="articleCard" class="articleCard">
                                     <div class="item">
-                                        <div class="item-inner  y-box">
-                                            <div class="normal {{if !empty($row.image)}}rbox{{/if}}">
-                                                <div class="rbox-inner">
-                                                    <div class="title-box">
-                                                        <a class="link title" target="_blank" href="{{$row.a_url}}">
-                                                            <span class="J_title" riot-tag="raw">{{$row.title}}</span>
-                                                        </a>
-                                                    </div>
-                                                    <div class="y-box footer">
-                                                        <div class="y-left">
-                                                            <div class="y-left">
-                                                                <a class="lbtn media-avatar" target="_blank"
-                                                                   href="{{$row.u_url}}">
-                                                                    <img alt="" src="{{$row.upic}}">
-                                                                </a>
-                                                                <a class="lbtn source J_source" target="_blank"
-                                                                   href="{{$row.u_url}}" riot-tag="raw">
-                                                                    &nbsp;{{$row.uname}}&nbsp;
-                                                                </a>
-                                                            </div>
-                                                            {{*
-                                                            <a class="lbtn comment" target="_blank" href="/group/6587709843321127438//#comment_area">
-                                                                ⋅&nbsp;9评论&nbsp;
-                                                            </a>*}}
-                                                            <span class="lbtn">
-                                                                ⋅&nbsp;{{$row.create_time}}
-                                                            </span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            {{if !empty($row.image)}}
-                                            <div class="lbox">
-                                                <a class="img-wrap" target="_blank" href="{{$row.a_url}}">
-                                                    <img alt="" src="{{$row.image}}">
-                                                </a>
-                                            </div>
-                                            {{/if}}
-                                        </div>
+                                    {{include file="./block/list_item_row.html"}}
                                     </div>
                                 </div>
                                 {{/foreach}}
@@ -141,48 +103,7 @@
                 <div class="y-right index-right"></div>
             </div>
             <div id="footer">
-                <div>
-                    <span class="fitem">
-                        © 2019 {{$site.name}}
-                    </span>
-                    <a class="fitem" href="http://www.12377.cn/" target="_blank">
-                        中国互联网举报中心
-                    </a>
-                    <a class="fitem" href="http://www.miibeian.gov.cn/" target="_blank">
-                        {{$site.icp}}
-                    </a>
-                    {{if $site.license}}
-                    <a class="fitem" href="http://www.miibeian.gov.cn/" target="_blank">
-                        {{$site.license}}
-                    </a>
-                    {{/if}}
-
-                    {{*<a class="fitem" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
-                       target="_blank" ga_event="click_about">
-                        <img src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/gongan_d0289dc.png">
-                        京公网安备 11000002002023号
-                    </a>*}}
-                </div>
-                <div>
-                    {{if $site.license}}
-                    <a class="fitem" href="/license/" target="_blank">
-                        网络文化经营许可证
-                    </a>
-                    {{/if}}
-                    {{if $site.self_discipline}}
-                    <a class="fitem" href="/{{$site.self_discipline}}" target="_blank">
-                        跟帖评论自律管理承诺书
-                    </a>
-                    {{/if}}
-                    {{if $site.report}}
-                    <span class="fitem">
-                        违法和不良信息举报电话：{{$site.report}}
-                    </span>
-                    {{/if}}
-                    <span class="fitem">
-                        公司名称：{{$site.company_name}}
-                    </span>
-                </div>
+                {{include file="./block/footer.html"}}
             </div>
         </div>
 

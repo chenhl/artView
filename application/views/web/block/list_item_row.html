@@ -1,0 +1,39 @@
+<div class="item-inner  y-box">
+    <div class="normal {{if !empty($row.image)}}rbox{{/if}}">
+        <div class="rbox-inner">
+            <div class="title-box">
+                <a class="link title" target="_blank" href="{{$row.a_url}}">
+                    <span class="J_title" riot-tag="raw">{{$row.title}}</span>
+                </a>
+            </div>
+            <div class="y-box footer">
+                <div class="y-left">
+                    <div class="y-left">
+                        <a class="lbtn media-avatar" target="_blank"
+                           href="{{$row.u_url}}">
+                            <img alt="" src="{{$row.upic}}">
+                        </a>
+                        <a class="lbtn source J_source" target="_blank"
+                           href="{{$row.u_url}}" riot-tag="raw">
+                            &nbsp;{{$row.uname}}&nbsp;
+                        </a>
+                    </div>
+                    {{*
+                                                            <a class="lbtn comment" target="_blank" href="/group/6587709843321127438//#comment_area">
+                                                                ⋅&nbsp;9评论&nbsp;
+                                                            </a>*}}
+                    <span class="lbtn">
+                        ⋅&nbsp;{{$row.create_time}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{if !empty($row.image)}}
+    <div class="lbox">
+        <a class="img-wrap" target="_blank" href="{{$row.a_url}}">
+            <img alt="" src="{{$row.image}}">
+        </a>
+    </div>
+    {{/if}}
+</div>

@@ -1,0 +1,42 @@
+<div>
+    <span class="fitem">
+        © 2019 {{$site.name}}
+    </span>
+    <a class="fitem" href="http://www.12377.cn/" target="_blank">
+        中国互联网举报中心
+    </a>
+    <a class="fitem" href="http://www.miibeian.gov.cn/" target="_blank">
+        {{$site.icp}}
+    </a>
+    {{if $site.license}}
+    <a class="fitem" href="http://www.miibeian.gov.cn/" target="_blank">
+        {{$site.license}}
+    </a>
+    {{/if}}
+
+    {{*<a class="fitem" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
+                       target="_blank" ga_event="click_about">
+                        <img src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/gongan_d0289dc.png">
+                        京公网安备 11000002002023号
+                    </a>*}}
+</div>
+<div>
+    {{if $site.license}}
+    <a class="fitem" href="/license/" target="_blank">
+        网络文化经营许可证
+    </a>
+    {{/if}}
+    {{if $site.self_discipline}}
+    <a class="fitem" href="/{{$site.self_discipline}}" target="_blank">
+        跟帖评论自律管理承诺书
+    </a>
+    {{/if}}
+    {{if $site.report}}
+    <span class="fitem">
+        违法和不良信息举报电话：{{$site.report}}
+    </span>
+    {{/if}}
+    <span class="fitem">
+        公司名称：{{$site.company_name}}
+    </span>
+</div>

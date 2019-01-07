@@ -13,7 +13,10 @@ var dropload_param = {
         aid: $('#like_aid').val(),
         page: $('#next_page').val()
     },
-    append_ele:'#pageletListContent div.list_content'
+    append_ele:'#pageletListContent div.list_content',
+    platform:platform,
+    item_wrap:'',
+    item_wrap_end:''    
 };
 
 function ajax_check_param_msg() {

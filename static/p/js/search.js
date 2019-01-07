@@ -16,7 +16,10 @@ var dropload_param = {
         q: $('#q').val(),
         page: $('#next_page').val()
     },
-    append_ele:'#pageletListContent div.sections'
+    append_ele:'#pageletListContent div.sections',
+    platform:platform,
+    item_wrap:'<div riot-tag="articleCard" class="articleCard">',
+    item_wrap_end:'</div>'
 };
 
 $(function () {

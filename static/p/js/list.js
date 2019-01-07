@@ -10,7 +10,10 @@ var dropload_param = {
         page: $('#next_page').val(),
         channel: $('#channel').val()
     },
-    append_ele:'#pageletListContent ul'
+    append_ele:'#pageletListContent ul',
+    platform:platform,
+    item_wrap:'',
+    item_wrap_end:''    
 };
 $(function () {
 //    alert($(document).height());

@@ -24,7 +24,7 @@ $(function () {
                                 me.lock();
                                 me.noData();
                             } else {
-                                result = articleList(data.data.result_data.list, {platform: platform});
+                                result = articleList(data.data.result_data.list, dropload_param);
                             }
                         }
                         setTimeout(function () {

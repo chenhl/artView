@@ -284,9 +284,10 @@ function articleListps(list, obj) {
                 '</div>';//y-box footer
         res_rbox += '</div>'; // rbox-inner
 
-        result += '<div id="J_section_0" riot-tag="articleCard" class="articleCard">';
+//        result += '<div riot-tag="articleCard" class="articleCard">';
+        result += obj.item_wrap;
         result += '<div class="item">';
-        result += '<div class="item-inner  y-box">';
+        result += '<div class="item-inner y-box">';
 
         if (list[i].images.length < 3 && list[i].image === '') {//无图
             result += '<div class="normal">';//normal start
@@ -305,7 +306,8 @@ function articleListps(list, obj) {
         result += res_lbox;
         result += '</div>';//item-inner
         result += '</div>'; //item
-        result += '</div>';//articleCard
+//        result += '</div>';//articleCard
+        result += obj.item_wrap_end;//articleCard
     }
     return result;
 }

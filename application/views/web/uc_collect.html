@@ -149,99 +149,20 @@
                             <!--riot placeholder-->
                         </ul>
                     </div>
-                    <div riot-tag="feedBox">
+                    <div riot-tag="feedBox" id="pageletListContent">
                         <div class="feedBox" name="feedbox">
-                            <div class="tt-declare">
-                                以下内容由今日头条提供
-                            </div>
-                            <div class="tt-related-title">
-                                相关推荐
-                            </div>
+                            <input type="hidden" id="next_page" value="{{$next_page}}">
+                            <input type="hidden" id="page_size" value="{{$page_size}}">
                             <div riot-tag="relatedFeed" ban="false" empty="false" page_type="2">
                                 <div class="relatedFeed">
                                     <ul>
-                                        
-                                        <li ga_event="feed_item_click" class="item  " ad_id="" ad_track="">
-                                            <span id="ad_extra" style="display:none;">
-                                            </span>
-                                            <div class="item-inner y-box">
-                                                <div class="normal rbox ">
-                                                    <div class="rbox-inner">
-                                                        <div class="title-box" ga_event="video_title_click">
-                                                            <a class="link title" target="_blank" href="/item/6609830292888748557/">
-                                                                Web安全系列——代码执行漏洞
-                                                            </a>
-                                                        </div>
-                                                        <div class="y-box footer">
-                                                            <div class="y-left">
-                                                                <a class="lbtn" target="_blank" ga_event="video_play_count" href="/item/6609830292888748557/">
-                                                                    1824播放&nbsp;⋅
-                                                                </a>
-                                                                <a class="lbtn comment" target="_blank" ga_event="video_comment_click"
-                                                                   href="/item/6609830292888748557//#comment_area">
-                                                                    &nbsp;6评论&nbsp;
-                                                                </a>
-                                                                <span class="lbtn">
-                                                                    ⋅&nbsp;2018-10-08 11:57
-                                                                </span>
-                                                            </div>
-                                                            <div class="y-right">
-                                                                <span class="dislike" data-groupid="6609830292888748557" ga_event="video_dislike_click">
-                                                                    取消收藏
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="lbox" ga_event="video_img_click">
-                                                    <a class="img-wrap" target="_blank" href="/item/6609830292888748557/">
-                                                        <img alt="" src="//p99.pstatp.com/list/190x124/pgc-image/153897093218814327c8703">
-                                                        <i class="ftype video">
-                                                            <span>
-                                                                09:52
-                                                            </span>
-                                                        </i>
-                                                    </a>
-                                                </div>
-                                            </div>
+                                        {{if !empty($article_list)}}
+                                        {{foreach $article_list as $key=>$row}}
+                                        <li class="item">
+                                            {{include file="./block/list_item_row.html"}}
                                         </li>
-                                        
-                                        <li ga_event="feed_item_click" class="item  " ad_id="" ad_track="">
-                                            <span id="ad_extra" style="display:none;">
-                                            </span>
-                                            <div class="item-inner y-box">
-                                                <div class="normal  ">
-                                                    <div class="rbox-inner">
-                                                        <div class="title-box" ga_event="article_title_click">
-                                                            <a class="link title" target="_blank" href="/item/6638479068792619533/">
-                                                                为什么阿里巴巴要求程序员谨慎修改serialVersionUID 字段的值
-                                                            </a>
-                                                        </div>
-                                                        <div class="y-box footer">
-                                                            <div class="y-left">
-                                                                <a class="lbtn" target="_blank" ga_event="article_read_count" href="/item/6638479068792619533/">
-                                                                    2.8万阅读&nbsp;⋅
-                                                                </a>
-                                                                <a class="lbtn comment" target="_blank" ga_event="article_comment_click"
-                                                                   href="/item/6638479068792619533//#comment_area">
-                                                                    &nbsp;36评论&nbsp;
-                                                                </a>
-                                                                <span class="lbtn">
-                                                                    ⋅&nbsp;2018-12-24 16:49
-                                                                </span>
-                                                            </div>
-                                                            <div class="y-right">
-                                                                <span class="dislike" data-groupid="6638479068792619533" ga_event="article_dislike_click">
-                                                                    取消收藏
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        
-                                        <!--riot placeholder-->
+                                        {{/foreach}}
+                                        {{/if}}
                                     </ul>
                                 </div>
                             </div>
@@ -293,42 +214,10 @@
 
         <!-- 公共尾部 -->
         <div id="footer">
-            <div>
-                <span class="fitem">
-                    © 2018 今日头条
-                </span>
-                <a class="fitem" href="http://www.12377.cn/" target="_blank">
-                    中国互联网举报中心
-                </a>
-                <a class="fitem" href="http://www.miibeian.gov.cn/" target="_blank">
-                    京ICP证140141号
-                </a>
-                <a class="fitem" href="http://www.miibeian.gov.cn/" target="_blank">
-                    京ICP备12025439号-3
-                </a>
-                <a class="fitem" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11000002002023"
-                   target="_blank" ga_event="click_about">
-                    <img src="//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/gongan_d0289dc.png">
-                    京公网安备 11000002002023号
-                </a>
-            </div>
-            <div>
-                <a class="fitem" href="/license/" target="_blank">
-                    网络文化经营许可证
-                </a>
-                <a class="fitem" href="/a3642705768/" target="_blank">
-                    跟帖评论自律管理承诺书
-                </a>
-                <span class="fitem">
-                    违法和不良信息举报电话：010-58341833
-                </span>
-                <span class="fitem">
-                    公司名称：北京字节跳动科技有限公司
-                </span>
-            </div>
+            {{include file="./block/footer.html"}}
         </div>
-        
-        
+
+
 
         <script>
             var getSearchParams = function () {
@@ -355,7 +244,14 @@
 //                window._czc && _czc.push(['_trackEvent', 'profile', 'media_source_desc', searchParams.media_source_desc, 1, ''])
 //            }
         </script>
-        
+
     </body>
 
 </html>
+<script src="/static/js/common/jquery-3.2.1.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/jquery.cookie.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+
+<script src="/static/p/js/uc.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/list_dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
