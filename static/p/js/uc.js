@@ -30,6 +30,7 @@ $(function () {
         ajax_data: {
             fuid: $(this).attr('media_id')
         },
+        fuid:$(this).attr('media_id'),
         view_func: function () {
             var class_str = 'following';
             var url = '/index/follow';
