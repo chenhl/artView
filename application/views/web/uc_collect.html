@@ -81,9 +81,13 @@
                         </div>
                         <div class="y-right">
                             <div riot-tag="wsearch" style="margin-top: 9px; width: 340px;">
-                                <div name="searchBox" class="wsearch"><form name="searchForm" action="/search/" method="get" target="_blank">
+                                <div name="searchBox" class="wsearch">
+                                    <form name="searchForm" action="/search/" method="get" target="_blank">
                                         <div name="inputbox" class="y-box input-group">
-                                            <input class="y-left input-text" name="keyword" autocomplete="off"  type="text" placeholder="请输入关键字"><div class="y-right btn-submit"><button type="submit" href="javascript:;"><i class="y-icon icon-search"></i></button></div>
+                                            <input class="y-left input-text" name="keyword" autocomplete="off"  type="text" placeholder="请输入关键字">
+                                            <div class="y-right btn-submit">
+                                                <button type="submit" href="javascript:;"><i class="y-icon icon-search"></i></button>
+                                            </div>
                                         </div>
                                     </form>
                                 </div>
@@ -93,7 +97,6 @@
                 </div>
 
             </div>
-
 
             <div id="wrapper">
                 <div riot-tag="yheader" class="yheader">
@@ -107,16 +110,14 @@
                         <ul>
                             <li class="title">
                                 <a ga_event="user_head_click" href="/c/user/54588277715/">
-                                    <span class="name">
-                                        乔木173103772
-                                    </span>
+                                    <span class="name">乔木173103772</span>
                                 </a>
                             </li>
                             <li class="des">
-                                <a ga_event="user_head_click" href="/c/user/54588277715/">
-                                </a>
+                                <a ga_event="user_head_click" href="/c/user/54588277715/"></a>
                             </li>
                         </ul>
+                        {{*
                         <span ga_event="user_ugc_publish" class="btn-publish ">
                             <span class=" y-icon icon-answer_small_wenda">
                             </span>
@@ -132,21 +133,15 @@
                                 </span>
                             </b>
                         </span>
+                        *}}
                     </div>
                 </div>
                 <div class="left">
                     <div riot-tag="tab">
                         <ul class="tab tab-2">
-                            <li code="b" idx="0" class="">
-                                视频
-                            </li>
-                            <li class="" code="d" idx="1">
-                                微头条
-                            </li>
-                            <li code="c" idx="2" class="active">
-                                收藏
-                            </li>
-                            <!--riot placeholder-->
+                            <li code="c" idx="2" class="active">收藏</li>                            
+                            <li code="b" idx="0" class="">关注</li>
+                            <li class="" code="d" idx="1">粉丝</li>
                         </ul>
                     </div>
                     <div riot-tag="feedBox" id="pageletListContent">
@@ -176,28 +171,20 @@
                                 <a ga_event="nav_user_list" href="/c/user/relation/54588277715/?tab=following">
                                     <h3 riot-tag="number" number="453">
                                         <em class="y-number">
-                                            <i>
-                                                453
-                                            </i>
+                                            <i>453</i>
                                         </em>
                                     </h3>
-                                    <p>
-                                        关注
-                                    </p>
+                                    <p>关注</p>
                                 </a>
                             </dt>
                             <dd>
                                 <a ga_event="nav_user_list" href="/c/user/relation/54588277715/?tab=followed">
                                     <h3 riot-tag="number" number="17">
                                         <em class="y-number">
-                                            <i>
-                                                17
-                                            </i>
+                                            <i>17</i>
                                         </em>
                                     </h3>
-                                    <p>
-                                        粉丝
-                                    </p>
+                                    <p>粉丝</p>
                                 </a>
                             </dd>
                         </dl>

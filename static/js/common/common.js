@@ -59,6 +59,58 @@ function articleList(list, obj) {
     }
 }
 /**
+ * pc 用户中心关注、粉丝
+ * @param {array} list
+ * @param {obj} obj
+ * @returns {string}
+ */
+function followp(list, obj) {
+    obj = obj || {};
+    var result = '';
+    var u_url, upic;
+    var status_cls, status_txt;
+
+    for (var i = 0; i < list.length; i++) {
+        u_url = list[i].u_url;
+        upic = list[i].upic;
+
+        result += '<li><dl class="media-list">';
+
+        result += '<dd class="avatar-wrap">' +
+                '<a target="_blank" href="' + u_url + '">' +
+                '<img alt="" src="' + upic + '">' +
+                '</a>' +
+                '</dd>';
+        result += '<dd>' +
+                '<a target="_blank" href="' + u_url + '">' +
+                '<h3>' + list[i].uname + '</h3>' +
+                '</a>' +
+                '</dd>';
+
+        if (list[i].relation_status === 2) {
+            status_cls = 'each';
+            status_txt = '互相关注';
+        } else if (list[i].relation_status === 1) {
+            status_cls = 'following';
+            status_txt = '已关注';
+        } else {
+            status_cls = '';
+            status_txt = '关注';
+        }
+
+        result += '<dd class="relation">' +
+                '<div status="' + list[i].relation_status + '" riot-tag="attention" txt="关注" activetxt="已关注" friendedtxt="互相关注" media_id="' + list[i].uid + '">' +
+                '<span class="btn-attention' + status_cls + '">' +
+                '<em class="text">' + status_txt + '</em>' +
+                '</span>' +
+                '</div>' +
+                '</dd>';
+        result += '</dl></li>';
+    }
+    return result;
+
+}
+/**
  * pc 详情页，author最新列表
  * @param {type} list
  * @param {type} obj

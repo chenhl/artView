@@ -73,6 +73,7 @@ class Member extends Base_Controller {
         $this->_channel($cur_channel);
         
 //        $segment_array = $this->uri->segment_array();
+        //内容列表
         $page = isset($get['page']) ? intval($get['page']) : 1;
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
         $condition = array();

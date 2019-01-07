@@ -59,11 +59,37 @@ class Member_model extends Base_model {
         $request['api_sign'] = $this->genSign($request);
 
         $this->load->library(array("lib_curl"));
+        $res = Lib_curl::httpRequest($this->api_url . '/author/getFollowList', $request, TRUE);
+        $return = json_decode($res, TRUE);
+//        if($return['data']['list']){
+//            foreach ($return['data']['list'] as $row) {
+//                
+//            }
+//        }
+        return $return['data'];
+    }
+    /**
+     * curl查询接口 我的粉丝，
+     * 
+     * @param type $condition
+     * @param type $page
+     * @param type $pageSize
+     * @return type
+     */
+    public function getFansList($condition, $page = 1, $pageSize = 20) {
+        $request = array();
+        //当前用户id
+        $request['uid'] = $condition['uid'];
+        $request['api_key'] = $this->api_conf['api_key'];
+        $request['page'] = $page;
+        $request['pageSize'] = $pageSize;
+        $request['api_sign'] = $this->genSign($request);
+
+        $this->load->library(array("lib_curl"));
         $res = Lib_curl::httpRequest($this->api_url . '/author/getList', $request, TRUE);
         $return = json_decode($res, TRUE);
         return $return['data'];
     }
-
     /**
      * 收藏
      * @param type $param
