@@ -15,6 +15,24 @@ var dropload_param = {
     item_wrap_end: '</li>'
 };
 
+function ajax_view_func(me) {
+    var class_str = 'following';
+    var url = '/index/follow';
+    if ($(me).find('span').hasClass(class_str)) {
+        url = '/index/cancelFollow';
+        $(me).find('span').removeClass(class_str);
+        $(me).find('span em').text('关注');
+    } else {
+        $(me).find('span').addClass(class_str);
+        $(me).find('span em').text('已关注');
+    }
+    var res = {};
+    res.url = url;
+    res.ajax_data = {
+        fuid: $(me).attr('media_id')
+    };
+    return res;
+}
 $(function () {
 //    window.onscroll = function () {
 //        if ($(document).scrollTop() > 40) {
@@ -27,25 +45,7 @@ $(function () {
     //关注
     $('div[riot-tag="attention"]').on('click', {
         platform: platform,
-        ajax_data: {
-            fuid: $(this).attr('media_id')
-        },
-        fuid:$(this).attr('media_id'),
-        view_func: function () {
-            var class_str = 'following';
-            var url = '/index/follow';
-            var me = this;
-            console.log(me);
-            if ($(me).find('span').hasClass(class_str)) {
-                url = '/index/cancelFollow';
-                $(me).find('span').removeClass(class_str);
-                $(me).find('span').text('关注');
-            } else {
-                $(me).find('span').addClass(class_str);
-                $(me).find('span').text('已关注');
-            }
-            return url;
-        }
+        style: 'list'
     }, ajax_simple_handle);
 
 
