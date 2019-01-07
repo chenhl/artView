@@ -51,10 +51,11 @@ class Member extends Base_Controller {
         $page = isset($get['page']) ? intval($get['page']) : 1;
         $pageSize = isset($get['pageSize']) ? intval($get['pageSize']) : 20;
         $condition = array();
-        $condition['uid'] = $this->user_id;
+//        $condition['uid'] = $this->user_id;
+        $condition['uid'] = 1;
         $data = $this->member_model->getFollowList($condition, $page, $pageSize);
-        $this->assign("follows", $data);
-        
+        $this->assign("follows", $data['list']);
+//        print_r($data);
         //seo
         $this->seo($this->siteConf);
         $this->display('web/uc_follow.html');
@@ -79,7 +80,7 @@ class Member extends Base_Controller {
         $condition = array();
         $condition['uid'] = $this->user_id;
         $data = $this->member_model->getCollectList($condition, $page, $pageSize);
-        $this->assign("collects", $data);
+        $this->assign("collects", $data['list']);
         
         //seo
         $this->seo($this->siteConf);
