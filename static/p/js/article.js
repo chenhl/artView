@@ -11,10 +11,10 @@ var dropload_param = {
         aid: $('#like_aid').val(),
         page: $('#next_page').val()
     },
-    append_ele:'#pageletListContent ul',
-    platform:platform,
-    item_wrap:'',
-    item_wrap_end:''
+    append_ele: '#pageletListContent ul',
+    platform: platform,
+    item_wrap: '',
+    item_wrap_end: ''
 };
 /**
  * 收藏、喜欢、关注等点击时检查参数失败
@@ -58,10 +58,10 @@ $(function () {
     //收藏
     $('.repin i,.repin span').on('click', {
         platform: platform,
-        ajax_data: {
-            aid: $('#collection').attr('data-aid')
-        },
-        view_func: function () {
+//        ajax_data: {
+//            aid: $('#collection').attr('data-aid')
+//        },
+        view_func: function (me) {
             var class_str = 'collection';
             var url = '/index/collection';
             if ($('.repin i').hasClass(class_str)) {
@@ -72,16 +72,21 @@ $(function () {
                 $('.repin i').addClass(class_str);
                 $('.repin i').css({'font-size': '18px', 'color': 'rgb(255, 189, 29)'});
             }
-            return url;
+            var res = {};
+            res.url = url;
+            res.ajax_data = {
+                aid: $('#collection').attr('data-aid')
+            };
+            return res;
         }
     }, ajax_simple_handle);
     //关注
     $('.subscribe').on('click', {
         platform: platform,
-        ajax_data: {
-            fuid: $('#follow').attr('data-uid')
-        },
-        view_func: function () {
+//        ajax_data: {
+//            fuid: $('#follow').attr('data-uid')
+//        },
+        view_func: function (me) {
             var class_str = 'follow';
             var url = '/index/follow';
             if ($('.subscribe').hasClass(class_str)) {
@@ -108,7 +113,12 @@ $(function () {
 
                 $('.subscribe span').text('已关注');
             }
-            return url;
+            var res = {};
+            res.url = url;
+            res.ajax_data = {
+                fuid: $('#follow').attr('data-uid')
+            };
+            return res;
         }
     }, ajax_simple_handle);
 //    $('#follow').on('click', {platform: platform}, follow);

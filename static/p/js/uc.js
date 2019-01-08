@@ -45,7 +45,24 @@ $(function () {
     //关注
     $('div[riot-tag="attention"]').on('click', {
         platform: platform,
-        style: 'list'
+        view_func: function (me) {
+            var class_str = 'following';
+            var url = '/index/follow';
+            if ($(me).find('span').hasClass(class_str)) {
+                url = '/index/cancelFollow';
+                $(me).find('span').removeClass(class_str);
+                $(me).find('span em').text('关注');
+            } else {
+                $(me).find('span').addClass(class_str);
+                $(me).find('span em').text('已关注');
+            }
+            var res = {};
+            res.url = url;
+            res.ajax_data = {
+                fuid: $(me).attr('media_id')
+            };
+            return res;
+        }
     }, ajax_simple_handle);
 
 
