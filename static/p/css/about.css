@@ -203,8 +203,8 @@ b,em,h1,h2,h3,h4,h5,h6,strong {
 }
 @font-face {
 	font-family:tticons;
-	src:url(//s3.pstatp.com/toutiao/static/fonts/iconfont.8476dfd.eot);
-	src:url(//s3.pstatp.com/toutiao/static/fonts/iconfont.8476dfd.eot#iefix) format("embedded-opentype"),url(//s3.pstatp.com/toutiao/static/fonts/iconfont.a199a65.woff) format("woff"),url(//s3.pstatp.com/toutiao/static/fonts/iconfont.8c7a53b.ttf) format("truetype"),url(//s3.pstatp.com/toutiao/static/img/iconfont.e0e81a7.svg#iconfont) format("svg");
+	src:url(/static/fonts/iconfont.eot);
+	src:url(/static/fonts/iconfont.eot#iefix) format("embedded-opentype"),url(/static/fonts/iconfont.woff) format("woff"),url(/static/fonts/iconfont.ttf) format("truetype"),url(/static/images/iconfont.svg#iconfont) format("svg");
 	font-weight:400;
 	font-style:normal
 }
