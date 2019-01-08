@@ -337,10 +337,10 @@
 .login-dialog .btn .icon-close {
 	height:10px;
 	width:10px;
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/home_close_normal_e37e884.png) center no-repeat
+	background:url(/static/images/home_close_normal.png) center no-repeat
 }
 .login-dialog .btn:hover .icon-close {
-	background:url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/image/home_close_hover_5071e41.png) center no-repeat
+	background:url(/static/images/home_close_hover.png) center no-repeat
 }
 .login-dialog .icon {
 	display:inline-block;
@@ -464,19 +464,19 @@
 	margin:0 auto
 }
 .login-dialog .sns_login_list .sinaweibo .icon {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weibo_71863da.png?__sprite) no-repeat center top
+	background:url(/static/images/weibo.png?__sprite) no-repeat center top
 }
 .login-dialog .sns_login_list .qqweibo .icon {
-	background:url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/image/tencent_0aa16bf.png?__sprite) no-repeat center top
+	background:url(/static/images/tencent.png?__sprite) no-repeat center top
 }
 .login-dialog .sns_login_list .qzone .icon {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/qq_4685a4d.png?__sprite) no-repeat center top
+	background:url(/static/images/qq.png?__sprite) no-repeat center top
 }
 .login-dialog .sns_login_list .renren .icon {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/renren_701f64f.png?__sprite) no-repeat center top
+	background:url(/static/images/renren.png?__sprite) no-repeat center top
 }
 .login-dialog .sns_login_list .weixin .icon {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weixin_158ddc6.png?__sprite) no-repeat center top
+	background:url(/static/images/weixin.png?__sprite) no-repeat center top
 }
 .login-dialog .bottom-line {
 	border-bottom:1px solid #e5e5e5;
@@ -510,241 +510,7 @@
 .hide {
 	display:none
 }
-.y-weather {
-	padding:4px;
-	color:#444;
-	width:220px;
-	height:124px;
-	z-index:20;
-	background:#fff;
-	border:1px solid #e8e8e8
-}
-.y-weather .w-header {
-	font-size:14px;
-	line-height:18px
-}
-.y-weather .w-header .icon-location {
-	padding-left:10px;
-	cursor:pointer;
-	color:#406599;
-	font-size:13px
-}
-.y-weather .w-header .wind {
-	margin:0 10px
-}
-.y-weather .w-header .air {
-	color:#fff;
-	border-radius:4px;
-	height:18px;
-	line-height:18px;
-	display:inline-block;
-	font-size:12px;
-	text-align:center;
-	padding:0 4px
-}
-.y-weather .city-select {
-	display:none;
-	margin:0 auto;
-	margin-top:18px;
-	width:200px;
-	height:76px;
-	background:#fff
-}
-.y-weather .city-select:after {
-	content:'';
-	position:absolute;
-	top:125px;
-	width:220px;
-	height:300px
-}
-.y-weather .city-select .select-style {
-	position:relative;
-	width:94px;
-	height:26px;
-	line-height:26px;
-	border:1px solid #e8e8e8;
-	font-size:14px
-}
-.y-weather .city-select .select-style .name {
-	margin-left:5px;
-	white-space:nowrap;
-	overflow:hidden;
-	text-overflow:ellipsis;
-	color:#444
-}
-.y-weather .city-select .select-style .icon-more {
-	padding:0 5px;
-	background-color:#f4f5f6;
-	font-size:14px;
-	line-height:26px
-}
-.y-weather .city-select .province-list,.y-weather .city-select .city-list {
-	display:none;
-	position:absolute;
-	left:-1px;
-	width:180px;
-	background:#fff;
-	border:1px solid #e8e8e8;
-	margin-top:2px;
-	z-index:2
-}
-.y-weather .city-select .province-list .item,.y-weather .city-select .city-list .item {
-	width:33.33333%;
-	line-height:28px;
-	text-align:center;
-	background:#fff
-}
-.y-weather .city-select .province-list .item:hover,.y-weather .city-select .city-list .item:hover {
-	background:#e8e8e8
-}
-.y-weather .city-select .city-list {
-	left:auto;
-	right:-1px!important
-}
-.y-weather .city-select .ok-btn,.y-weather .city-select .cancel-btn {
-	width:94px;
-	display:inline-block;
-	height:28px;
-	line-height:28px;
-	text-align:center;
-	font-size:14px;
-	margin-top:12px;
-	background:#406599;
-	color:#fff;
-	border-radius:6px
-}
-.y-weather .city-select .ok-btn:hover,.y-weather .city-select .cancel-btn:hover {
-	opacity:.8
-}
-.y-weather .city-select .cancel-btn {
-	margin-left:10px;
-	background:#e8e8e8;
-	color:#999
-}
-.y-weather .weather-icon {
-	margin:auto;
-	width:48px;
-	height:48px;
-	background:#eee
-}
-.y-weather .weather-icon-0 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/0_2491676.png)
-}
-.y-weather .weather-icon-1 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/1_51a147f.png)
-}
-.y-weather .weather-icon-2 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/2_edf7194.png)
-}
-.y-weather .weather-icon-3 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/3_0457b68.png)
-}
-.y-weather .weather-icon-4 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/4_7642bb6.png)
-}
-.y-weather .weather-icon-5 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/5_1531508.png)
-}
-.y-weather .weather-icon-6 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/6_db5a188.png)
-}
-.y-weather .weather-icon-7 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/7_88acb18.png)
-}
-.y-weather .weather-icon-8 {
-	background:url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/8_9815104.png)
-}
-.y-weather .weather-icon-9 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/9_2f510a8.png)
-}
-.y-weather .weather-icon-10 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/10_2537929.png)
-}
-.y-weather .weather-icon-13 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/13_b05865c.png)
-}
-.y-weather .weather-icon-14 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/14_9b3eb63.png)
-}
-.y-weather .weather-icon-15 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/15_5a76b28.png)
-}
-.y-weather .weather-icon-16 {
-	background:url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/16_6a326fa.png)
-}
-.y-weather .weather-icon-17 {
-	background:url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/17_32ec6f5.png)
-}
-.y-weather .weather-icon-18 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/18_a639aa7.png)
-}
-.y-weather .weather-icon-19 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/19_939a531.png)
-}
-.y-weather .weather-icon-20 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/20-36_55ac7de.png)
-}
-.y-weather .weather-icon-29 {
-	background:url(/static/image/weather/29-36.png)
-}
-.y-weather .weather-icon-30 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/30_10c227c.png)
-}
-.y-weather .weather-icon-31 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/31_4b92e75.png)
-}
-.y-weather .weather-icon-32 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/32_6a54cc8.png)
-}
-.y-weather .weather-icon-33 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/33_d20b8b5.png)
-}
-.y-weather .weather-icon-34 {
-	background:url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/34_e4493a6.png)
-}
-.y-weather .weather-icon-35 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/29-35_0505311.png)
-}
-.y-weather .weather-icon-36 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/20-36_55ac7de.png)
-}
-.y-weather .weather-icon-44 {
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/44_0af4b08.png)
-}
-.y-weather .weather-icon-45 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/45-46_26db39c.png)
-}
-.y-weather .weather-icon-46 {
-	background:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/weather/45-46_26db39c.png)
-}
-.y-weather .days-weather {
-	display:none;
-	margin-top:10px;
-	font-size:14px
-}
-.y-weather .days-weather .day {
-	display:inline-block;
-	width:33.3333333%
-}
-.y-weather .days-weather span {
-	display:block;
-	text-align:center
-}
-.y-weather .days-weather .title {
-	color:#999;
-	line-height:24px
-}
-.y-weather .days-weather .temperature {
-	white-space:nowrap;
-	line-height:24px
-}
-.y-weather .days-weather .temperature em {
-	position:relative;
-	padding-right:2px
-}
-.y-weather .show {
-	display:block!important
-}
+
 .wuserbox {
 	position:relative;
 	font-size:14px;
@@ -797,8 +563,8 @@
 	width:38px;
 	height:38px;
 	background-repeat:no-repeat;
-	background-image:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/login/notice_ic_2e647f3.png);
-	background-image:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/login/notice_ic_0cca2ea.svg),none
+	background-image:url(/static/images/notice_ic.png);
+	background-image:url(/static/image/notice_ic.svg),none
 }
 .wuserbox .nav-login .login-layer p {
 	font-size:14px;
@@ -1421,12 +1187,12 @@
 	content:" ";
 	display:block;
 	height:80px;
-	background:url(//s3.pstatp.com/site/tt_mfsroot/pc_img/empty_fans.png) center center no-repeat;
-	background:none,url(//s3.pstatp.com/site/tt_mfsroot/pc_img/empty_fans.svg) center center no-repeat
+	background:url(/static/images/empty_fans.png) center center no-repeat;
+	background:none,url(/static/images/empty_fans.svg) center center no-repeat
 }
 .list .empty.ban:before {
-	background:url(//s3.pstatp.com/site/tt_mfsroot/pc_img/blocked_user_pic.png) center center no-repeat;
-	background:none,url(//s3.pstatp.com/site/tt_mfsroot/pc_img/blocked_user_pic.svg) center center no-repeat
+	background:url(/static/images/blocked_user_pic.png) center center no-repeat;
+	background:none,url(/static/images/blocked_user_pic.svg) center center no-repeat
 }
 .list .no-more,.list .loading {
 	text-align:center;
@@ -1588,7 +1354,7 @@
 }
 .recent .articles .line .lbox .duration::before {
 	content:'';
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/feed/video_icon_bf43446.png) left center no-repeat;
+	background:url(/static/images/video_icon.png) left center no-repeat;
 	width:6px;
 	height:8px;
 	position:absolute;
@@ -1892,7 +1658,7 @@
 .relatedFeed .lbox .ftype.video:before {
 	content:'';
 	position:absolute;
-	background:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/feed/video_icon_bf43446.png) left center no-repeat;
+	background:url(/static/images/video_icon.png) left center no-repeat;
 	width:6px;
 	height:8px;
 	top:50%;
@@ -2051,12 +1817,12 @@
 	content:" ";
 	display:block;
 	height:110px;
-	background:url(//s3.pstatp.com/site/tt_mfsroot/pc_img/empty_article.png) center center no-repeat;
-	background:none,url(//s3.pstatp.com/site/tt_mfsroot/pc_img/empty_article.svg) center center no-repeat
+	background:url(/static/images/empty_article.png) center center no-repeat;
+	background:none,url(/static/images/empty_article.svg) center center no-repeat
 }
 .relatedFeed .empty.ban:before {
-	background:url(//s3.pstatp.com/site/tt_mfsroot/pc_img/blocked_user_pic.png) center center no-repeat;
-	background:none,url(//s3.pstatp.com/site/tt_mfsroot/pc_img/blocked_user_pic.svg) center center no-repeat
+	background:url(/static/images/blocked_user_pic.png) center center no-repeat;
+	background:none,url(/static/images/blocked_user_pic.svg) center center no-repeat
 }
 .relatedFeed .avatar-bg-0 {
 	background-color:#ff9090!important
@@ -2797,12 +2563,12 @@
 }
 .videoBox .videoUploadBox .upload-cover.upload-cover-add {
 	cursor:pointer;
-	background-image:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/ugc/add_file_5d6d528.png);
-	background-image:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/ugc/add_file_6589b85.svg),none
+	background-image:url(/static/images/add_file.png);
+	background-image:url(/static/images/add_file.svg),none
 }
 .videoBox .videoUploadBox .upload-cover.upload-cover-loading {
-	background-image:url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/image/ugc/upload_1e4715c.png);
-	background-image:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/image/ugc/upload_257be05.svg),none
+	background-image:url(/static/images/upload.png);
+	background-image:url(/static/images/upload.svg),none
 }
 .videoBox .videoUploadBox .upload-cover img {
 	display:inline-block;
@@ -3048,8 +2814,8 @@
 }
 .imgBox .imgUploadBox .upload-img-list .upload-img-add {
 	cursor:pointer;
-	background-image:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/ugc/add_file_5d6d528.png);
-	background-image:url(//s3a.pstatp.com/toutiao/resource/ntoutiao_web/static/image/ugc/add_file_6589b85.svg),none
+	background-image:url(/static/images/add_file.png);
+	background-image:url(/static/images/add_file.svg),none
 }
 .imgBox .imgUploadBox .upload-img-list .upload-img-loading img {
 	margin:30px 0 0 30px;

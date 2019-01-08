@@ -3341,7 +3341,7 @@ to {
 	height:30px;
 	border:1px solid #e8e8e8;
 	border-radius:50%;
-	background:url("//s3.pstatp.com/toutiao/resource/toutiao_web/static/style/image/newindex/default40_c78f50e.png") no-repeat 50%;
+	background:url("/static/images/default40.png") no-repeat 50%;
 	overflow:hidden
 }
 #comment .avatar-wrap-center {
@@ -3824,16 +3824,16 @@ to {
 	padding-left:56px;
 	cursor:pointer;
 	background-color:#fafafa;
-	background-image:url(//s3.pstatp.com/toutiao/static/img/article_audio_normal.422d84b.png);
+	background-image:url(/static/images/article_audio_normal.png);
 	background-repeat:no-repeat;
 	background-position:14px 20px;
 	position:relative
 }
 .audio-box:hover {
-	background-image:url(//s3.pstatp.com/toutiao/static/img/article_audio_hover.3d68ad9.png)
+	background-image:url(/static/images/article_audio_hover.png)
 }
 .audio-box.active {
-	background-image:url(//s3.pstatp.com/toutiao/static/img/article_audio_play.b6b4d8c.gif)
+	background-image:url(/static/images/article_audio_play.gif)
 }
 .audio-box .audio-top {
 	height:44px

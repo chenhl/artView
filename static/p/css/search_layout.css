@@ -548,8 +548,8 @@ a[href^='http://www.cnzz.com/stat'] {
 }
 @font-face {
 	font-family:yFont;
-	src:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/fonts/yFont_30fcbd2.eot?v=0.0.1);
-	src:url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/fonts/yFont_30fcbd2.eot?v=0.0.1#iefix) format("embedded-opentype"),url(//s3.pstatp.com/toutiao/resource/ntoutiao_web/static/fonts/yFont_c580e17.woff?v=0.0.1) format("woff"),url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/fonts/yFont_8013b15.ttf?v=0.0.1) format("truetype"),url(//s3b.pstatp.com/toutiao/resource/ntoutiao_web/static/fonts/yFont_557beca.svg?v=0.0.1#yFont) format("svg")
+	src:url(/static/fonts/yFont.eot?v=0.0.1);
+	src:url(/static/fonts/yFont.eot?v=0.0.1#iefix) format("embedded-opentype"),url(/static/fonts/yFont.woff?v=0.0.1) format("woff"),url(/static/fonts/yFont.ttf?v=0.0.1) format("truetype"),url(/static/fonts/yFont.svg?v=0.0.1#yFont) format("svg")
 }
 .y-icon {
 	position:relative;

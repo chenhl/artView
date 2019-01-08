@@ -992,7 +992,7 @@ body.utms-360wifi #indexHeader .top_bar {
 #pageletPopupBanner.tt-modal .popup .close {
   width: 40px;
   height: 32px;
-  background: url(//s3.pstatp.com/growth/mobile_list/image/popup_banner_close_e6f62910.png) no-repeat center;
+  background: url(/static/images/popup_banner_close.png) no-repeat center;
   background-size: 17px;
   position: absolute;
   right: 0px;
@@ -1070,7 +1070,7 @@ body.utms-360wifi #indexHeader .top_bar {
   margin-left: 54px;
   width: 165px;
   height: 121px;
-  background: url(//s3a.pstatp.com/growth/mobile_list/image/popup_banner_6006ac97.png) no-repeat;
+  background: url(/static/images/popup_banner_close.png) no-repeat;
   background-size: contain;
 }
 [data-dpr="2"] #pageletPopupBanner.tt-modal .popup .banner {
@@ -1155,7 +1155,7 @@ body.utms-360wifi #indexHeader .top_bar {
   width: 100%;
   height: 100%;
   display: inline-block;
-  background: url(//s3a.pstatp.com/growth/mobile_list/image/titlebar_refresh_small@3x_96fb31e4.png) no-repeat center center;
+  background: url(/static/images/titlebar_refresh_small@3x_m.png) no-repeat center center;
   background-size: 15px;
 }
 [data-dpr="2"] .refreshBtn-container .refresh_btn {
@@ -1350,7 +1350,7 @@ body.utms-360wifi #indexHeader .top_bar {
 	right:8px;
 	width:15px;
 	height:15px;
-	background:url(//s3.pstatp.com/toutiao/resource/website_search/images/del.1f1ebe7a.png) no-repeat;
+	background:url(/static/images/del.png) no-repeat;
 	background-size:100%
 }
 .ttfe-icon {

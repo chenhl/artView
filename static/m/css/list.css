@@ -439,7 +439,7 @@ content.feed-list-container .list_image ul li:last-child {
 content.feed-list-container .list_img_holder {
   height: 1.96875rem;
   position: relative;
-  background: url(//s3b.pstatp.com/growth/mobile_list/image/toutiaoicon_loading_textpage@3x_f7c130ce.png) #efefef no-repeat center center;
+  background: url(/static/images/icon_loading_textpage@3x_m.png) #efefef no-repeat center center;
   background-size: 50%;
 }
 content.feed-list-container .middle_mode .list_img_holder {
@@ -655,7 +655,7 @@ content.feed-list-container .item_info .label-fix {
 }
 content.feed-list-container .item_info .dislike-news {
   display: none;
-  background: url(//s3b.pstatp.com/growth/mobile_list/image/dislikeicon_textpage@3x_5d6752fb.png) no-repeat center center;
+  background: url(/static/images/dislikeicon_textpage@3x_m.png) no-repeat center center;
   background-size: 18px;
   height: 12px;
   width: 18px;
@@ -685,7 +685,7 @@ content.feed-list-container .video-btn {
   top: 0;
   bottom: 0;
   right: 0;
-  background: url(//s3.pstatp.com/growth/mobile_list/image/playicon_video@3x_dcf536ff.png) no-repeat center center;
+  background: url(/static/images/playicon_video@3x_m.png) no-repeat center center;
   background-size: 50px;
 }
 [data-dpr="2"] content.feed-list-container .video-btn {
@@ -735,7 +735,7 @@ content.feed-list-container .video-icon span {
   display: inline-block;
   font-size: 12px;
   line-height: 20px;
-  background: rgba(0, 0, 0, 0.3) url(//s3b.pstatp.com/growth/mobile_list/image/videoicon_textpage@3x_874cd528.png) no-repeat;
+  background: rgba(0, 0, 0, 0.3) url(/static/images/videoicon_textpage@3x_m.png) no-repeat;
   background-position: 6px;
   background-size: 16px;
   padding-right: 6px;
