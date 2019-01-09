@@ -146,7 +146,7 @@ class Index extends Base_Controller {
         $this->display('article.html');
     }
 
-    public function test() {
+    private function test() {
         $this->display('test.html');
     }
 

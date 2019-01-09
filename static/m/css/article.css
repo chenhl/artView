@@ -377,6 +377,9 @@ article pre[lang] {
     clear:both;
     padding-bottom:24px
 }
+.article.withHeader {
+  padding-top: 80px;
+}
 .article .article__content .hide-elements {
     display:none
 }
