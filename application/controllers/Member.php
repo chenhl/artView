@@ -58,7 +58,7 @@ class Member extends Base_Controller {
 //        print_r($data);
         //seo
         $this->seo($this->siteConf);
-        $this->display('web/uc_follow.html');
+        $this->display('uc_follow.html');
     }
 
     /**
@@ -85,7 +85,7 @@ class Member extends Base_Controller {
         //seo
         $this->seo($this->siteConf);
         
-        $this->display('web/uc_collect.html');
+        $this->display('uc_collect.html');
     }
 
     /**

@@ -505,7 +505,7 @@ article pre[lang] {
     margin-left:auto;
     margin-top:4px;
     transition:opacity 200ms ease;
-    opacity:0
+    opacity:1
 }
 .article .article__content img.mt12 {
     margin-right:auto;

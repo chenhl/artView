@@ -42,7 +42,7 @@ class Base_Controller extends CI_Controller {
      */
     public $m_uid = '';
     //模板对应路径
-    public $tpl = array();
+    private $tpl = array();
 
     /**
      * 基本配置
@@ -295,7 +295,12 @@ class Base_Controller extends CI_Controller {
      * @param type $html
      */
     protected function display($html) {
-        $this->artsmarty->display($html);
+        if (strpos($html, '/') !== FALSE) {
+            $abs_html = $html;
+        } else {
+            $abs_html = ART_SERVER . '/' . $html;
+        }
+        $this->artsmarty->display($abs_html);
     }
 
 }

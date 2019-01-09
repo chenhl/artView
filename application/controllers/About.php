@@ -50,7 +50,7 @@ class About extends Base_Controller {
         //seo
         $this->seo($this->siteConf);
         
-        $this->display('web/about.html');
+        $this->display('about.html');
     }
 
 

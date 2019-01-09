@@ -54,7 +54,11 @@
  * NOTE: If you change these, also change the error_reporting() code below
  */
 define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
-
+if (in_array($_SERVER['ART_SERVER'], array('web', 'wap'))) {
+    define('ART_SERVER', $_SERVER['ART_SERVER']);
+} else {
+    define('ART_SERVER', 'web');
+}
 /*
  * ---------------------------------------------------------------
  * ERROR REPORTING

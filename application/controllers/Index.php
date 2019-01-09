@@ -46,7 +46,7 @@ class Index extends Base_Controller {
         //seo
         $this->seo($this->siteConf);
 
-        $this->display('web/index.html');
+        $this->display('index.html');
     }
 
     /**
@@ -83,7 +83,7 @@ class Index extends Base_Controller {
         //关键字
         $this->assign('q', $q);
 
-        $this->display('web/search.html');
+        $this->display('search.html');
     }
 
     /**
@@ -143,10 +143,12 @@ class Index extends Base_Controller {
         //seo
         $this->seo($this->siteConf);
 
-        $this->display('web/article.html');
+        $this->display('article.html');
     }
 
-    
+    public function test() {
+        $this->display('test.html');
+    }
 
     /**
      * ajax 热门推荐

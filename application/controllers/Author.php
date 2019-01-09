@@ -39,7 +39,7 @@ class Author extends Base_Controller {
 
         $this->assign("uid", $author_id);
         $this->assign("channel", $channel);
-        $this->display('wap/index.html');
+        $this->display('index.html');
     }
 
     /**
