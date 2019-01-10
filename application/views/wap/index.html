@@ -1,8 +1,7 @@
 <!DOCTYPE html>
-<html style="font-size:80px;" data-dpr="2">
+<html style="font-size:40px;" data-dpr="1">
     <head>
-        <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
-        {{include file="common/header_meta.html"}}
+        {{include file="./block/header_meta.html"}}
         <link href="/static/m/css/common.css" rel="stylesheet">
         <link href="/static/m/css/list.css" rel="stylesheet">
 
@@ -28,7 +27,7 @@
     </head>
 
     <body class="android withHeader article utms-None utmm-None utmc-None list-page" style="font-size:12px;" rlt="1"> 
-        {{include file="common/open_app.html"}}
+        {{include file="./block/open_app.html"}}
         <div style="display:none">
             <input type="hidden" name="csrfmiddlewaretoken" value="0ee30dd9a7a58264cf660c33487801e1">
         </div>
@@ -36,7 +35,7 @@
             <div data-reactroot="" id="indexContainer" class="indexContainer withHeader ">
                 {{include file="./block/header_header.html"}}
                 <div>
-                    {{include file="common/header_menu.html"}}
+                    {{include file="./block/header_menu.html"}}
                     {{if $uid}}
                     <!--                    <div class="banner">
                                             <a href="javascript:;">

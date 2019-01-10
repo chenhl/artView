@@ -1,7 +1,7 @@
 <html>
     <head>
-        {{include file="common/header_meta_uc.html"}}
-        {{include file="common/header_meta_uc_css.html"}}
+        {{include file="./block/header_meta_uc.html"}}
+        {{include file="./block/header_meta_uc_css.html"}}
         <style id="__jsx-2840298945">.gap.jsx-2840298945{display:block;position:relative;min-height:7px;background-color:#f4f4f4;font-size:0;}
         </style>
 
@@ -39,7 +39,7 @@
             <div data-boss-expo="pv" class="jsx-847651808 container" data-reactroot="">
                 <div class="jsx-2559917061">
                     {{*header*}}
-                    {{include file="common/header_uc_menu.html"}}
+                    {{include file="./block/header_uc_menu.html"}}
                     
                     <div class="jsx-847651808 banner">
                         <a href="javascript:;" class="jsx-847651808">
@@ -70,74 +70,7 @@
                         </div>
                     </div>
                     <a href="javascript:;" class="jsx-847651808 logout" data-logintype="qq">退出登录</a>
-                    <script class="jsx-2559917061">
-                        window.addEventListener('load', function () {
-                            setTimeout(function () {
-                                window._mtac = {"performanceMonitor": 0};
-                                if (document.getElementById('mtascript') || window.MtaH5)
-                                    return;
-                                var mta = document.createElement("script");
-                                mta.src = "//pingjs.qq.com/h5/stats.js";
-                                mta.setAttribute("id", "mtascript");
-                                mta.setAttribute("name", "MTAH5");
-                                mta.setAttribute("sid", "500092411");
-                                mta.setAttribute("cid", "500421382");
-                                var s = document.getElementsByTagName("script")[0];
-                                s.parentNode.insertBefore(mta, s);
-                            }, 500);
-                        });
-                    </script>
-                    <script class="jsx-2559917061">
-                        /* if (('serviceWorker' in window.navigator) && (window.location.protocol === 'https:')) {
-                         navigator.serviceWorker.register('/service-worker.js', {scope: '/'}).then(function(registration) {})
-                         } */
-                        try {
-                            if (location.protocol === 'https:' && window.navigator && navigator.serviceWorker) {
-                                navigator.serviceWorker.getRegistrations().then(function (registrations) {
-                                    for (var i = 0, len = registrations.length; i < len; i++) {
-                                        registrations[i].unregister()
-                                    }
-                                }).catch(function (e) {})
-                                if (typeof caches !== 'undefined') {
-                                    caches.keys().then(function (keys) {
-                                        keys.forEach(function (k) {
-                                            caches.delete(k)
-                                        })
-                                    })
-                                }
-                            }
-                        } catch (e) {
-                        }
-                    </script>
-                    <script class="jsx-2559917061">
-                        var deferredA2HSPrompt
-                        window.addEventListener('beforeinstallprompt', function (e) {
-                            e.preventDefault()
-                            deferredA2HSPrompt = e
-                            return false
-                        })
-                    </script>
-                    <script class="jsx-2559917061">
-                                (function (win, doc, undefined) {
-                                    var pgv_ref = (win.location.search.match(/[?&]pgv_ref=([\w-.,]+)/) || []).pop() || ''
-                                    var adtag = (win.location.search.match(/[?&]ADTAG=([\w-.,]+)/) || []).pop() || ''
-                                    if (pgv_ref || adtag) {
-                                        doc.addEventListener('click', function (e) {
-                                            var node = e.target || e.srcElement
-                                            while (node) {
-                                                if (node.tagName === 'A' && (node.getAttribute('href') || '').indexOf('/') === 0) {
-                                                    break
-                                                } else {
-                                                    node = node.parentNode
-                                                }
-                                            }
-                                            if (node) {
-                                                node.search += (node.search ? '&' : '') + ('pgv_ref=' + pgv_ref + '&ADTAG=' + adtag)
-                                            }
-                                        }, false)
-                                    }
-                                })(window, document)
-                    </script>
+                    
                 </div>
             </div>
         </div>

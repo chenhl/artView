@@ -1,7 +1,7 @@
 <html>
     <head>
-        {{include file="common/header_meta_uc.html"}}
-        {{include file="common/header_meta_uc_css.html"}}
+        {{include file="./block/header_meta_uc.html"}}
+        {{include file="./block/header_meta_uc_css.html"}}
         <style id="__jsx-3933749352">.layer.jsx-3933749352{position:fixed;top:0;left:0;background:rgba(0,0,0,.5);height:100%;width:100%;display:none;z-index:10;}
 .layer.on.jsx-3933749352{display:block;}
 .dialog.jsx-3933749352{position:fixed;bottom:0;left:0;height:142px;background:#fff;width:100%;text-align:center;z-index:20;border:1px solid #e0e0e0;-webkit-transform:translateY(100%);-webkit-transform:translateY(100%);-ms-transform:translateY(100%);transform:translateY(100%);-webkit-transition:.5s;transition:.5s;will-change:transform;}
@@ -37,7 +37,7 @@
             <div data-boss-expo="pv" data-reactroot="">
                 <div class="jsx-2559917061">
                     {{*header*}}
-                    {{include file="common/header_uc_menu.html"}}
+                    {{include file="./block/header_uc_menu.html"}}
                    <div class="jsx-3933749352 contentwrapper">
                        <div>
                            <div class="jsx-2388226211 item">
@@ -54,15 +54,14 @@
                        </div>
                    </div>
                     
+                    {{*
                     <div class="jsx-3933749352 layer "></div>
-                    
                     <div class="jsx-3933749352 dialog ">
                         <div class="jsx-3933749352">确定不再关注他?</div>
                         <div class="jsx-3933749352 unfollowAction">取消关注</div>
                         <div class="jsx-3933749352 cancel">关闭</div>
                     </div>
-                    
-                    
+                    *}}
                 </div>
             </div>
         </div>
@@ -71,4 +70,9 @@
 
 </html>
 <script src="/static/js/common/zepto.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
-<script src="/static/js/follow.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/zepto.cookie.min.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+
+<script src="/static/m/js/uc.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/common/common.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
+<script src="/static/js/list_dropload.js" data-from="{{$app_name}}" crossorigin="anonymous"></script>
