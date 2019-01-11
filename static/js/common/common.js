@@ -111,6 +111,52 @@ function followp(list, obj) {
 
 }
 /**
+ * wap 用户中心关注、粉丝
+ * @param {array} list
+ * @param {obj} obj
+ * @returns {string}
+ */
+function followm(list, obj) {
+    obj = obj || {};
+    var result = '';
+    var u_url, upic;
+    var status_cls, status_txt;
+
+    for (var i = 0; i < list.length; i++) {
+        u_url = list[i].u_url;
+        upic = list[i].upic;
+
+        result += '<div class="jsx-2388226211 item"><div class="jsx-2388226211 inner">';
+
+        result += '<a href="' + u_url + '" class="jsx-2388226211 icon" style="background-image: url(&quot;' + upic + '&quot;);"></a>';
+        result += '<a href="' + u_url + '" class="jsx-2388226211 text">' +
+                '<div class="jsx-2388226211 title">' + list[i].uname + '</div>' +
+                '<div class="jsx-2388226211 intro">' + list[i].description + '</div>' +
+                '</a>';
+
+        if (list[i].relation_status === 2) {
+            status_cls = 'each';
+            status_txt = '互相关注';
+        } else if (list[i].relation_status === 1) {
+            status_cls = 'unfollow';
+            status_txt = '已关注';
+        } else {
+            status_cls = '';
+            status_txt = '关注';
+        }
+
+        result += '<dd class="relation">' +
+                '<div status="' + list[i].relation_status + '" riot-tag="attention" txt="关注" activetxt="已关注" friendedtxt="互相关注" media_id="' + list[i].uid + '">' +
+                '<a class="jsx-2388226211 followBtn ' + status_cls + '">' +
+                '<i class="jsx-2388226211"></i>' + status_txt +
+                '</a>';
+        
+        result += '</div></div>';
+    }
+    return result;
+
+}
+/**
  * pc 详情页，author最新列表
  * @param {type} list
  * @param {type} obj
